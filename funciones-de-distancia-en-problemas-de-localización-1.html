@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Funciones de Distancia en Problemas de Localización | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 3 Funciones de Distancia en Problemas de Localización | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Funciones de Distancia en Problemas de Localización | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Funciones de Distancia en Problemas de Localización | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="distancias-y-norma.html"/>
+<link rel="next" href="distancias-y-norma-1.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>2</b> Distancias y norma</a></li>
+<li class="chapter" data-level="3" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html"><i class="fa fa-check"></i><b>3</b> Funciones de Distancia en Problemas de Localización</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.1</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.2" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.2</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.3" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#función-de-distancia"><i class="fa fa-check"></i><b>3.3</b> Función de Distancia</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#ejercicio"><i class="fa fa-check"></i><b>3.3.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.4</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#ejercicio-1"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.4.2" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#ejercicio-2"><i class="fa fa-check"></i><b>3.4.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.4.3" data-path="funciones-de-distancia-en-problemas-de-localización-1.html"><a href="funciones-de-distancia-en-problemas-de-localización-1.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.4.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>4</b> Distancias y norma</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>4.1.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="4.1.2" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>4.1.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="4.1.3" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>4.1.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>4.2</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="4.3" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>4.3</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="4.4" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>4.4</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>4.4.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>5</b> Distancias y norma</a></li>
+<li class="chapter" data-level="6" data-path="distancias-y-norma-3.html"><a href="distancias-y-norma-3.html"><i class="fa fa-check"></i><b>6</b> Distancias y norma</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma-4.html"><a href="distancias-y-norma-4.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-5.html"><a href="distancias-y-norma-5.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-6.html"><a href="distancias-y-norma-6.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="chapter" data-level="10" data-path="distancias-y-norma-7.html"><a href="distancias-y-norma-7.html"><i class="fa fa-check"></i><b>10</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funciones-de-distancia-en-problemas-de-localización-1" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Funciones de Distancia en Problemas de Localización</h1>
+<ol style="list-style-type: decimal">
+<li>Distancia basada en norma de vectores</li>
+<li>Distancia de norma 2 o distancia Manhatam</li>
+<li>Distancia Euclídea</li>
+<li>Distancia con otras normas aplicada almacenamiento y almacenamiento con gradiente de temperatura o problemas de Material Handling (salas de cirugía).</li>
+<li>Distancia Matricial y casos de bloqueos (muros, zonas anegadas, etc).</li>
+<li>Varianza de las distancias con distintas normas.</li>
+<li>Curva de Hilbert.</li>
+<li>Revisión bibliográficas de métodos de antecesores de facility location.</li>
+</ol>
+<div id="distancia-basada-en-norma-de-vectores" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Distancia basada en norma de vectores</h2>
+<p>La distancia es una descripción numérica de la distancia entre los objetos en un momento dado. En física o en la discusión cotidiana, la distancia puede referirse a una longitud física, un período de tiempo o se estima en base a otros criterios.
+Al tomar decisiones sobre la ubicación, la distribución de las distancias de viaje entre los destinatarios del servicio (clientes) es un tema importante.
+La mayoría de los estudios de ubicación clásicos se centran en la minimización de la distancia media (o total) (el concepto de mediana) o la minimización de la distancia máxima (el concepto de centro) a las instalaciones de servicio. (Ogryczak 2000) En estos estudios, el modelado de ubicación se divide en cuatro categorías amplias:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modelos analíticos. Estos modelos se basan en una gran cantidad de supuestos simplificadores, como el costo fijo de ubicación de la instalación. Las distancias de viaje siguen la métrica de Manhattan.</p></li>
+<li><p>Modelos continuos. Estos modelos son los modelos de ubicación más antiguos, se ocupan de representaciones geométricas de la realidad y se basan en la continuidad del área de ubicación. El modelo clásico en esta área es el problema de Weber. Las distancias en el problema de Weber a menudo se toman como distancias en línea recta o euclidianas, pero aquí se pueden usar casi todos los tipos de funciones de distancia (Jiang y Xu 2006; Hamacher y Nickel 1998).</p></li>
+</ol>
+<p>En el estudio de la teoría de la ubicación continua, generalmente se asume que los clientes pueden ser tratados como puntos en el espacio. Esta suposición es válida cuando las dimensiones de los clientes son pequeñas en relación con las distancias entre la nueva instalación y los clientes. Sin embargo, no siempre es así. A veces, no debemos ignorar las dimensiones de los clientes. Algunos investigadores han tratado a los clientes como regiones de demanda que representan la demanda de una región.</p>
+<p>Jiang y Xu (2006) discutieron que algunos investigadores como Brimberg y Wesolowsky en 1997, 2000 y 2002 y Nickel et al. en 2003 usó la distancia entre la instalación y el punto más cercano de una región de demanda; y en los demás, la distancia entre la instalación y una región de demanda puede calcularse como alguna forma de distancia de viaje esperada o promedio.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Modelos de red. Los modelos de red se componen de enlaces y nodos. Los modelos de 1 mediana absoluta, 2 centros no ponderados y mediana L de criterios q en un árbol son algunos de los modelos bien conocidos en esta área. Las distancias se miden con respecto al camino más corto.</p></li>
+<li><p>Modelos discretos. En estos modelos, hay un conjunto discreto de ubicaciones candidatas.
+Los modelos discretos de cobertura y ubicación de instalaciones no capacitadas, de media N discreta son algunos de los modelos bien conocidos en esta área. Al igual que las distancias en los modelos continuos, aquí se pueden utilizar todo tipo de funciones de distancia, pero a veces se pueden especificar de forma exógena (Hamacher y Nickel 1998; Fouard y Malandain 2005).</p></li>
+</ol>
+<p>Las distancias y las normas suelen definirse en el espacio finito <span class="math inline">\(E^n\)</span> y toman valores reales.
+En geometría discreta, sin embargo, a veces necesitamos tener distancias discretas definidas en <span class="math inline">\(Z\)</span> n con sus valores en <span class="math inline">\(Z\)</span>. Dado que <span class="math inline">\(Z\)</span> n no es un espacio vectorial, la noción de distancias y normas tuvo que extenderse.</p>
+</div>
+<div id="especificación-de-norma-y-distancia" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Especificación de Norma y Distancia</h2>
+<p>Asumamos la existencia de dos puntos <span class="math inline">\(X = (x_1,y_1)\)</span> y <span class="math inline">\(Y = (x_2,y_2)\)</span>.
+Luego la distancia entre ellos se puede expresar matemáticamente como <span class="math inline">\(d(X,Y)\)</span>.
+Según el tipo de problema que abordemos esta distancia entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> respetará algunas características que le impondremos para que represente nuestro real inconveniente en el problema que abordamos.
+No será lo mismo el problema de distancia en una autopista, que en un centro urbano con tránsito bloqueado, o en un piso de manufactura donde los robots cruzan con peatones que no deben embestir.</p>
+<p>En cualquier teorema o ágeblra grado para lidiar con estos problemas definimos algunas cosas repetitivias pero básicas.</p>
+<p>Condición de positividad
+<span class="math display">\[ d(X,Y) \ge 0 , \forall X,Y \]</span>
+Definición de cero
+<span class="math display">\[ d(X,Y) = 0 \Leftrightarrow X=Y  , \forall X,Y \]</span>
+Definición de simetría
+<span class="math display">\[ d(X,Y) = d(Y,X) \forall X,Y \]</span>
+Inequidad Triangular
+<span class="math display">\[ d(X,Y) \leq d(X,R) + d(R,Y)  \forall X,Y \]</span></p>
+</div>
+<div id="función-de-distancia" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Función de Distancia</h2>
+<p>La función de de distancia entre los puntos $ X = (x_1, x_2, — X_n)$ y <span class="math inline">\(Y = (y_1, y_2, ... y_n)\)</span> es llamada <span class="math inline">\(d_{K,p}\)</span> o distancia Minkowski de orden <span class="math inline">\(p\)</span>, que definiremos como.</p>
+<p><span class="math display">\[ d_{K,p} (X.Y) =  (\sum_{i=1}^{n} (|x_i - y_i|)^p )^{(\frac{1}{p})}\]</span></p>
+<p>Los parámetros <span class="math inline">\(k1\)</span> y <span class="math inline">\(k2\)</span> de la norma <span class="math inline">\(d_{k,p}\)</span> pueden verse como pesos desiguales o irregularidades de distancia no simétricas a lo largo de las direcciones de los ejes. Un trabajo empírico mostró que la precisión de las estimaciones de distancia en este tipo de norma es mejor que la ponderada d_{k; p} (Uster y Love 2003)
+En la situación en la ecuacion anterior, podemos definir algunas funciones de distancia famosas como:</p>
+<p>SI $p =1 se pueden obtener las distancias de 1 norma, rectilínea, tambien llamada <strong>Distancia Manhattan</strong> o en ángulo recto:
+Es la más utilizada para logística de última milla.</p>
+<p>Las distancias rectilíneas se aplican cuando se permite viajar solo en dos direcciones perpendiculares, como las arterias Norte-Sur y Este-Oeste. Esta distancia también es popular entre los investigadores porque el análisis suele ser más simple que emplear otras métricas (Drezner y Wesolowsky 2001).</p>
+<p>La distancia rectilínea también se denomina distancias de norma de taxi; porque es la distancia que recorrería un automóvil en una disposición de la ciudad en bloques cuadrados (si no hay calles de un solo sentido).</p>
+<p>Si <span class="math inline">\(p = 2\)</span> la norma es 2 conocida como noram Euclídea. Que no dá la clásica formulación de distancia que generalmente asumimos como la única distancia que existe.</p>
+<p><span class="math display">\[ d_{K,p} (X.Y) = \sqrt[]{\sum_{i=1}^{n} |x_i - y_i|^2 } \]</span></p>
+<p>Si $ p = $ se obtiene la norma de Chebishev que se utiliza en fenómenos no estacionarios como calculo de distancias en gases que se exánden, derrames que fluyen, desconcentración de peatones en partidos de fútbol, etc.</p>
+<p><span class="math display">\[ d_\infty (X,Y)= lim_{p \rightarrow\infty} (\sum_{i=1}^{\infty} |x_i-y_i|^p)^{\frac{1}{p}} = max (|x_1-y_1| , ... , |x_n,y_n|)\]</span></p>
+<div id="ejercicio" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Ejercicio:</h3>
+<p>Sean los puntos:</p>
+<p><span class="math display">\[ A = (59.5 , 71.87) \]</span>
+<span class="math display">\[ B = (135.09 , 113.98) \]</span>
+<span class="math display">\[ C = (114.31, 62,03)\]</span></p>
+<pre><code>1- Trazar un polígono con los tres puntos.
+2- Replique el segmento $AC$ a partir del punto $B$
+3- Replique el segmento $CB$ a partir del punto $A$
+4- Identifique el punto $G$ en que ambos segmentos construidos se interceptan 
+5- Trace la recta $GC$</code></pre>
+<p><img src="img/Fermat%201.png" alt="Triangulacion Fermat" />
+6- ¿Existe perpendicularidad entre entre AB y CG?</p>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%201.ggb">ejercicio 1</a></p>
+</div>
+</div>
+<div id="propuesta-geometrica-de-fermat" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Propuesta geometrica de Fermat</h2>
+<p>La propuesta de localización de almacenes de Fermat puede ser interpretada geométricamente de un modo más sencillo que el empleado en su formulación matemática.</p>
+<p>Desarrollaremos una serie de ejercicios geométricos para entender como concebía la solución Fermat. Te recomendamos que realices los siguientes ejercicios con papel y escuadra, o en su defecto que utilices alguna herramienta como geogebra (que es la que se utiliza en este ejemplo).</p>
+<div id="ejercicio-1" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Ejercicio</h3>
+<p>Utilizaremos el primer método de localización prupuesto para tres punto que tienen igual consumo.
+La idea es construir en cada lado del triángulo que determiana los puntos A,B,C un triángulo equilátero y unir este vértice con la mediatriz de cada segmente AB, BC, CA.</p>
+<p><img src="img/Fermat%202.png" alt="Triangulacion Fermat" />
+Observa que está presente el tríángulo color rosa del ejercicio anterior.</p>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%202.ggb">ejercicio 2</a></p>
+</div>
+<div id="ejercicio-2" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Ejercicio</h3>
+<p>¿Donde existe un espacio de soluciones posibles, tal que considerando el paralelogramo y el triángulo construido sean lugares geométricos que minimicen la distancia a los puntos <span class="math inline">\(A, B, C\)</span>?
+La solución es encontrar una circunferencia que pase por los tres puntos y que divida al espacio en dos semicircunferencias iguales (conceptos de espacio vectorial de equidistancia). Esa línea que divide al circulo en dos mitades iguales tiene que ser necesariamente un radio.
+Se puede ver en la figura que pasa por el vértice del triángulo equilátero amarillo y el paralelogramo de Fermat.</p>
+<div class="figure">
+<img src="img/Fermat%203.png" alt="" />
+<p class="caption">Triangulacion Fermat</p>
+</div>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%203.ggb">ejercicio 3</a></p>
+<p>Si repetimos este procedimiento para construir las tres circunferencias con los tres triángulos equiláteros tendríamos un punto en el que coinciden los tres diámetros que se cruzan en el punto que es espacio vectorial de soluciones y es el único punto de equidista de los tres vértices que representan las localizaciones de las demandas. El punto donde se cruzan los tres diámetros debería ser el puto en el que se instala la manufactura.</p>
+<p>Esta es la estrategia del método del baricentro que se utiliza para fijar la localización.</p>
+</div>
+<div id="ejercicio-no-lo-quiero-en-mi-patio" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Ejercicio (no lo quiero en mi patio)</h3>
+<p>La primer aproximación que Fermat intenta es la de dar respuesta a la localización por atracción.
+Es decir consumidores que están en los puntos <span class="math inline">\(A, B, C\)</span> y desean minimizar su costo de transporte.
+Pero, ¿que ocurre si en logar de atracción pnesamos en repulción?. ¿Cómo cambia este esquema si en lugar de planear la localización de un hospital, o un supermercado, estoy localizando un vertedero de residuos patológicos?</p>
+<p>El esquema propuesto por Fermat es el siguiente. Está basado en una solución de la ortogonalida de los catetos.</p>
+<div class="figure">
+<img src="img/Fermat%204.png" alt="" />
+<p class="caption">Ortogonalidad de Catetos</p>
+</div>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%204.ggb">ejercicio 3</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distancias-y-norma.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distancias-y-norma-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/02-tears.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/02-tears.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

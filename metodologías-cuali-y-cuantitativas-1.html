@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Metodologías cuali y cuantitativas | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 4 Metodologías cuali y cuantitativas | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Metodologías cuali y cuantitativas | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Metodologías cuali y cuantitativas | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="alternativa-geométrica.html"/>
+<link rel="next" href="estructura-de-datos-y-software.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html"><i class="fa fa-check"></i><b>2</b> Solución Matemática vs numérica</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#el-operador-nabla"><i class="fa fa-check"></i><b>2.1</b> El operador Nabla</a></li>
+<li class="chapter" data-level="2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>2.2</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>2.2.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>2.2.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="2.2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>2.2.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>2.3</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="2.4" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>2.4</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="2.5" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>2.5</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>2.5.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html"><i class="fa fa-check"></i><b>3</b> Alternativa geométrica</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a></li>
+<li class="chapter" data-level="3.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-pasillo"><i class="fa fa-check"></i><b>3.5</b> Distancia de pasillo</a></li>
+<li class="chapter" data-level="3.6" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#matriz-de-distancia"><i class="fa fa-check"></i><b>3.6</b> Matriz de distancia</a></li>
+<li class="chapter" data-level="3.7" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-cuadras"><i class="fa fa-check"></i><b>3.7</b> Distancia de cuadras</a></li>
+<li class="chapter" data-level="3.8" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#curva-de-hilbert"><i class="fa fa-check"></i><b>3.8</b> Curva de Hilbert</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio"><i class="fa fa-check"></i><b>3.8.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.9</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-1"><i class="fa fa-check"></i><b>3.9.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-2"><i class="fa fa-check"></i><b>3.9.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.9.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.9.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-3"><i class="fa fa-check"></i><b>3.9.4</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-4"><i class="fa fa-check"></i><b>3.9.5</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#revisión-bibliográfica-de-distancias"><i class="fa fa-check"></i><b>3.10</b> Revisión bibliográfica de distancias</a></li>
+<li class="chapter" data-level="3.11" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejemplo-de-ruteo"><i class="fa fa-check"></i><b>3.11</b> Ejemplo de ruteo</a></li>
+<li class="chapter" data-level="3.12" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos"><i class="fa fa-check"></i><b>3.12</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="3.13" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#creacion-de-la-matriz-asigna"><i class="fa fa-check"></i><b>3.13</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="3.14" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#cuál-ruta-tiene-el-costo-mínimo"><i class="fa fa-check"></i><b>3.14</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="3.15" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ruta-óptima"><i class="fa fa-check"></i><b>3.15</b> Ruta óptima</a></li>
+<li class="chapter" data-level="3.16" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#costo-mínimo-asociado"><i class="fa fa-check"></i><b>3.16</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html"><i class="fa fa-check"></i><b>4</b> Metodologías cuali y cuantitativas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-plana-con-orloca"><i class="fa fa-check"></i><b>4.1</b> Localización plana con orloca</a></li>
+<li class="chapter" data-level="4.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#introducción"><i class="fa fa-check"></i><b>4.2</b> Introducción</a></li>
+<li class="chapter" data-level="4.3" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#la-clase-de-objetos-loca.p"><i class="fa fa-check"></i><b>4.3</b> La clase de objetos loca.p</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resumiendo-los-datos"><i class="fa fa-check"></i><b>4.3.1</b> Resumiendo los datos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resolución"><i class="fa fa-check"></i><b>4.4</b> Resolución</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#dibujo-o-ploteo"><i class="fa fa-check"></i><b>4.4.1</b> Dibujo o ploteo</a></li>
+<li class="chapter" data-level="4.4.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-en-3d"><i class="fa fa-check"></i><b>4.4.2</b> Gráfico en 3D</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-localización-en-andalucía"><i class="fa fa-check"></i><b>4.5</b> Ejemplo de localización en Andalucía</a></li>
+<li class="chapter" data-level="4.6" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-de-hospitales-para-refugiados-de-siria"><i class="fa fa-check"></i><b>4.6</b> Localización de hospitales para refugiados de Siria</a></li>
+<li class="chapter" data-level="4.7" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#detalles-de-la-operación"><i class="fa fa-check"></i><b>4.7</b> Detalles de la operación</a></li>
+<li class="chapter" data-level="4.8" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#consideraciones-técnicas-y-simplificación"><i class="fa fa-check"></i><b>4.8</b> Consideraciones Técnicas y Simplificación</a></li>
+<li class="chapter" data-level="4.9" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#código-en-r"><i class="fa fa-check"></i><b>4.9</b> Código en R</a></li>
+<li class="chapter" data-level="4.10" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#carga-de-bibliotecas-library-necesarias"><i class="fa fa-check"></i><b>4.10</b> Carga de bibliotecas (library) necesarias</a></li>
+<li class="chapter" data-level="4.11" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#obtención-de-datos-oficiales"><i class="fa fa-check"></i><b>4.11</b> Obtención de Datos Oficiales</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#agregar-grupos-al-dataset"><i class="fa fa-check"></i><b>4.11.1</b> Agregar grupos al dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-sobre-mapa"><i class="fa fa-check"></i><b>4.12</b> Gráfico sobre mapa</a></li>
+<li class="chapter" data-level="4.13" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-georeferenciado"><i class="fa fa-check"></i><b>4.13</b> Mapa Georeferenciado</a></li>
+<li class="chapter" data-level="4.14" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-sobrecargado"><i class="fa fa-check"></i><b>4.14</b> Mapa sobrecargado</a></li>
+<li class="chapter" data-level="4.15" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-con-datos-clusterizados"><i class="fa fa-check"></i><b>4.15</b> Mapa con datos clusterizados</a></li>
+<li class="chapter" data-level="4.16" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-ruteo-1"><i class="fa fa-check"></i><b>4.16</b> Ejemplo de ruteo</a>
+<ul>
+<li class="chapter" data-level="4.16.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#matriz-de-asignacion"><i class="fa fa-check"></i><b>4.16.1</b> Matriz de asignacion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.17" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos-1"><i class="fa fa-check"></i><b>4.17</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="4.18" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#creacion-de-la-matriz-asigna-1"><i class="fa fa-check"></i><b>4.18</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="4.19" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#cuál-ruta-tiene-el-costo-mínimo-1"><i class="fa fa-check"></i><b>4.19</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="4.20" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ruta-óptima-1"><i class="fa fa-check"></i><b>4.20</b> Ruta óptima</a></li>
+<li class="chapter" data-level="4.21" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#costo-mínimo-asociado-1"><i class="fa fa-check"></i><b>4.21</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>5</b> Estructura de datos y software</a></li>
+<li class="chapter" data-level="6" data-path="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>6</b> Estudio de Casos y planteo del Trabajo integrador</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="metodologías-cuali-y-cuantitativas-1" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Metodologías cuali y cuantitativas</h1>
+<ul>
+<li>Representación y georeferenciación y sistemas de proyección.</li>
+<li>La biblioteca ORLoca de Manuel Munoz-Marquez <a href="mailto:manuel.munoz@uca.es" class="email">manuel.munoz@uca.es</a></li>
+<li>Localización por métodos cualitativos (RQDA)</li>
+<li>Localización basada en rankings (AHP)</li>
+<li>Localización basada en instancias geométricas (polígonos de Voronoi y Triangulación de Delaunay).</li>
+<li>Caso de estudios, localización de hospitales y vacunatorios de los refugiados en Siria</li>
+</ul>
+<p>Tal como podemos intuir, después de la rivisión de los métodos geométricos, existen muchos métodos que utilizamos en <strong>ingeniería industrial</strong> que damos por ciertos, pero que en realidad son cunto menos débiles o poco robustos, e incluso sobresimplifaciones muy gruesas a la solución del problema.
+Ejemplo de ello es esa mínima distancia que aparece entre el punto de Fermat y el método del Baricentro, particularidades como la del límite de los 120° que invalidan a ambos métodos y que no se mencionan en la literatura de grado, etc. Otro caso interesante de analizar es el del <strong>ruteo mariposa</strong> que aún siendo muy rústico o tosco, otorga soluciones seudo óptimas que no difieren en más del 10% del óptimo local.</p>
+<p>Sin dudas uno de los autores que más ha influido en el pensamiento económico del siglo XX y sore todo en el modo de encarar con soluciones aproximadas y simples los complejos problemas económicos y sociales es Alfred Weber [1868 - 1958].</p>
+<p>Este autor tiene una estrecha relación con muchos de los modelos que aceptamos en nuestro campo profesional. Es un personake que destacó en Economía de la Innovación y vivió en un sigle de grandes transformaciones. De hecho nación en la región de Sajonia del Reuno de Prusia y murió en Heidelberg en Alemanis del Este. Irónicamente toda su vida transcurrió en la casa de sus padres y abuelos que nunca se movió de lugar y a lo largo del tiempo perteneció a tre países.</p>
+<p>Weber era además de economista, sociólogo, geógrafo, geómetra, teórico de la cultura del arte y sobre la influencia que esta tenía en el desarrollo económico de las regiones basado en el potencial de innovación.</p>
+<p>Muchos de los ejemplos que inspiran este curso están basados en sus libros y modelos posteriores a la etapa de a denominada <strong><em>Gripe Española</em></strong> posterior a la primera guerra mundial.</p>
+<p>Junto a otro economista casi ingnorado en el siglo XX que recobra actualidad en el siglo XXI , nos referimos a <strong><em>Joseph Alois Schumpeter</em></strong> [1883-1950] cultivaron dentro de la <em>Escuela Austríaca de Economía</em> esta idea de no trabajar en Economía como si estuviesemos en Física.
+De hecho la ídea que subyace en la economía de la escuela austríaca es que se trata de una fenómeno social. La ecuaciones explican parte del problema, pero lo hacen si somos capaces de congelar el resto de la variables que influyen en los problemas, amenudo muy complejos <strong><em>ceteris paribos </em></strong>.</p>
+<p>Weber planteó la idea de separar o clasificar a los métodos en dos categorías, sin que ello desmerezca su calidad. Utilizando el expresión de:</p>
+<p>1- Métodos Jerárquicos / Cualitativos
+2- Métodos Cuantitativos / Analíticos</p>
+<div id="localización-plana-con-orloca" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Localización plana con orloca</h2>
+<p>Se comenzará con un método cuantitativo que tiene sus raíces en las aproximaciones geométricas.
+Sin embargo el método propuesto por esta biblioteca (mal llamada librería) es factible de ser resuelto con EDP. Solamente tenemos que imaginar un ecuación, propuesta por nosotros y verificar que al resolver el sistema de ecuaciones en derivadas parciales cumple con la ley fundamental que rige el fenómeno.</p>
+<p>Es uso de las bibliotecas, tal como lo haremos también es parte del pensamiento filosófico. <em>Thomas Kuhn</em> (Filosofía Analítica y Las estructuras de las revoluciones científicas) [1922-1996] en su propuesta sobre los paradigmas es el que sugiere que podemos tomar un modelo que venga de un campo epistémico e investigar si su comportamiento es capaz de explicar lo que ocurre en otro campo epistémico muy distinto para el que gue concebido o construido.
+De hecho si esto ocurre significa que ambos campos están soportados por la misma ley y la formulación matemática exacta tienen la misma EDP.</p>
+<p>Abordaremos ahora el estudio de una biblioteca, para entender como fue forjada y con ello colocarnos fuera del error de paradigma que no lleve a descubrir por la línea analítica la rueda que ya fue descubierta por la física.</p>
+<p><em>ejemplo basado en texto y caso original de Manuel Munoz-Marquez</em></p>
+</div>
+<div id="introducción" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Introducción</h2>
+<p>En un problema de localización se busca encontrar la ubicación óptima de un servicio, o un conjunto de ellos, de forma que la calidad que dicho servicio presta a un conjunto de puntos de demanda sea, según cierta medida, óptimo. Algunos ejemplos de problemas de localización son:</p>
+<ul>
+<li><p>Encontrar la ubicación óptima del almacen central de una red de distribución de mercancías para que se minimice el costo total de transporte</p></li>
+<li><p>Encontrar la ubicación óptima de una ambulancia que debe atender a los pacientes de cierta región para que se minimice el tiempo en atender al paciente más lejano</p></li>
+</ul>
+<p>Son numerosos los contextos en los que se plantean problemas de localización, debido a ello la teoría de localización ha sido objeto de gran atención en los últimos años, pudiendo decirse que es un tema de gran actualidad y vigencia. A ello contribuye la aparición de facetas del problema hasta ahora no estudiadas. Por ejemplo, junto a los ya clásicos criterios de minimización de costos, aparecen nuevos criterios: ambientales, sociales, calidad de vida, etc. Estas nuevas vertientes del problema hacen que sea un campo abierto de estudio.</p>
+<p>El paquete que se presenta está dedicado a la resolución del problema de localizar un único punto en el plano usando como objetivo la minimización de la suma de las distancias ponderadas a los puntos de demanda. Nuevas versiones del paquete incluirán nuevos modelos de localización.</p>
+</div>
+<div id="la-clase-de-objetos-loca.p" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> La clase de objetos loca.p</h2>
+<p>En un problema de localización plana el conjunto de puntos de demanda viene dado por las coordenadas de dichos puntos. Opcionalmente, se puede asignar a dichos puntos una ponderación, que da mayor importancia a unos puntos que a otros, dado que el objetivo que se considera es minimizar la suma ponderada de las distancias entre el punto de servicio y dicho conjunto demandante. Por ejemplo, si se busca la localización de un hospital comarcal, los puntos de demanda pueden ser las localidades a las que el hospital debe atender y las ponderaciones la población de cada localidad.</p>
+<p>Para la resolución de estos problemas se ha definido una clase de objetos designada loca.p, de forma que un objeto loca.p almacena las coordenadas de los puntos de demanda y las ponderaciones de cada uno de los puntos. Cada objeto loca.p tiene tres slots, x e y que almacenan las coordenadas y w que almacena las ponderaciones. Cuando las ponderaciones no se den de forma explícita, se considerará que todos los puntos de demanda tienen igual importancia.</p>
+<p>En el resto de esta sección se expondrá la forma de hacer las operaciones básicas con objetos loca.p.</p>
+<p>Creación de objetos de clase loca.p
+Consideremos un problema de localización en el que el conjunto de puntos de demanda es :</p>
+<pre><code>(0,0) , (4,0) y (2,2). </code></pre>
+<p>Para crear un objeto <em>loca.p</em> que represente a dicho conjunto, se puede hacer llamando a la función constructora usando como argumentos el vector con las coordenadas x y el vector con las coordenadas y del conjunto de puntos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(orloca)</span></code></pre></div>
+<pre><code>## Loading required package: png</code></pre>
+<pre><code>## Loading required package: ucminf</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loca.p</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 0 4 2
+## 
+## Slot &quot;y&quot;:
+## [1] 0 0 2
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>o alternativamente:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loca.p</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 0 4 2
+## 
+## Slot &quot;y&quot;:
+## [1] 0 0 2
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>El constructor tiene dos argumentos opcionales más, el tercero w se usa para especificar un vector de pesos y el cuarto para especificar una etiqueta que se usará para identificar el objeto. Si, usando el mismo conjunto de puntos, se quiere asignar los pesos 1, 1, 3, a dichos puntos y la etiqueta <strong><em>Problema 1</em></strong>, se usa:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loca.p</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">label =</span> <span class="st">&quot;Problema 1&quot;</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 0 4 2
+## 
+## Slot &quot;y&quot;:
+## [1] 0 0 2
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 3
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;Problema 1&quot;</code></pre>
+<p>Un objeto loca.p también se puede obtener convirtiendo un objeto data.frame que tenga las columnas x e y, y opcionalmente w. Partiendo del data.frame</p>
+<p><em>¿Que es un dataframe?</em>
+Una cuestión habitual es preguntarse en qué casos debes usar un data frame o una matriz en R. Los data frames son estructuras de datos muy similares a las matrices, pero en el caso de los data frames puedes tener diferentes tipos de datos dentro de las columnas. En consecuencia, la diferencia es que las matrices almacenan tipos de datos homogéneos mientras que los data frames almacenan tipos de datos heterogéneos. Como ejemplo, supón que tienes los siguientes datos:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a>Producto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Zumo&quot;</span>, <span class="st">&quot;Queso&quot;</span>, <span class="st">&quot;Yogurt&quot;</span>)</span>
+<span id="cb11-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a>Seccion <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bebidas&quot;</span>, <span class="st">&quot;Productos lácteos&quot;</span>, <span class="st">&quot;Lácteos líquidos&quot;</span>)</span>
+<span id="cb11-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb11-3" aria-hidden="true" tabindex="-1"></a>Unidades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div>
+<p>Puedes almacenar esas variables como matriz utilizando la función <em>cbind</em>:
+(column bind o pegar por columnas) , tambien existe <em>rbind</em>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb12-1" aria-hidden="true" tabindex="-1"></a>refrigerados <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Producto, Seccion, Unidades)</span>
+<span id="cb12-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb12-2" aria-hidden="true" tabindex="-1"></a>refrigerados</span></code></pre></div>
+<pre><code>##      Producto Seccion             Unidades
+## [1,] &quot;Zumo&quot;   &quot;Bebidas&quot;           &quot;2&quot;     
+## [2,] &quot;Queso&quot;  &quot;Productos lácteos&quot; &quot;1&quot;     
+## [3,] &quot;Yogurt&quot; &quot;Lácteos líquidos&quot;  &quot;10&quot;</code></pre>
+<p>Sin embargo, puedes notar que el resultado no es satisfactorio, ya que todas las variables se han transformado a la clase caracter. En cambio, si usas la función <em>data.frame</em>, mantendrás el tipo original de las variables.</p>
+<p>Este mismo problema ocurre cuando intentas cargar datos de dos versiones de excle distintas o que tienen el sistema operativo en diferentes idiomas.</p>
+<p>Tu verás un número pero para excel y R-Cran estos son en realidad tratados como textos.</p>
+<p>n R es muy sencillo crear un nuevo data frame. Puedes unir tus variables haciendo uso de la función data.frame para convertir tus datos a la estructura de datos de tipo data frame. Primero, necesitas tener algunas variables almacenadas para crear el marco de datos en R. En este ejemplo vamos a definir algunas variables de datos meteorológicos. Ten en cuenta que todos los vectores tienen la misma longitud.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-1" aria-hidden="true" tabindex="-1"></a>Latitud <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">20.37</span>, <span class="fl">18.56</span>, <span class="fl">18.4</span>, <span class="fl">21.96</span>, <span class="fl">29.53</span>, <span class="fl">28.16</span>,</span>
+<span id="cb14-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-2" aria-hidden="true" tabindex="-1"></a>          <span class="fl">36.38</span>, <span class="fl">36.62</span>, <span class="fl">40.03</span>, <span class="fl">27.59</span>, <span class="fl">22.15</span>, <span class="fl">19.85</span>)</span>
+<span id="cb14-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-3" aria-hidden="true" tabindex="-1"></a>Longitud <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">88</span>, <span class="dv">86</span>, <span class="dv">81</span>, <span class="dv">79</span>, <span class="dv">80</span>, <span class="dv">78</span>,</span>
+<span id="cb14-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="dv">71</span>, <span class="dv">69</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">85</span>, <span class="dv">83</span>)</span>
+<span id="cb14-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-5" aria-hidden="true" tabindex="-1"></a>T_media_F <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">72</span>, <span class="fl">33.9</span>, <span class="fl">37.5</span>, <span class="fl">36.6</span>, <span class="fl">31.0</span>, <span class="fl">16.6</span>,</span>
+<span id="cb14-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fl">1.2</span>, <span class="fl">6.8</span>, <span class="fl">36.8</span>, <span class="fl">30.8</span>, <span class="fl">38.5</span>, <span class="fl">22.7</span>)</span>
+<span id="cb14-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-7" aria-hidden="true" tabindex="-1"></a>mes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;enero&quot;</span>, <span class="st">&quot;febrero&quot;</span>, <span class="st">&quot;marzo&quot;</span>, <span class="st">&quot;abril&quot;</span>, <span class="st">&quot;mayo&quot;</span>, <span class="st">&quot;junio&quot;</span>,</span>
+<span id="cb14-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb14-8" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;julio&quot;</span>, <span class="st">&quot;agosto&quot;</span>, <span class="st">&quot;septiembre&quot;</span>, <span class="st">&quot;octubre&quot;</span>, <span class="st">&quot;noviembre&quot;</span>, <span class="st">&quot;diciembre&quot;</span>)</span></code></pre></div>
+<p>Para unir los datos puedes usar la función data.frame. En este ejemplo, vamos a almacenar el data frame en una variable llamada datos:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb15-1" aria-hidden="true" tabindex="-1"></a>Frigorificos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Lat =</span> Latitud, <span class="at">Lng =</span> Longitud, <span class="at">TF =</span> T_media_F, <span class="at">Mes =</span> mes)</span>
+<span id="cb15-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Frigorificos) <span class="co"># Nombres de las variables (columnas)</span></span></code></pre></div>
+<pre><code>## [1] &quot;Lat&quot; &quot;Lng&quot; &quot;TF&quot;  &quot;Mes&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Frigorificos)</span></code></pre></div>
+<pre><code>##     Lat Lng   TF     Mes
+## 1 20.37  88 72.0   enero
+## 2 18.56  86 33.9 febrero
+## 3 18.40  81 37.5   marzo
+## 4 21.96  79 36.6   abril
+## 5 29.53  80 31.0    mayo
+## 6 28.16  78 16.6   junio</code></pre>
+<p>En segundo lugar, puedes utilizar la función summary que devolverá un resumen estadístico de las variables (columnas) del conjunto de datos.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Frigorificos)</span></code></pre></div>
+<pre><code>##       Lat             Lng             TF            Mes           
+##  Min.   :18.40   Min.   :69.0   Min.   : 1.20   Length:12         
+##  1st Qu.:20.24   1st Qu.:78.0   1st Qu.:21.18   Class :character  
+##  Median :24.87   Median :80.5   Median :32.45   Mode  :character  
+##  Mean   :26.63   Mean   :80.0   Mean   :30.37                     
+##  3rd Qu.:31.24   3rd Qu.:83.5   3rd Qu.:36.98                     
+##  Max.   :40.03   Max.   :88.0   Max.   :72.00</code></pre>
+<p>Crearemos una matriz para un problema simple de localización</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb21-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">1</span>), <span class="at">ncol=</span><span class="dv">3</span> , <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb21-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb21-2" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    0    1
+## [2,]   10    0    3
+## [3,]    2    8    1</code></pre>
+<p>¿Cómo harías para pedirle a R que te muestre el valor 8 de la matriz?</p>
+<p>Añadiremos nombres a filas y columnas</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(d) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;W&quot;</span>)</span>
+<span id="cb23-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(d)<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb23-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb23-3" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>##    X Y W
+## 1  0 0 1
+## 2 10 0 3
+## 3  2 8 1</code></pre>
+<p>se puede construir un objeto loca.p llamando a la función as:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as</span>(d, <span class="st">&quot;loca.p&quot;</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+##  1  2  3 
+##  0 10  2 
+## 
+## Slot &quot;y&quot;:
+## 1 2 3 
+## 0 0 8 
+## 
+## Slot &quot;w&quot;:
+## 1 2 3 
+## 1 3 1 
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>o alternativamente:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.loca.p</span>(d)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+##  1  2  3 
+##  0 10  2 
+## 
+## Slot &quot;y&quot;:
+## 1 2 3 
+## 0 0 8 
+## 
+## Slot &quot;w&quot;:
+## 1 2 3 
+## 1 3 1 
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>Recíprocamente, un objeto loca.p se puede convertir en un objeto data.frame mediante:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb29-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">loca.p</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">label =</span> <span class="st">&quot;Problema 1&quot;</span>)</span>
+<span id="cb29-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as</span>(p1, <span class="st">&#39;data.frame&#39;</span>)</span></code></pre></div>
+<pre><code>##   w x y
+## 1 1 0 0
+## 2 1 4 0
+## 3 3 2 2</code></pre>
+<p>o alternativamente</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(p1)</span></code></pre></div>
+<pre><code>##   w x y
+## 1 1 0 0
+## 2 1 4 0
+## 3 3 2 2</code></pre>
+<p>En las conversiones, el slot label del objeto loca.p se almacena como un atributo del objeto data.frame. La etiqueta se puede leer y modificar accediendo a ellos:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb33-1" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">@</span>label</span></code></pre></div>
+<pre><code>## [1] &quot;Problema 1&quot;</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb35-1" aria-hidden="true" tabindex="-1"></a>dp1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(p1)</span>
+<span id="cb35-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(dp1, <span class="st">&quot;label&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Problema 1&quot;</code></pre>
+<p>Los objetos loca.p también pueden transformase en o construirse desde objetos de tipo matrix tal como vimos con los frigoríficos.</p>
+<p>Generación aleatoria de objetos de clase loca.p
+Se pueden crear objetos aleatorios de clase loca.p usando la función rloca.p. El primer argumento, n indica el número de puntos a generar. Por defecto, dichos puntos se generan en el cuadrado unidad [0,1]×[0,1]</p>
+<p>. Así, para generar un objeto loca.p con 5 puntos en el cuadrado unidad, se usa:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">161236</span>)</span>
+<span id="cb37-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rloca.p</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 0.12405385 0.50263749 0.15097058 0.02051109 0.57587429
+## 
+## Slot &quot;y&quot;:
+## [1] 0.2435999 0.5788917 0.7562588 0.1144796 0.2721178
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>Los argumentos xmin, xmax, ymin e ymax permiten especificar el rectángulo en el que se generarán los puntos. Además, la función rloca.p permite especificar la etiqueta para el nuevo objeto. Por ejemplo, para generar los puntos en el rectángulo [−1,1]×[−5,5]</p>
+<p>con etiqueta “Problema Tania &amp; Miguelina” se usa:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rloca.p</span>(<span class="dv">5</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">xmax =</span> <span class="dv">1</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">ymax =</span> <span class="dv">5</span>, <span class="at">label =</span> <span class="st">&quot;Problema Tania &amp; Miguelina&quot;</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] -0.9452062  0.5769137  0.8819392 -0.6214939 -0.1391079
+## 
+## Slot &quot;y&quot;:
+## [1] -3.325587  3.931197 -4.497122 -1.304617 -2.815923
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;Problema Tania &amp; Miguelina&quot;</code></pre>
+<p>Intenta poner xmax, xmin, ymax, ymin con valores de la latitud y longitud extrema de los puntos y podrás usar google maps o bing como teselas.</p>
+<p>Los puntos generados por la función rloca.p se pueden generar en grupos repartidos espacialmente. El argumento groups permite especificar el número de grupos mediante un número o el número de puntos en cada grupo a través de un vector. En este segundo caso, el valor dado al argumento n se ignora. Para generar aleatoriamente un conjunto de demanda con tres grupos iguales:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rloca.p</span>(<span class="dv">9</span>, <span class="at">groups =</span> <span class="dv">3</span>, <span class="at">label =</span> <span class="st">&quot;Refugiados en Siria&quot;</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 1.0435201 1.1954117 1.6470744 0.7868431 0.7648655 0.8508291 0.7502594
+## [8] 1.0788618 1.1116052
+## 
+## Slot &quot;y&quot;:
+## [1] 1.1400092 0.6076905 0.8163944 1.3954599 1.3186699 0.9262516 0.9044921
+## [8] 0.9464590 0.7384576
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1 1 1 1 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;Refugiados en Siria&quot;</code></pre>
+<p>para tres grupos desiguales:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rloca.p</span>(<span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">5</span>), <span class="at">label =</span> <span class="st">&quot;Agua Emiliano&quot;</span>)</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] 1.6689680 0.9978501 0.5592493 0.4330953 0.7297446 1.1752629 0.9298473
+## [8] 0.4017964 0.8527443
+## 
+## Slot &quot;y&quot;:
+## [1] 0.9097321 0.4319344 1.4223225 1.4137017 0.5544933 1.2903588 0.4965480
+## [8] 1.0362726 0.4947184
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1 1 1 1 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;Agua Emiliano&quot;</code></pre>
+<p>Para generar los datos en grupos se genera en primer lugar un desplazamiento del centro de cada grupo y luego se generan los puntos sumando a cada punto el desplazamiento que corresponda a su grupo. Por tal motivo, groups = 1 no es equivalente a no especificar dicho parámetro. El desplazamiento de los centros se puede especificar mediante los argumentos xgmin, xgmax, ygmin e ygmax. Para ilustrar mejor el funcionamiento de la función se puede pintar el resultado:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb45-1" aria-hidden="true" tabindex="-1"></a>rl <span class="ot">&lt;-</span> <span class="fu">rloca.p</span>(<span class="dv">60</span>, <span class="at">groups =</span> <span class="dv">3</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">xmax =</span> <span class="dv">10</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">ymax =</span> <span class="dv">10</span>, <span class="at">xgmin =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">xgmax =</span> <span class="dv">1</span>, <span class="at">ygmin =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">ygmax =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="st">&quot;Tres grupos&quot;</span>)</span>
+<span id="cb45-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rl)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div id="resumiendo-los-datos" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Resumiendo los datos</h3>
+<p>Para obtener un resumen numérico de un objeto loca.p se puede usar la función summary:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rl)</span></code></pre></div>
+<pre><code>##               label                   n                xmin              xwmean 
+##       &quot;Tres grupos&quot;                &quot;60&quot; &quot;-9.54649574030191&quot; &quot;0.172239909491812&quot; 
+##                xmax                ymin              ywmean                ymax 
+##  &quot;9.66257251426578&quot; &quot;-9.88218353176489&quot; &quot;-0.55051479760247&quot;  &quot;9.99047618778422&quot;</code></pre>
+<p>REcuerda los valores máximnos y mínimos de <span class="math inline">\(X , Y\)</span> , serán de utilidad más tarde</p>
+<p>En el resumen se muestran los valores mínimo, máximo y medio de ambas coordenadas, además de la medias ponderadas de las coordenadas de los puntos para cada componente.</p>
+<p><em>Distancia media ponderada</em></p>
+<p>Dado un objeto loca.p se puede evaluar la distancia ponderada desde un punto dado. Así mismo, se puede evaluar el gradiente de dicha función y se puede resolver el problema de minimizar dicho objetivo.</p>
+<p><em>Evaluación</em></p>
+<p>La función distancia media ponderada se denomina en el paquete distsum, dado un punto, por ejemplo: (3,1)</p>
+<p>se puede evaluar la distancia media ponderada a un objeto loca.p:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb48-1" aria-hidden="true" tabindex="-1"></a>pt3 <span class="ot">&lt;-</span> <span class="fu">loca.p</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">label =</span> <span class="st">&quot;Tres puntos&quot;</span>)</span>
+<span id="cb48-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">distsum</span>(<span class="at">o =</span> pt3, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 5.990705</code></pre>
+<p>También se puede calcular el gradiente de distsum llamado distsumgra:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distsumgra</span>(<span class="at">o =</span> pt3, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9486833 0.3162278</code></pre>
+</div>
+</div>
+<div id="resolución" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Resolución</h2>
+<p>Para encontrar la solución óptima al problema de localización anterior se usa la función distsummin:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb52-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">distsummin</span>(pt3)</span>
+<span id="cb52-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb52-2" aria-hidden="true" tabindex="-1"></a>s</span></code></pre></div>
+<pre><code>## [1] 2.00000 1.15332</code></pre>
+<p>Evaluando la función y el gradiente en el punto obtenido</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distsum</span>(<span class="at">o =</span> pt3, <span class="at">x =</span> s[<span class="dv">1</span>], <span class="at">y =</span> s[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 5.464102</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distsumgra</span>(<span class="at">o =</span> pt3, <span class="at">x =</span> s[<span class="dv">1</span>], <span class="at">y =</span> s[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1]  3.110246e-07 -8.970172e-04</code></pre>
+<p>Como se puede comprobar por el valor del gradiente, la solución encontrada es un óptimo local y al ser la función objetivo convexa un óptimo global.</p>
+<p>Estas tres funciones admiten un argumento opcional lp, si se omite este argumento, se utiliza la norma euclídea, es decir, la <strong><em>norma l2</em></strong></p>
+<p>, si se especifica un valor para lp se utilizará la norma lp para dicho valor de p
+.</p>
+<p>Obsérvese que si se especifica lp = 2 se utiliza el algoritmo genérico para la norma <span class="math inline">\(l_p\)</span> con p igual a 2. La utilización del algoritmo genérico requiere un mayor esfuerzo computacional para la resolución del problema, por lo que no es recomendable especificar dicho argumento para usar la norma euclídea.</p>
+<div id="dibujo-o-ploteo" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Dibujo o ploteo</h3>
+<p>Tanto los objetos loca.p como la función objetivo pueden representarse en un gráfico. Para la función objetivo se proporciona una representación basada en curvas de nivel y otra en un gráfico 3D.</p>
+<p><em>Dibujar un objeto loca.p</em></p>
+<p>La gráfica de un objeto loca.p consiste en representar en el plano el diagrama de dispersión del conjunto de puntos de demanda usando la función plot:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pt3)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Gráfico de curvas de nivel
+El gráfico de curvas de nivel se realiza con la función contour:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(pt3)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><em>Zooming</em></p>
+<p>En el gráfico se puede observar cómo la función alcanza el mínimo en el punto calculado anterioremente. Ampliando:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(pt3, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">1.9</span>, <span class="fl">2.1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.2</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="fl">5.465</span>, <span class="fl">5.47</span>, <span class="fl">5.475</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Las funciones plot y contour admiten un argumento opcional img que permite especificar un gráfico raster que se usará como fondo del gráfico.</p>
+</div>
+<div id="gráfico-en-3d" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Gráfico en 3D</h3>
+<p>Análogamente se puede realizar una representación en tres dimensiones usando la función persp:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(pt3)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Podemos agregar estilos</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(pt3, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">theta =</span> <span class="dv">45</span>, <span class="at">ltheta =</span> <span class="dv">120</span>, <span class="at">shade =</span> <span class="fl">0.75</span>, <span class="at">ticktype =</span> <span class="st">&quot;detailed&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Las tres funciones de representación pasarán los restantes argumentos opcionales a la función genérica plot.</p>
+</div>
+</div>
+<div id="ejemplo-de-localización-en-andalucía" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Ejemplo de localización en Andalucía</h2>
+<p>Se cargan los datos de las capitales andaluzas y se convierte en un objeto de clase loca.p:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(andalusia)</span>
+<span id="cb63-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb63-2" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">loca.p</span>(<span class="at">x=</span>andalusia<span class="sc">$</span>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">y=</span>andalusia<span class="sc">$</span>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb63-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb63-4" aria-hidden="true" tabindex="-1"></a>o</span></code></pre></div>
+<pre><code>## An object of class &quot;loca.p&quot;
+## Slot &quot;x&quot;:
+## [1] -2.467500 -6.283333 -4.778889 -3.597500 -6.963056 -3.766667 -4.420000
+## [8] -5.996389
+## 
+## Slot &quot;y&quot;:
+## [1] 36.84000 36.53333 37.88472 37.17583 37.26389 37.76667 36.71944 37.38306
+## 
+## Slot &quot;w&quot;:
+## [1] 1 1 1 1 1 1 1 1
+## 
+## Slot &quot;label&quot;:
+## [1] &quot;&quot;</code></pre>
+<p>Se calculan los valores límite para el gráfico:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb65-1" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="fu">min</span>(andalusia<span class="sc">$</span>x)</span>
+<span id="cb65-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb65-2" aria-hidden="true" tabindex="-1"></a>ymin <span class="ot">&lt;-</span> <span class="fu">min</span>(andalusia<span class="sc">$</span>y)</span>
+<span id="cb65-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb65-3" aria-hidden="true" tabindex="-1"></a>xmax <span class="ot">&lt;-</span> <span class="fu">max</span>(andalusia<span class="sc">$</span>x)</span>
+<span id="cb65-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb65-4" aria-hidden="true" tabindex="-1"></a>ymax <span class="ot">&lt;-</span> <span class="fu">max</span>(andalusia<span class="sc">$</span>y)</span></code></pre></div>
+<p>Se carga el mapa de Andalucía y se representan los puntos con el mapa de fondo</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb66-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&#39;img&#39;</span>, <span class="st">&#39;andalusian_provinces.png&#39;</span>, <span class="at">package=</span><span class="st">&#39;orloca&#39;</span>)</span>
+<span id="cb66-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb66-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">=</span> <span class="fu">readPNG</span>(file)</span>
+<span id="cb66-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(o, <span class="at">img=</span>img, <span class="at">main=</span><span class="st">&#39;Andalucía&#39;</span>, <span class="at">xleft=</span>xmin, <span class="at">ybottom=</span>ymin, <span class="at">xright=</span>xmax, <span class="at">ytop=</span>ymax)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><em>El gráfico de curvas de nivel es:</em></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(o, <span class="at">img=</span>img, <span class="at">main=</span><span class="st">&#39;Andalucía&#39;</span>, <span class="at">xleft=</span>xmin, <span class="at">ybottom=</span>ymin, <span class="at">xright=</span>xmax, <span class="at">ytop=</span>ymax)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>La solución óptima del problema de localización con las 8 capitales, ocho primeras filas, se obtiene:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb68-1" aria-hidden="true" tabindex="-1"></a>andalusia.loca.p <span class="ot">&lt;-</span> <span class="fu">loca.p</span>(andalusia<span class="sc">$</span>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], andalusia<span class="sc">$</span>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb68-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb68-2" aria-hidden="true" tabindex="-1"></a>sol <span class="ot">&lt;-</span> <span class="fu">distsummin</span>(andalusia.loca.p)</span>
+<span id="cb68-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb68-3" aria-hidden="true" tabindex="-1"></a>sol</span></code></pre></div>
+<pre><code>## [1] -4.610679 37.248691</code></pre>
+<p>La solución óptima que proporciona el algoritmo está localizada a unos 35 Km al norte de Antequera. Recuérdese que usualmente se considera a Antequera como el centro geográfico de Andalucía. El gráfico presenta la solución como un punto de color rojo:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(o, <span class="at">img=</span>img, <span class="at">main=</span><span class="st">&#39;Andalucía&#39;</span>, <span class="at">xleft=</span>xmin, <span class="at">ybottom=</span>ymin, <span class="at">xright=</span>xmax, <span class="at">ytop=</span>ymax)</span>
+<span id="cb70-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(sol[<span class="dv">1</span>], sol[<span class="dv">2</span>], <span class="at">type=</span><span class="st">&#39;p&#39;</span>, <span class="at">col=</span><span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>Por simplicidad en el ejemplo, no se ha tenido en cuenta la curvatura terrestre.</p>
+</div>
+<div id="localización-de-hospitales-para-refugiados-de-siria" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Localización de hospitales para refugiados de Siria</h2>
+<pre><code>Este trabajo ha sido publicado originalmente por Julien Lebeau in R bloggers en 2014</code></pre>
+<p>Mediante una comunicación por correo con Julien hemos acordado liberar estos datos que por cuestiones de seguridad de los refugiados no podemos actualizar.</p>
+<p>Anteriormente publicamos sobre la ubicación de los asentamientos de refugiados y cómo habían aumentado en densidad con el tiempo y en número. Dado que muchas ONG y organizaciones sin fines de lucro trabajan en el área, están brindando la asistencia que tanto necesitan a las personas que viven alrededor del área de Zahle. Quería volver a mirar el área debido al aliento de la crisis con Siria y la posible ubicación a largo plazo de sirios en el Líbano. En estos campamentos se han establecido servicios como clínicas, que pueden haber tenido en cuenta o no la capacidad de atender a los refugiados (estas consideraciones de planificación pueden no ser posibles en estas circunstancias) en ubicaciones óptimas. Para la planificación a largo plazo, estas son consideraciones más importantes por parte de quienquiera que se convierta en el órgano de gobierno de estos asentamientos.</p>
+<p>A continuación se muestra un mapa de las ubicaciones de los asentamientos en el distrito de Zahle proporcionado por el Portal de datos de Siria de la ONU. Cada punto representa varias tiendas de campaña en el asentamiento.</p>
+<div class="figure">
+<img src="img/f1.png" alt="" />
+<p class="caption">Detectado con imágnes del satelite SENTINEL 3 - Campamentos Sirios</p>
+</div>
+<p>La consideración general de la ubicación de la clínica se basará en el nivel de servicio por persona. Con base en un criterio general de tener 1 clínica por cada 15,000-20,000 personas, podemos asignar alrededor de 4 clínicas al área. El (los) método (s) para determinar estas ubicaciones
+utilizó el método kmeans para determinar el punto medio en un grupo y un algoritmo de análisis de ubicación que considera los pesos de los puntos para determinar una ubicación (agradecimiento especial a los autores de orloca, kmeans y al siempre útil ggplot2
+paquetes en R).</p>
+<p>Para estos fines, la latitud y la longitud de las ubicaciones de los asentamientos de tiendas de campaña son las más útiles. Aquí los asentamientos o puntos están coloreados según la población de cada emplazamiento.</p>
+</div>
+<div id="detalles-de-la-operación" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Detalles de la operación</h2>
+<p>Como puede ver, algunos asentamientos albergan a muchas más personas que otros y el asentamiento promedio es de aproximadamente 187 personas (nuevamente estamos hablando de muchas tiendas de campaña por asentamiento). Dado que la distribución de personas en los asentamientos no es igual, consideramos el “peso” (población del asentamiento) para cada punto al determinar la ubicación de una clínica.</p>
+</div>
+<div id="consideraciones-técnicas-y-simplificación" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Consideraciones Técnicas y Simplificación</h2>
+<p>Las clínicas están ubicadas más cerca de los asentamientos con mayor número de habitantes. En el área central de Zahle, estas ubicaciones están aproximadamente en el medio desde el punto de vista de Latitude. Otras ubicaciones son quizás menos intuitivas si la población de
+no se consideraron los asentamientos. Obviamente, con más clínicas estos puntos cambiarían, pero esto se considera un nivel de servicio mínimo.</p>
+<p>Usar solo este método para determinar la ubicación de una clínica sería problemático desde el punto de vista de lo que realmente está en el suelo con referencia al acceso a la calle u otras contingencias locales. La planificación de instalaciones médicas es más un ejercicio para consideraciones de planificación a largo plazo que la medicina de emergencia o de socorro, que puede tener objetivos a más corto plazo, como brindar atención. Comenzar teniendo en cuenta el número de personas que reciben servicios y su ubicación son consideraciones importantes, ya que estos campamentos se convierten en obligaciones potencialmente a más largo plazo.</p>
+</div>
+<div id="código-en-r" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Código en R</h2>
+<p>El Código original puede ser recuperado de:</p>
+<p><a href="https://github.com/justlebeau/Blog-Code/blob/master/ClinicLoc">Sirian Clinica Desplazados</a></p>
+</div>
+<div id="carga-de-bibliotecas-library-necesarias" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Carga de bibliotecas (library) necesarias</h2>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb72-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb72-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
+<span id="cb72-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb72-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(orloca)</span>
+<span id="cb72-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb72-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet.extras)</span></code></pre></div>
+</div>
+<div id="obtención-de-datos-oficiales" class="section level2" number="4.11">
+<h2><span class="header-section-number">4.11</span> Obtención de Datos Oficiales</h2>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este archivo ha sido eliminado por Julien</span></span>
+<span id="cb73-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="do">##Get file from UNHCR Lebanon Data Portal</span></span>
+<span id="cb73-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co">#url&lt;-&quot;https://www.dropbox.com/sh/6gw6c971791i7za/AAAHU64Hu6-qJHZEZBWdeKPLa/2.%20Mapping%20and%20P-codes/List%20of%20Informal%20Settlements_2014_09_01.xlsx?dl=1&quot;</span></span>
+<span id="cb73-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co">#download.file(url,destfile=&quot;List of Informal Settlements_2014_09_01.xlsx&quot;,mode=&quot;wb&quot;)</span></span>
+<span id="cb73-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="do">##Read .xlsx file</span></span>
+<span id="cb73-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/media/rpalma/OS/AAA_Datos/2021/Posgrado/Di3/Curso Facitlity Location/Apunte&quot;</code></pre>
+<p>Si piensan utilizar el archivo de datos depurado tents.csv, aseguraté de guardarlo en esta carpeta de tu PC.</p>
+<p>Dado que el portal actualiza constantemente los datos hemos utilizado una copia del archivo alojada en themys.sid.uncu.edu.ar .</p>
+<p>Te recomienod que descargues a tu PC el archivo y lo abras con excel.</p>
+<pre><code>  https://themys.sid.uncu.edu.ar/rpalma/R-cran/tents2.csv</code></pre>
+<p>Ambos procedimiento son válidos, pero lo bueno de tener los datos en “la nube”, tendrás la ventaja que representa que cada vez que alguien agregue un registro nuevo al generar la en forma automática el reporte, tendrás siempre los datos actualizados sin modificar este archivo Rmd.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb76-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-3" aria-hidden="true" tabindex="-1"></a>tents <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://themys.sid.uncu.edu.ar/rpalma/R-cran/tents2.csv&quot;</span>, <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb76-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Latitude =</span> <span class="fu">col_number</span>(), </span>
+<span id="cb76-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">Longitude =</span> <span class="fu">col_number</span>(), <span class="st">`</span><span class="at">Number of tents</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_number</span>(), </span>
+<span id="cb76-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Number of Individuals</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_number</span>(), </span>
+<span id="cb76-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Number of Latrines</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_number</span>(), </span>
+<span id="cb76-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Number of 1000 Litre Tanks</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_number</span>()), </span>
+<span id="cb76-9"><a href="metodologías-cuali-y-cuantitativas-1.html#cb76-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Filtrar solamente emplazamientos del distrito Zahle
+y agrupar (clusterizar) utilizando la metodología kmeans.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Get only Zahle District Settlements</span></span>
+<span id="cb77-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb77-2" aria-hidden="true" tabindex="-1"></a>zahle<span class="ot">&lt;-</span>tents[<span class="fu">which</span>(tents<span class="sc">$</span>District<span class="sc">==</span><span class="st">&quot;Zahle&quot;</span>),]</span>
+<span id="cb77-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="do">##Kmeans based on latitude of settlement, k=4</span></span>
+<span id="cb77-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb77-4" aria-hidden="true" tabindex="-1"></a>kmeanslat<span class="ot">&lt;-</span><span class="fu">kmeans</span>(zahle<span class="sc">$</span>Longitude,<span class="dv">4</span>)</span></code></pre></div>
+<p>K-means es un método de agrupamiento, que tiene como objetivo la partición de un conjunto de n observaciones en k grupos en el que cada observación pertenece al grupo cuyo valor medio es más cercano. Es un método utilizado en minería de datos.</p>
+<p>La agrupación del conjunto de datos puede ilustrarse en una partición del espacio de datos en celdas de Voronoi.</p>
+<p>El problema es computacionalmente difícil <strong><em>(NP-hard)</em></strong>. Sin embargo, hay eficientes heurísticas que se emplean comúnmente y convergen rápidamente a un óptimo local. Estos suelen ser similares a los algoritmos expectation-maximization de mezclas de distribuciones gausianas por medio de un enfoque de refinamiento iterativo empleado por ambos algoritmos. Además, los dos algoritmos usan los centros que los grupos utilizan para modelar los datos, sin embargo k-medias tiende a encontrar grupos de extensión espacial comparable, mientras que el mecanismo expectation-maximization permite que los grupos tengan formas diferentes.</p>
+<p><em>¿Como funciona K-means?</em></p>
+<p>Dado un conjunto de observaciones <span class="math inline">\((x1, x2, …, xn)\)</span>, donde cada observación es un vector real de d dimensiones, k-mean construye una partición de las observaciones en k conjuntos <span class="math inline">\((k ≤ n)\)</span> a fin de minimizar la suma de los cuadrados dentro de cada grupo (WCSS): <span class="math display">\[S = {S1, S2, …, Sk}\]</span>
+Tal que:</p>
+<p><span class="math display">\[{\displaystyle {\underset {\mathbf {S} }{\operatorname {arg\,min} }}\sum _{i=1}^{k}\sum _{\mathbf {x} _{j}\in S_{i}}\left\|\mathbf {x} _{j}-{\boldsymbol {\mu }}_{i}\right\|^{2}}\]</span></p>
+<p>donde <span class="math inline">\(\mu_i\)</span> es la media de puntos en <span class="math inline">\(Si\)</span>.</p>
+<p><strong><em>Flujo del algoritmo</em></strong></p>
+<p>Algoritmo estándar
+El algoritmo más común utiliza una técnica de refinamiento iterativo. Debido a su ubicuidad a menudo se llama el algoritmo k-medias, también se le conoce como algoritmo de Lloyd, sobre todo en la comunidad informática.</p>
+<p>Dado un conjunto inicial de k centroides <span class="math inline">\(m1(1),…,mk(1)\)</span> (ver más abajo), el algoritmo continúa alternando entre dos pasos:</p>
+<p>Paso de asignación: Asigna cada observación al grupo con la media más cercana (es decir, la partición de las observaciones de acuerdo con el diagrama de Voronoi generado por los centroides).</p>
+<p><span class="math display">\[{\displaystyle S_{i}^{(t)}={\big \{}x_{p}:{\big \|}x_{p}-m_{i}^{(t)}{\big \|}\leq {\big \|}x_{p}-m_{j}^{(t)}{\big \|}\ \forall \ 1\leq j\leq k{\big \}}}\]</span></p>
+<p>Donde cada <span class="math inline">\({\displaystyle x_{p}}x_{p}\)</span> va exactamente dentro de un <span class="math inline">\({\displaystyle S_{i}^{(t)}}S^{(t)}_i\)</span>, incluso aunque pudiera ir en dos de ellos.
+Paso de actualización: Calcular los nuevos centroides como el centroide de las observaciones en el grupo.</p>
+<p><span class="math display">\[ m_{i}^{(t+1)}={\frac {1}{|S_{i}^{(t)}|}}\sum _{ {x} _{j}\in S_{i}^{(t)}}\]</span></p>
+<p>El algoritmo se considera que ha convergido cuando las asignaciones ya no cambian.</p>
+<p>Los métodos de inicialización de Forgy y Partición Aleatoria son comúnmente utilizados. El método Forgy elige aleatoriamente k observaciones del conjunto de datos y las utiliza como centroides iniciales. El método de partición aleatoria primero asigna aleatoriamente un clúster para cada observación y después procede a la etapa de actualización, por lo tanto calcular el clúster inicial para ser el centro de gravedad de los puntos de la agrupación asignados al azar. El método Forgy tiende a dispersar los centroides iniciales, mientras que la partición aleatoria ubica los centroides cerca del centro del conjunto de datos. Según Hamerly et al, el método de partición aleatoria general, es preferible para los algoritmos tales como los k-medias armonizadas y fuzzy k-medias. Para expectation maximization y el algoritmo estándar el método de Forgy es preferible.</p>
+<div id="agregar-grupos-al-dataset" class="section level3" number="4.11.1">
+<h3><span class="header-section-number">4.11.1</span> Agregar grupos al dataset</h3>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Add to data frame</span></span>
+<span id="cb78-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-2" aria-hidden="true" tabindex="-1"></a>zahle<span class="sc">$</span>groups<span class="ot">&lt;-</span>kmeanslat<span class="sc">$</span>cluster</span>
+<span id="cb78-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="do">##Subset data based on Groups</span></span>
+<span id="cb78-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-4" aria-hidden="true" tabindex="-1"></a>zahle1<span class="ot">&lt;-</span>zahle[<span class="fu">which</span>(zahle<span class="sc">$</span>groups<span class="sc">==</span><span class="dv">1</span>),]</span>
+<span id="cb78-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-5" aria-hidden="true" tabindex="-1"></a>zahle2<span class="ot">&lt;-</span>zahle[<span class="fu">which</span>(zahle<span class="sc">$</span>groups<span class="sc">==</span><span class="dv">2</span>),]</span>
+<span id="cb78-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-6" aria-hidden="true" tabindex="-1"></a>zahle3<span class="ot">&lt;-</span>zahle[<span class="fu">which</span>(zahle<span class="sc">$</span>groups<span class="sc">==</span><span class="dv">3</span>),]</span>
+<span id="cb78-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb78-7" aria-hidden="true" tabindex="-1"></a>zahle4<span class="ot">&lt;-</span>zahle[<span class="fu">which</span>(zahle<span class="sc">$</span>groups<span class="sc">==</span><span class="dv">4</span>),]</span></code></pre></div>
+<p>Agregar emplazamiento de clínicas en el centroide de cada cluster</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Make central points based on settlement population/weight and solve optimzation problem</span></span>
+<span id="cb79-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb79-2" aria-hidden="true" tabindex="-1"></a>loca1<span class="ot">&lt;-</span><span class="fu">loca.p</span>(<span class="at">x=</span>(zahle1<span class="sc">$</span>Longitude),<span class="at">y=</span>(zahle1<span class="sc">$</span>Latitude),<span class="at">w=</span>(zahle1<span class="sc">$</span><span class="st">`</span><span class="at">Number of Individuals</span><span class="st">`</span>))</span>
+<span id="cb79-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb79-3" aria-hidden="true" tabindex="-1"></a>point1<span class="ot">&lt;-</span><span class="fu">zsummin</span>(loca1)</span></code></pre></div>
+<pre><code>## Warning in zsummin(loca1): The function zsum is deprected and could be removed
+## in next version of the package. Use distsum instead.</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Group 2 did not converge so we will settle with kmeans with k=1</span></span>
+<span id="cb81-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-2" aria-hidden="true" tabindex="-1"></a>group2lat<span class="ot">&lt;-</span><span class="fu">kmeans</span>(zahle2<span class="sc">$</span>Latitude,<span class="dv">1</span>)</span>
+<span id="cb81-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-3" aria-hidden="true" tabindex="-1"></a>group2lon<span class="ot">&lt;-</span><span class="fu">kmeans</span>(zahle2<span class="sc">$</span>Longitude,<span class="dv">1</span>)</span>
+<span id="cb81-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-4" aria-hidden="true" tabindex="-1"></a>point2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(group2lon<span class="sc">$</span>centers,group2lat<span class="sc">$</span>centers)</span>
+<span id="cb81-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="do">##Continue with optimization based on weights of other groups</span></span>
+<span id="cb81-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb81-6" aria-hidden="true" tabindex="-1"></a>loca3<span class="ot">&lt;-</span><span class="fu">loca.p</span>(<span class="at">x=</span>(zahle3<span class="sc">$</span>Longitude),<span class="at">y=</span>(zahle3<span class="sc">$</span>Latitude),<span class="at">w=</span>zahle3<span class="sc">$</span>Updated.number.of.Individual)</span></code></pre></div>
+<pre><code>## Warning: Unknown or uninitialised column: `Updated.number.of.Individual`.</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb83-1" aria-hidden="true" tabindex="-1"></a>point3<span class="ot">&lt;-</span><span class="fu">zsummin</span>(loca3,<span class="at">max.iter=</span><span class="dv">200</span>)</span></code></pre></div>
+<pre><code>## Warning in zsummin(loca3, max.iter = 200): The function zsum is deprected and
+## could be removed in next version of the package. Use distsum instead.</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb85-1" aria-hidden="true" tabindex="-1"></a>loca4<span class="ot">&lt;-</span><span class="fu">loca.p</span>(<span class="at">x=</span>(zahle4<span class="sc">$</span>Longitude),<span class="at">y=</span>(zahle4<span class="sc">$</span>Latitude),<span class="at">w=</span>zahle4<span class="sc">$</span>Updated.number.of.Individual)</span></code></pre></div>
+<pre><code>## Warning: Unknown or uninitialised column: `Updated.number.of.Individual`.</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb87-1" aria-hidden="true" tabindex="-1"></a>point4<span class="ot">&lt;-</span>(<span class="fu">zsummin</span>(loca4,<span class="at">max.iter=</span><span class="dv">100000</span>))</span></code></pre></div>
+<pre><code>## Warning in zsummin(loca4, max.iter = 1e+05): The function zsum is deprected and
+## could be removed in next version of the package. Use distsum instead.</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Transpose and Make data frame for all points</span></span>
+<span id="cb89-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(point2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;V1&quot;</span>,<span class="st">&quot;V2&quot;</span>)</span>
+<span id="cb89-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb89-3" aria-hidden="true" tabindex="-1"></a>points<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">do.call</span>(rbind,<span class="fu">list</span>(point1,point2,point3,point4)))</span>
+<span id="cb89-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(points)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Lon&quot;</span>,<span class="st">&quot;Lat&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="gráfico-sobre-mapa" class="section level2" number="4.12">
+<h2><span class="header-section-number">4.12</span> Gráfico sobre mapa</h2>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Map on ggplot/ggmap</span></span>
+<span id="cb90-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(Longitude,Latitude,<span class="at">color=</span>groups),<span class="at">data=</span>zahle)<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(Lon,Lat),<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">size=</span><span class="dv">8</span>,<span class="at">alpha=</span>.<span class="dv">5</span>,<span class="at">data=</span>points)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+</div>
+<div id="mapa-georeferenciado" class="section level2" number="4.13">
+<h2><span class="header-section-number">4.13</span> Mapa Georeferenciado</h2>
+<p>Representaremos interativamente sólo las 20 primeras tiendas.
+Por cada una de ellas en el pop up con el mouse se muestran la cantidad de tiendas.
+Al hacer click muestra la cantidad de personas.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb91-1" aria-hidden="true" tabindex="-1"></a>refugiados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lat=</span>tents<span class="sc">$</span>Latitude, <span class="at">long=</span>tents<span class="sc">$</span>Longitude, <span class="at">mag=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of Individuals</span><span class="st">`</span>, <span class="at">tiendas=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of tents</span><span class="st">`</span> ,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb91-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> refugiados[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, ]) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb91-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>long, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(mag), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(tiendas))</span></code></pre></div>
+<div id="htmlwidget-dcc9c6f2b1004bf4b4b8" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dcc9c6f2b1004bf4b4b8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[33.48393,33.48852,33.49933,33.5808,33.5697,33.61,33.6468,33.5236,33.6356,33.6588,33.7282,33.63,33.68391,33.6408,33.6656,33.6819,33.6746,33.6719,33.6884,33.7813],[35.34,35.34,35.35,35.71,35.72,35.76,35.76,35.78,35.78,35.78,35.78,35.78,35.79,35.79,35.8,35.81,35.81,35.81,35.82,35.82],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["6","9","5","48","90","9","10","7","134","15","10","723","0","29","11","6","19","28","9","405"],null,null,null,["1","1","1","8","17","1","2","1","20","1","2","133","1","5","3","1","3","3","1","61"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[33.48393,33.7813],"lng":[35.34,35.82]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mapa-sobrecargado" class="section level2" number="4.14">
+<h2><span class="header-section-number">4.14</span> Mapa sobrecargado</h2>
+<p>Como podemos ver con sólo 80 de los casi 1000 tiendas re refugiados el mapa luce saturado. Veremos más adelante como mejorar esto con la técnica de clusters.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb92-1" aria-hidden="true" tabindex="-1"></a>refugiados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lat=</span>tents<span class="sc">$</span>Latitude, <span class="at">long=</span>tents<span class="sc">$</span>Longitude, <span class="at">mag=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of Individuals</span><span class="st">`</span>, <span class="at">tiendas=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of tents</span><span class="st">`</span> ,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb92-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> refugiados[<span class="dv">300</span><span class="sc">:</span><span class="dv">720</span>, ]) <span class="sc">%&gt;%</span> <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb92-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>long, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(mag), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(tiendas))</span></code></pre></div>
+<div id="htmlwidget-6615d28cda8362450113" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6615d28cda8362450113">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[33.49134,33.48806,33.48112,33.46599,33.48241,33.48043,33.46837,33.47943,33.98,33.46097,33.4618,33.46263,33.49966,33.46115,33.5,33.50085,33.50793,33.52111,33.51281,33.52652,33.5344,33.5246,33.52684,33.47438,33.57873,33.60234,33.59715,33.57782,33.48771,33.48655,33.41242,33.60261,33.48755,33.59008,33.48798,33.61509,33.61491,33.58053,33.59713,33.59446,33.57934,33.58499,33.59974,33.59834,33.65052,33.64798,33.59882,33.5936,33.59719,33.59797,33.65135,33.6721,33.67011,33.66212,33.68164,33.66618,33.66965,33.67052,33.66106,33.65962,33.66826,33.66453,33.66346,33.66256,33.68372,33.53072,33.70951,33.71648,33.5339,33.7154,33.7277,33.736,33.73466,33.73969,33.61921,33.71647,33.71664,33.5349,33.81152,33.80995,33.62548,33.63086,33.58879,33.59134,33.59306,33.59318,33.59448,33.31718,33.31303,33.31459,33.31728,33.31999,33.59761,33.29852,33.33712,33.29603,33.30713,33.32962,33.31897,33.3143,33.34576,33.34625,33.28556,33.86484,33.27414,33.28959,33.29476,33.35949,33.36,33.29694,33.36,33.36,33.38302,33.36,33.25887,33.26729,33.38636,33.28892,33.29329,33.26072,33.26003,33.38206,33.2606,33.26442,33.31205,33.36,33.29331,34.02406,34.02716,34.02495,34.02295,34.02081,34.02153,34.02696,33.29601,33.3294,33.29327,34.02641,34.02615,33.98,33.28738,34.04892,33.28576,34.0534,34.05102,33.28443,33.29127,34.05168,34.12807,34.06018,33.28617,33.81747,34.13076,34.07988,34.0876,34.08632,33.94524,34.13157,33.28407,34.09596,34.12811,33.29719,34.10131,34.2557,34.01897,34.25312,34.01891,34.26974,34.12645,34.27455,34.29184,33.87413,33.6172,33.98944,33.62,33.5752,33.6197,33.59328,33.5721,33.6213,33.5715,33.58403,33.5769,33.5743,33.6214,33.5916,33.62007,33.5873,33.5755,33.6227,33.5754,33.5726,33.5763,33.5741,33.56982,34.31433,33.5951,33.6161,33.6197,34.31395,33.5793,33.6276,33.63023,33.5768,33.5824,33.56828,33.636,33.64,33.6376,33.5808,33.6384,33.5869,33.6347,33.6409,33.6208,33.6413,33.6384,34.34695,34.34599,33.64032,33.6387,34.34714,34.3441,34.3445,34.34185,33.57,34.3415,34.3424,33.5791,34.34361,33.5846,33.6314,34.33837,33.6202,33.89802,34.33835,33.6337,33.6238,33.6336,33.6286,34.33372,34.34391,33.62547,34.33368,34.32581,34.33368,34.34359,34.31737,34.33859,34.05331,34.34546,33.6279,34.34636,34.33996,33.62,34.34881,33.5896,34.34192,33.5867,34.33881,33.62543,34.3418,33.62743,34.33646,34.00791,34.34092,34.34177,34.34798,34.3488,33.6261,33.636,33.4692,33.5894,34.34713,34.35,33.66,33.6297,34.3652,34.36721,33.63157,33.5934,33.63,34.01522,33.6286,33.6269,34.37703,33.47472,33.61709,33.47403,33.6329,33.47561,33.61858,33.6187,33.6347,33.6181,33.63947,33.6052,33.63842,33.6156,33.66899,33.6,33.62,33.5248,33.63979,33.63734,33.64109,33.64307,33.64166,33.6057,33.68,33.64376,33.6001,33.8978,33.63844,33.6449,33.7136,33.6436,33.64573,33.6245,33.6465,33.6511,33.6016,33.96218,33.6448,33.62,33.63857,33.6384,33.6355,33.6372,33.66039,33.6375,33.6355,33.66137,33.6341,33.7268,33.73391,33.6308,33.6443,33.6443,34.37676,33.6356,33.6351,33.71442,33.64,33.63,33.6297,33.68,33.6303,34.23108,34.23324,33.6405,33.6412,33.6774,33.6816,33.68359,33.6356,33.6315,33.6279,33.67136,33.6768,33.6829,33.6735,33.63788,33.6761,33.7518,33.7552,33.7519,33.67,33.6685,33.7585,33.636,33.6415,34.3891,33.68533,33.6876,33.67,33.6826,33.7562,33.68,33.6711,34.35332,33.6763,33.7595,33.7603,33.5226,33.64,33.6669,33.67,33.6435,33.6468,33.6864,33.76,33.6733,33.6682,33.6431,33.62781,33.6269,33.7705,33.6935,33.7712,33.7771,33.77,33.67487,33.65,34.43631,33.6727,33.6714,33.6693,33.6717,33.6741,33.7703,33.6744,33.7765,33.6568,33.6737,33.6824,33.6751,33.7773,33.6928,33.6378,34.3596],[35.34109,35.34117,35.34248,35.3433,35.34409,35.3442,35.3444,35.34518,35.34631,35.35,35.35,35.35,35.35,35.35,35.35,35.35,35.35,35.36,35.36,35.36,35.36,35.36,35.37088,35.37091,35.38867,35.39001,35.39024,35.3917,35.3945,35.39661,35.39779,35.39937,35.39939,35.39949,35.40151,35.40328,35.40429,35.40442,35.40499,35.40539,35.40565,35.40581,35.41222,35.41241,35.41264,35.41266,35.4136,35.41421,35.41506,35.41635,35.41652,35.41956,35.4205,35.42054,35.42072,35.42075,35.42193,35.42241,35.42305,35.4232,35.4235,35.42387,35.42491,35.42644,35.42655,35.436,35.44519,35.44559,35.44567,35.44703,35.45023,35.45223,35.45276,35.45408,35.45635,35.4567,35.45842,35.45957,35.51043,35.51095,35.52052,35.52425,35.55077,35.55816,35.55825,35.56049,35.56189,35.56831,35.5719,35.57191,35.57307,35.57429,35.57728,35.5834,35.58377,35.5881,35.59238,35.59342,35.59377,35.59499,35.59693,35.59781,35.59787,35.60031,35.60159,35.60271,35.60334,35.60402,35.60497,35.60695,35.60763,35.60777,35.60785,35.60858,35.61011,35.61094,35.61117,35.61137,35.61241,35.61541,35.61552,35.61684,35.61747,35.61759,35.61935,35.61944,35.62106,35.62431,35.62467,35.62479,35.62511,35.62552,35.62703,35.62724,35.62844,35.63032,35.63112,35.63208,35.63277,35.63402,35.63417,35.635,35.635,35.63661,35.63904,35.63919,35.63937,35.64055,35.6436,35.64412,35.64578,35.64807,35.65027,35.65145,35.6517,35.6521,35.65238,35.65503,35.65566,35.65606,35.65705,35.6573,35.65733,35.66101,35.66455,35.66784,35.6701,35.6788,35.69119,35.69125,35.70655,35.70763,35.7088,35.70905,35.7119,35.7128,35.7131,35.71339,35.7139,35.7144,35.7145,35.71526,35.7166,35.7167,35.7172,35.7194,35.71946,35.7196,35.7197,35.7199,35.7201,35.7204,35.7205,35.7206,35.7211,35.72186,35.7222,35.7222,35.7222,35.72245,35.7226,35.7228,35.7236,35.7246,35.7252,35.72539,35.7254,35.7259,35.7263,35.7276,35.7277,35.7278,35.7281,35.7281,35.7284,35.7284,35.7292,35.72987,35.72998,35.73001,35.7301,35.7302,35.7303,35.7303,35.73038,35.7304,35.7304,35.7307,35.7312,35.7312,35.7314,35.7316,35.73208,35.7323,35.73252,35.7328,35.7329,35.7331,35.7335,35.7336,35.73371,35.73388,35.73397,35.73411,35.73429,35.7346,35.73473,35.73487,35.7349,35.73492,35.735,35.735,35.735,35.735,35.735,35.736,35.736,35.736,35.736,35.736,35.73737,35.73745,35.73767,35.73771,35.73775,35.73775,35.73775,35.73812,35.73829,35.7383,35.7389,35.73901,35.7393,35.74004,35.74034,35.7407,35.7407,35.74089,35.74101,35.7426,35.7438,35.7442,35.74426,35.7452,35.7459,35.74611,35.74737,35.74753,35.74783,35.7484,35.74883,35.74974,35.7498,35.7503,35.7505,35.75063,35.7523,35.75273,35.7531,35.75319,35.7533,35.7539,35.7543,35.75451,35.75455,35.75558,35.75615,35.75682,35.7578,35.7595,35.75969,35.7598,35.76062,35.76099,35.7618,35.7621,35.7643,35.7649,35.7655,35.7665,35.7667,35.7669,35.76733,35.7675,35.7712,35.77557,35.7769,35.7773,35.7776,35.77784,35.7782,35.7799,35.78003,35.7803,35.7806,35.78109,35.7812,35.7837,35.7841,35.78455,35.7858,35.7863,35.78636,35.7865,35.7877,35.7903,35.7904,35.7906,35.79148,35.79155,35.7917,35.7923,35.7947,35.7962,35.79621,35.7964,35.7974,35.7976,35.79963,35.8016,35.8021,35.8024,35.80287,35.8045,35.8045,35.8045,35.8046,35.8048,35.8049,35.8049,35.8054,35.8057,35.8063,35.80631,35.8065,35.8066,35.8068,35.8069,35.8074,35.8077,35.8077,35.8078,35.8079,35.8085,35.8087,35.8095,35.8095,35.8098,35.81,35.8101,35.8102,35.8105,35.8105,35.8108,35.8112,35.81139,35.8116,35.8119,35.8121,35.8124,35.8139,35.8142,35.81425,35.8144,35.81453,35.8147,35.8148,35.8149,35.8151,35.8151,35.8152,35.8158,35.8158,35.8159,35.8161,35.8162,35.8163,35.8163,35.8166,35.8167,35.81747],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["8","125","7","17","3","18","29","15","18","5","6","19","23","3","20","25","26","13","12","8","156","17","12","11","2","13","17","10","3","20","16","14","4","7","12","11","6","9","13","4","16","14","38","8","15","47","37","5","6","14","17","56","11","11","9","10","7","13","8","12","39","16","16","5","6","7","10","10","3","13","5","70","9","6","333","17","21","7","29","48","6","48","23","4","4","4","72","30","27","26","46","40","8","65","11","52","10","103","7","29","8","16","84","11","160","99","113","108","715","110","24","55","67","29","36","167","28","77","88","163","39","11","73","23","79","5","37","9","13","19","27","5","3","11","29","11","48","12","9","56","22","18","64","11","13","13","19","10","6","6","19","9","7","20","10","9","13","5","16","17","5","36","6","19","4","9","57","5","8","64","13","11","12","8","11","10","6","6","55","0","32","8","53","220","0","46","9","29","48","12","54","20","155","44","16","12","30","10","26","9","155","19","8","18","46","17","35","55","122","91","35","15","12","7","8","6","8","16","7","4","10","8","12","11","22","5","76","87","31","31","4","10","7","6","50","10","67","5","38","2","9","4","12","5","16","8","9","9","175","22","9","38","125","4","9","5","279","131","12","124","3","31","8","20","6","10","114","66","11","41","6","14","7","7","5","68","16","18","12","7","60","36","14","26","35","2","8","31","33","58","16","23","4","118","23","6","7","17","7","8","11","0","25","13","22","17","6","14","13","6","6","8","7","0","51","8","58","6","12","0","30","12","9","22","52","4","7","145","8","20","14","9","9","0","6","10","3","118","161","68","338","133","23","35","10","5","6","75","46","13","7","209","160","11","7","6","72","19","14","16","79","17","28","18","16","9","6","31","9","9","112","28","8","13","39","27","196","22","30","12","39","120","250","217","32","125","16","4","218","0","14","11","7","18","129","13","4","42","7","44","72","185","38","8","9","21","18","12","56","17","27","23","62","58","5","25","2","34","19","13","4"],null,null,null,["1","24","1","3","1","3","5","3","5","1","2","4","2","1","3","3","3","4","1","1","35","4","3","2","1","3","3","2","1","4","3","2","1","1","2","2","1","1","3","1","4","2","8","1","3","8","5","1","1","2","2","8","2","2","2","2","1","3","2","2","8","3","2","1","1","1","2","1","1","2","1","11","2","1","49","2","2","1","4","18","1","6","4","1","1","1","12","3","3","5","6","6","1","13","1","5","3","25","1","6","3","4","16","2","25","13","24","15","143","14","5","8","12","6","11","38","7","10","9","35","5","1","26","7","20","2","6","2","2","4","3","1","1","1","5","3","9","2","2","7","4","1","13","1","3","3","3","1","1","1","3","1","1","5","2","2","2","1","3","3","1","8","2","4","1","1","8","1","2","14","3","3","1","1","2","2","1","2","10","1","8","1","9","37","1","13","1","5","12","2","13","3","29","7","2","2","5","1","2","1","26","3","1","3","9","2","6","9","23","22","10","4","2","1","3","1","1","3","2","1","2","1","2","1","5","1","13","15","4","8","1","3","1","1","11","2","9","1","8","1","2","1","2","1","3","3","3","1","39","5","1","8","21","1","2","1","53","19","2","25","1","6","2","6","2","2","22","8","1","7","2","2","1","1","1","8","3","2","4","2","14","7","1","5","6","1","2","7","6","12","2","4","1","17","4","1","2","3","1","2","1","1","4","2","6","3","1","3","1","1","1","1","1","1","8","2","13","1","2","2","12","2","2","4","7","1","1","29","2","3","3","1","1","1","1","1","1","19","28","18","59","26","4","50","2","1","1","12","6","3","1","27","27","2","1","1","11","4","2","2","16","4","5","4","3","1","1","5","1","2","20","6","1","2","7","4","42","4","8","3","4","23","27","34","5","20","4","1","37","1","3","2","1","3","24","3","1","7","1","5","11","28","5","1","2","5","3","2","10","2","5","5","11","13","1","5","1","4","4","2","1"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[33.25887,34.43631],"lng":[35.34109,35.81747]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mapa-con-datos-clusterizados" class="section level2" number="4.15">
+<h2><span class="header-section-number">4.15</span> Mapa con datos clusterizados</h2>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb93-1" aria-hidden="true" tabindex="-1"></a>refugiados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lat=</span>tents<span class="sc">$</span>Latitude, <span class="at">long=</span>tents<span class="sc">$</span>Longitude, <span class="at">mag=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of Individuals</span><span class="st">`</span>, <span class="at">tiendas=</span>tents<span class="sc">$</span><span class="st">`</span><span class="at">Number of tents</span><span class="st">`</span> ,<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb93-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> refugiados[<span class="dv">300</span><span class="sc">:</span><span class="dv">750</span>, ]) <span class="sc">%&gt;%</span>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="fu">addMarkers</span>(</span>
+<span id="cb93-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>())</span></code></pre></div>
+<pre><code>## Assuming &quot;long&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
+<div id="htmlwidget-7a45bde0252b1b440b1f" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7a45bde0252b1b440b1f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[33.49134,33.48806,33.48112,33.46599,33.48241,33.48043,33.46837,33.47943,33.98,33.46097,33.4618,33.46263,33.49966,33.46115,33.5,33.50085,33.50793,33.52111,33.51281,33.52652,33.5344,33.5246,33.52684,33.47438,33.57873,33.60234,33.59715,33.57782,33.48771,33.48655,33.41242,33.60261,33.48755,33.59008,33.48798,33.61509,33.61491,33.58053,33.59713,33.59446,33.57934,33.58499,33.59974,33.59834,33.65052,33.64798,33.59882,33.5936,33.59719,33.59797,33.65135,33.6721,33.67011,33.66212,33.68164,33.66618,33.66965,33.67052,33.66106,33.65962,33.66826,33.66453,33.66346,33.66256,33.68372,33.53072,33.70951,33.71648,33.5339,33.7154,33.7277,33.736,33.73466,33.73969,33.61921,33.71647,33.71664,33.5349,33.81152,33.80995,33.62548,33.63086,33.58879,33.59134,33.59306,33.59318,33.59448,33.31718,33.31303,33.31459,33.31728,33.31999,33.59761,33.29852,33.33712,33.29603,33.30713,33.32962,33.31897,33.3143,33.34576,33.34625,33.28556,33.86484,33.27414,33.28959,33.29476,33.35949,33.36,33.29694,33.36,33.36,33.38302,33.36,33.25887,33.26729,33.38636,33.28892,33.29329,33.26072,33.26003,33.38206,33.2606,33.26442,33.31205,33.36,33.29331,34.02406,34.02716,34.02495,34.02295,34.02081,34.02153,34.02696,33.29601,33.3294,33.29327,34.02641,34.02615,33.98,33.28738,34.04892,33.28576,34.0534,34.05102,33.28443,33.29127,34.05168,34.12807,34.06018,33.28617,33.81747,34.13076,34.07988,34.0876,34.08632,33.94524,34.13157,33.28407,34.09596,34.12811,33.29719,34.10131,34.2557,34.01897,34.25312,34.01891,34.26974,34.12645,34.27455,34.29184,33.87413,33.6172,33.98944,33.62,33.5752,33.6197,33.59328,33.5721,33.6213,33.5715,33.58403,33.5769,33.5743,33.6214,33.5916,33.62007,33.5873,33.5755,33.6227,33.5754,33.5726,33.5763,33.5741,33.56982,34.31433,33.5951,33.6161,33.6197,34.31395,33.5793,33.6276,33.63023,33.5768,33.5824,33.56828,33.636,33.64,33.6376,33.5808,33.6384,33.5869,33.6347,33.6409,33.6208,33.6413,33.6384,34.34695,34.34599,33.64032,33.6387,34.34714,34.3441,34.3445,34.34185,33.57,34.3415,34.3424,33.5791,34.34361,33.5846,33.6314,34.33837,33.6202,33.89802,34.33835,33.6337,33.6238,33.6336,33.6286,34.33372,34.34391,33.62547,34.33368,34.32581,34.33368,34.34359,34.31737,34.33859,34.05331,34.34546,33.6279,34.34636,34.33996,33.62,34.34881,33.5896,34.34192,33.5867,34.33881,33.62543,34.3418,33.62743,34.33646,34.00791,34.34092,34.34177,34.34798,34.3488,33.6261,33.636,33.4692,33.5894,34.34713,34.35,33.66,33.6297,34.3652,34.36721,33.63157,33.5934,33.63,34.01522,33.6286,33.6269,34.37703,33.47472,33.61709,33.47403,33.6329,33.47561,33.61858,33.6187,33.6347,33.6181,33.63947,33.6052,33.63842,33.6156,33.66899,33.6,33.62,33.5248,33.63979,33.63734,33.64109,33.64307,33.64166,33.6057,33.68,33.64376,33.6001,33.8978,33.63844,33.6449,33.7136,33.6436,33.64573,33.6245,33.6465,33.6511,33.6016,33.96218,33.6448,33.62,33.63857,33.6384,33.6355,33.6372,33.66039,33.6375,33.6355,33.66137,33.6341,33.7268,33.73391,33.6308,33.6443,33.6443,34.37676,33.6356,33.6351,33.71442,33.64,33.63,33.6297,33.68,33.6303,34.23108,34.23324,33.6405,33.6412,33.6774,33.6816,33.68359,33.6356,33.6315,33.6279,33.67136,33.6768,33.6829,33.6735,33.63788,33.6761,33.7518,33.7552,33.7519,33.67,33.6685,33.7585,33.636,33.6415,34.3891,33.68533,33.6876,33.67,33.6826,33.7562,33.68,33.6711,34.35332,33.6763,33.7595,33.7603,33.5226,33.64,33.6669,33.67,33.6435,33.6468,33.6864,33.76,33.6733,33.6682,33.6431,33.62781,33.6269,33.7705,33.6935,33.7712,33.7771,33.77,33.67487,33.65,34.43631,33.6727,33.6714,33.6693,33.6717,33.6741,33.7703,33.6744,33.7765,33.6568,33.6737,33.6824,33.6751,33.7773,33.6928,33.6378,34.3596,33.6759,33.6822,34.35904,33.6802,34.36235,33.6779,34.36334,33.6688,33.7858,33.6836,33.7775,33.76274,33.6233,33.62355,33.6306,33.6726,33.7808,33.6783,33.6738,33.78,33.7815,33.6748,33.6752,33.6848,33.6762,33.6265,33.7847,33.6761,33.7883,33.7854],[35.34109,35.34117,35.34248,35.3433,35.34409,35.3442,35.3444,35.34518,35.34631,35.35,35.35,35.35,35.35,35.35,35.35,35.35,35.35,35.36,35.36,35.36,35.36,35.36,35.37088,35.37091,35.38867,35.39001,35.39024,35.3917,35.3945,35.39661,35.39779,35.39937,35.39939,35.39949,35.40151,35.40328,35.40429,35.40442,35.40499,35.40539,35.40565,35.40581,35.41222,35.41241,35.41264,35.41266,35.4136,35.41421,35.41506,35.41635,35.41652,35.41956,35.4205,35.42054,35.42072,35.42075,35.42193,35.42241,35.42305,35.4232,35.4235,35.42387,35.42491,35.42644,35.42655,35.436,35.44519,35.44559,35.44567,35.44703,35.45023,35.45223,35.45276,35.45408,35.45635,35.4567,35.45842,35.45957,35.51043,35.51095,35.52052,35.52425,35.55077,35.55816,35.55825,35.56049,35.56189,35.56831,35.5719,35.57191,35.57307,35.57429,35.57728,35.5834,35.58377,35.5881,35.59238,35.59342,35.59377,35.59499,35.59693,35.59781,35.59787,35.60031,35.60159,35.60271,35.60334,35.60402,35.60497,35.60695,35.60763,35.60777,35.60785,35.60858,35.61011,35.61094,35.61117,35.61137,35.61241,35.61541,35.61552,35.61684,35.61747,35.61759,35.61935,35.61944,35.62106,35.62431,35.62467,35.62479,35.62511,35.62552,35.62703,35.62724,35.62844,35.63032,35.63112,35.63208,35.63277,35.63402,35.63417,35.635,35.635,35.63661,35.63904,35.63919,35.63937,35.64055,35.6436,35.64412,35.64578,35.64807,35.65027,35.65145,35.6517,35.6521,35.65238,35.65503,35.65566,35.65606,35.65705,35.6573,35.65733,35.66101,35.66455,35.66784,35.6701,35.6788,35.69119,35.69125,35.70655,35.70763,35.7088,35.70905,35.7119,35.7128,35.7131,35.71339,35.7139,35.7144,35.7145,35.71526,35.7166,35.7167,35.7172,35.7194,35.71946,35.7196,35.7197,35.7199,35.7201,35.7204,35.7205,35.7206,35.7211,35.72186,35.7222,35.7222,35.7222,35.72245,35.7226,35.7228,35.7236,35.7246,35.7252,35.72539,35.7254,35.7259,35.7263,35.7276,35.7277,35.7278,35.7281,35.7281,35.7284,35.7284,35.7292,35.72987,35.72998,35.73001,35.7301,35.7302,35.7303,35.7303,35.73038,35.7304,35.7304,35.7307,35.7312,35.7312,35.7314,35.7316,35.73208,35.7323,35.73252,35.7328,35.7329,35.7331,35.7335,35.7336,35.73371,35.73388,35.73397,35.73411,35.73429,35.7346,35.73473,35.73487,35.7349,35.73492,35.735,35.735,35.735,35.735,35.735,35.736,35.736,35.736,35.736,35.736,35.73737,35.73745,35.73767,35.73771,35.73775,35.73775,35.73775,35.73812,35.73829,35.7383,35.7389,35.73901,35.7393,35.74004,35.74034,35.7407,35.7407,35.74089,35.74101,35.7426,35.7438,35.7442,35.74426,35.7452,35.7459,35.74611,35.74737,35.74753,35.74783,35.7484,35.74883,35.74974,35.7498,35.7503,35.7505,35.75063,35.7523,35.75273,35.7531,35.75319,35.7533,35.7539,35.7543,35.75451,35.75455,35.75558,35.75615,35.75682,35.7578,35.7595,35.75969,35.7598,35.76062,35.76099,35.7618,35.7621,35.7643,35.7649,35.7655,35.7665,35.7667,35.7669,35.76733,35.7675,35.7712,35.77557,35.7769,35.7773,35.7776,35.77784,35.7782,35.7799,35.78003,35.7803,35.7806,35.78109,35.7812,35.7837,35.7841,35.78455,35.7858,35.7863,35.78636,35.7865,35.7877,35.7903,35.7904,35.7906,35.79148,35.79155,35.7917,35.7923,35.7947,35.7962,35.79621,35.7964,35.7974,35.7976,35.79963,35.8016,35.8021,35.8024,35.80287,35.8045,35.8045,35.8045,35.8046,35.8048,35.8049,35.8049,35.8054,35.8057,35.8063,35.80631,35.8065,35.8066,35.8068,35.8069,35.8074,35.8077,35.8077,35.8078,35.8079,35.8085,35.8087,35.8095,35.8095,35.8098,35.81,35.8101,35.8102,35.8105,35.8105,35.8108,35.8112,35.81139,35.8116,35.8119,35.8121,35.8124,35.8139,35.8142,35.81425,35.8144,35.81453,35.8147,35.8148,35.8149,35.8151,35.8151,35.8152,35.8158,35.8158,35.8159,35.8161,35.8162,35.8163,35.8163,35.8166,35.8167,35.81747,35.8181,35.8186,35.81875,35.8188,35.81881,35.8189,35.81897,35.8191,35.8191,35.8192,35.8193,35.8194,35.8196,35.81976,35.8198,35.8199,35.8199,35.82,35.8201,35.8203,35.8204,35.8206,35.8206,35.8206,35.8211,35.8212,35.8213,35.8214,35.8215,35.8216],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[33.25887,34.43631],"lng":[35.34109,35.8216]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="ejemplo-de-ruteo-1" class="section level2" number="4.16">
+<h2><span class="header-section-number">4.16</span> Ejemplo de ruteo</h2>
+<p>Descarga el archivo ruteo_imposible.csv y guárdalo en una carpeta facil de recordar (ejemplo c:/datos)</p>
+<pre><code>  https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv
+  </code></pre>
+<p><a href="https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv">Descarga Ruteo Imposible</a></p>
+<p>Revisaremos el contenido del archivo con el comando View() o usando el menú de R-Cran.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb96-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb96-2" aria-hidden="true" tabindex="-1"></a>ruteo_imposible <span class="ot">&lt;-</span><span class="fu">read_delim</span>(<span class="st">&quot;https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv&quot;</span>, </span>
+<span id="cb96-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb96-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   X1 = col_character(),
+##   Hyatt = col_character(),
+##   Intercontinental = col_number(),
+##   `Raices Aconcagua` = col_character(),
+##   `Huentala/Sheraton` = col_character(),
+##   Bohemia = col_number(),
+##   `H Argentino` = col_character(),
+##   `Casa Glebinias` = col_character(),
+##   `Lares de Chacras` = col_character(),
+##   `Posada Verde Oliva` = col_number(),
+##   Esplendor = col_number(),
+##   `Club Tapiz` = col_number(),
+##   `Finca Adalgisa` = col_character(),
+##   `Portal Suites` = col_character(),
+##   Garage = col_character()
+## )</code></pre>
+<p>Este archivo pertenece a un emprendimiento exitoso de unos alumnos que ofrece a pasajeros de hoteles recorridos por las bodegas utilizando buses de pasajeros que tienen recorridos que por contrato deben ser cubiertos, pero tienen baja demanda en determinados horarios.</p>
+<p>A efectos de hacer más simple el análisis tomaremos un conjunto reducido que involucra los hoteles y los destinos hasta totalizar 14.</p>
+<p>Tomaremos la fila 1 a 14 y las columnas 2 a 15 (eliminamos una culumna que tienen el número de dato o registro que no nos es útil)</p>
+<p>Cada celda tiene el costo asociado que implica desplazarse desde una fila a una columna.</p>
+<p>Como queremos evitar que se tomen tramos en los que la tura sale desde un hotel y termina en el mismo hotel, la diagonal principal tiene un costo ficticio extremadamente elevado. Esto evita que el algoritmo lo tome.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb99-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> ruteo_imposible[<span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">15</span>]</span>
+<span id="cb99-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb99-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb99-3" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div>
+<pre><code>## # A tibble: 14 x 14
+##    Hyatt Intercontinental `Raices Aconcagua` `Huentala/Sheraton` Bohemia
+##    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt;
+##  1 9999                56 1,3                1,3                      15
+##  2 5,6               9999 4,7                4,5                      71
+##  3 1,3                 47 9999               1                        17
+##  4 1,3                 45 1                  9999                     15
+##  5 1,5                 71 1,7                2,3                    9999
+##  6 0,5                 65 0,9                1,3                      14
+##  7 17,3               193 17                 17,4                    161
+##  8 14,8               173 14                 14,8                    134
+##  9 15                 102 15                 15                      155
+## 10 16,4               151 15,9               16,7                    164
+## 11 18,4               172 18,4               18,4                    185
+## 12 17                 171 16,6               17                      156
+## 13 0,5                 57 0,9                0,5                      22
+## 14 0,5                 58 1,5                1,5                      17
+## # … with 9 more variables: H Argentino &lt;chr&gt;, Casa Glebinias &lt;chr&gt;,
+## #   Lares de Chacras &lt;chr&gt;, Posada Verde Oliva &lt;dbl&gt;, Esplendor &lt;dbl&gt;,
+## #   Club Tapiz &lt;dbl&gt;, Finca Adalgisa &lt;chr&gt;, Portal Suites &lt;chr&gt;, Garage &lt;chr&gt;</code></pre>
+<div id="matriz-de-asignacion" class="section level3" number="4.16.1">
+<h3><span class="header-section-number">4.16.1</span> Matriz de asignacion</h3>
+<p>Construiremos una matriz de asignación en la que si aparece un uno en cierta celda, esto implica que usaremos un tramo de la ruta que va desde la fila hasta la columna.</p>
+<p>De este modo si la fila 4 tiene un uno en la columna 8, esto implica que la ruta utilizará una salida desde el Hotel Hayatt hasta la Bodega Esplendor.</p>
+<p>Esto que estamos construyendo en realidad representa una solución posible al pobrlema, pero no es la que tiene costos mínimo.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">14</span> , <span class="at">ncol =</span> <span class="dv">14</span>)</span>
+<span id="cb101-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb101-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb101-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb101-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(i<span class="sc">==</span>j, asigna[i,j] <span class="ot">&lt;-</span> <span class="dv">1</span>, asigna[i,j] <span class="ot">&lt;-</span><span class="dv">0</span>)</span>
+<span id="cb101-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb101-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb101-9"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb101-10"><a href="metodologías-cuali-y-cuantitativas-1.html#cb101-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Del mismo modo crearemos una matriz de distancias numérica</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb102-1" aria-hidden="true" tabindex="-1"></a>distancia_m <span class="ot">&lt;-</span> <span class="fu">data.matrix</span>(distancia)</span></code></pre></div>
+<p><strong>Cálculo del costo</strong></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-1" aria-hidden="true" tabindex="-1"></a>mat_costo <span class="ot">&lt;-</span> distancia_m <span class="sc">*</span> asigna</span>
+<span id="cb103-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-3" aria-hidden="true" tabindex="-1"></a>costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb103-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb103-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb103-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-7" aria-hidden="true" tabindex="-1"></a>    costo <span class="ot">&lt;-</span> costo <span class="sc">+</span> mat_costo [i,j]</span>
+<span id="cb103-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb103-9"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb103-10"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb103-11"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb103-12"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-13"><a href="metodologías-cuali-y-cuantitativas-1.html#cb103-13" aria-hidden="true" tabindex="-1"></a>costo</span></code></pre></div>
+<pre><code>## Hyatt 
+## 50104</code></pre>
+<p>De este modo hemos encontrado una secuencia de tramos que van desde cada instancia hacia el nodo que está adyacente en la mztriz.
+No se trata de un costo mínimo, sino de un caso de ruteo probable. (diagonal principal llena de unos)</p>
+<p>La secuencia de ruteo se puede expresear matemáticamente como</p>
+<p><span class="math display">\[ S [ 1,2,3,4, ... ,12,13,14]\]</span></p>
+<p><em>Asignación combinatoria</em></p>
+<p>Trabajaremos con un set de 9 destinos para acelerar los cálculos</p>
+<p>Dejaremos como ejercicio el trabajo de realizar los cálculos con los 14 destinos para resolver en clase.</p>
+<p>Comezaremos generando una nueva matriz de asignación vacía</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">14</span> , <span class="at">ncol =</span> <span class="dv">14</span>)</span>
+<span id="cb105-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb105-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb105-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb105-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-6" aria-hidden="true" tabindex="-1"></a>    asigna[i,j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb105-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb105-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb105-9"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb105-10"><a href="metodologías-cuali-y-cuantitativas-1.html#cb105-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><em>Generación de combinaciones</em></p>
+<p>Vamos a construir una colección de secuencias que en lugar se ser la secuencia la que utilizamos en el caso anterior sean todas las posibles permutaciones de 9 elementos tomados de a nueve.
+Es claro que si analizamos todas estas posibles combinaciones encontraremos dentro de ellas la que corresponde al costo mínimo.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtools)</span>
+<span id="cb106-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb106-2" aria-hidden="true" tabindex="-1"></a>permutaciones <span class="ot">&lt;-</span> <span class="fu">permutations</span>(<span class="dv">9</span>, <span class="dv">9</span>, <span class="at">set =</span> <span class="cn">TRUE</span>, <span class="at">repeats.allowed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb106-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="co"># hemos generado las permutaciones sin repetición</span></span></code></pre></div>
+<p>A efectos de no poner lenta la generación del apunto utilizaremos una muestra de permutaciones y calcularemos el costo en la matriz de asignación</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb107-1" aria-hidden="true" tabindex="-1"></a>poblacion <span class="ot">&lt;-</span> <span class="fu">nrow</span>(permutaciones)</span>
+<span id="cb107-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb107-2" aria-hidden="true" tabindex="-1"></a>poblacion</span></code></pre></div>
+<pre><code>## [1] 362880</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb109-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>,poblacion),<span class="dv">50</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb109-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb109-2" aria-hidden="true" tabindex="-1"></a>muestra</span></code></pre></div>
+<pre><code>##  [1] 320458 108033 256501 295097 137869 170884 185670  75540 174662 357089
+## [11] 343596 224837 249888 137124  38560  85026  75714 335018 148990 115973
+## [21] 278826  48150  72307 333787 153258 351489 110467  87322 263995 313168
+## [31] 220455 320201 276478  32766 273332 147032 228811 340880 111972 309799
+## [41] 218438 268708 211545  25903 148992 303113 262333 234466 300060 221372</code></pre>
+<p><strong>Calculo de costos</strong></p>
+<p>Recuperaremos los vectores seleccionados en la muestra</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb111-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> permutaciones[muestra, ]</span>
+<span id="cb111-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb111-2" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    8    9    5    1    4    3    6    7    2
+##  [2,]    3    7    5    1    4    6    8    2    9
+##  [3,]    7    3    9    2    5    6    1    4    8
+##  [4,]    8    3    5    9    1    6    7    2    4
+##  [5,]    4    5    3    6    9    7    1    2    8
+##  [6,]    5    2    9    4    1    3    7    8    6
+##  [7,]    5    6    8    9    2    1    7    4    3
+##  [8,]    2    8    9    7    4    3    6    5    1
+##  [9,]    5    3    7    6    4    8    1    9    2
+## [10,]    9    7    6    8    4    3    5    1    2
+## [11,]    9    5    2    3    4    6    8    7    1
+## [12,]    6    5    7    2    8    1    9    3    4
+## [13,]    7    2    6    1    4    9    8    5    3
+## [14,]    4    5    2    6    8    3    9    7    1
+## [15,]    1    9    6    5    3    7    4    8    2
+## [16,]    3    1    9    2    6    7    8    5    4
+## [17,]    2    9    1    3    8    6    7    5    4
+## [18,]    9    3    5    2    8    1    4    7    6
+## [19,]    4    7    5    9    3    8    2    6    1
+## [20,]    3    9    1    2    6    4    8    5    7
+## [21,]    7    9    3    2    5    6    8    4    1
+## [22,]    2    3    6    9    4    1    8    7    5
+## [23,]    2    8    4    5    6    9    1    3    7
+## [24,]    9    3    2    6    5    8    1    4    7
+## [25,]    4    8    3    9    1    6    7    5    2
+## [26,]    9    6    7    2    1    4    5    3    8
+## [27,]    3    7    9    4    5    8    1    2    6
+## [28,]    3    2    5    4    8    6    7    9    1
+## [29,]    7    5    3    6    9    8    1    2    4
+## [30,]    8    7    1    9    5    4    3    6    2
+## [31,]    6    4    8    2    1    7    5    3    9
+## [32,]    8    9    4    6    2    5    7    1    3
+## [33,]    7    8    6    9    5    4    2    3    1
+## [34,]    1    8    5    6    2    3    9    7    4
+## [35,]    7    8    2    5    6    9    1    4    3
+## [36,]    4    7    2    3    5    6    1    9    8
+## [37,]    6    7    3    8    5    9    1    2    4
+## [38,]    9    4    6    3    7    2    1    8    5
+## [39,]    3    8    2    6    1    5    9    7    4
+## [40,]    8    6    4    2    7    3    1    5    9
+## [41,]    6    4    3    5    2    8    1    9    7
+## [42,]    7    6    3    2    4    1    8    9    5
+## [43,]    6    2    9    7    8    3    4    1    5
+## [44,]    1    7    2    9    8    4    3    5    6
+## [45,]    4    7    5    9    3    8    6    2    1
+## [46,]    8    5    1    9    7    4    6    2    3
+## [47,]    7    5    1    4    2    8    3    6    9
+## [48,]    6    8    4    5    9    2    3    7    1
+## [49,]    8    4    5    7    3    2    9    6    1
+## [50,]    6    4    9    3    7    8    1    5    2</code></pre>
+</div>
+</div>
+<div id="construcción-de-las-matrices-de-asignacón-para-calcular-los-costos-1" class="section level2" number="4.17">
+<h2><span class="header-section-number">4.17</span> Construcción de las matrices de asignacón para calcular los costos</h2>
+<p>En esta parte utilizaremos cada vector de secuencia p (vector de rutas) tomado como costos el valor asociado a cada columna del vector p con el valor de p_i</p>
+</div>
+<div id="creacion-de-la-matriz-asigna-1" class="section level2" number="4.18">
+<h2><span class="header-section-number">4.18</span> Creacion de la matriz asigna</h2>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(p),<span class="fu">ncol</span>(p))</span>
+<span id="cb113-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-2" aria-hidden="true" tabindex="-1"></a>distancia_9 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(distancia_m[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>],<span class="at">nrow=</span><span class="dv">9</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb113-3"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-3" aria-hidden="true" tabindex="-1"></a>costo_muestra <span class="ot">&lt;-</span><span class="fu">matrix</span> (<span class="dv">0</span>, <span class="fu">ncol</span>(p))</span>
+<span id="cb113-4"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(p))</span>
+<span id="cb113-5"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-5" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb113-6"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-6" aria-hidden="true" tabindex="-1"></a>  vec <span class="ot">&lt;-</span> p[i, ]</span>
+<span id="cb113-7"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-8"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(p)) </span>
+<span id="cb113-9"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-9" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb113-10"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-10" aria-hidden="true" tabindex="-1"></a>    asigna[vec[j],j] <span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb113-11"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-12"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb113-13"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-14"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(asigna)</span>
+<span id="cb113-15"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-16"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-16" aria-hidden="true" tabindex="-1"></a>  mat_costo <span class="ot">&lt;-</span> distancia_9 <span class="sc">*</span> asigna</span>
+<span id="cb113-17"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-18"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-18" aria-hidden="true" tabindex="-1"></a>costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb113-19"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-20"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) {</span>
+<span id="cb113-21"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) {</span>
+<span id="cb113-22"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-22" aria-hidden="true" tabindex="-1"></a>    costo <span class="ot">&lt;-</span> costo <span class="sc">+</span> mat_costo [k,l]</span>
+<span id="cb113-23"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-24"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb113-25"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-25" aria-hidden="true" tabindex="-1"></a>costo_muestra[i] <span class="ot">&lt;-</span> costo  </span>
+<span id="cb113-26"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb113-27"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-28"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-28" aria-hidden="true" tabindex="-1"></a>  asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(p),<span class="fu">ncol</span>(p))</span>
+<span id="cb113-29"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-29" aria-hidden="true" tabindex="-1"></a>  costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb113-30"><a href="metodologías-cuali-y-cuantitativas-1.html#cb113-30" aria-hidden="true" tabindex="-1"></a>}    </span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    1    0    0    0    0    0
+##  [2,]    0    0    0    0    0    0    0    0    1
+##  [3,]    0    0    0    0    0    1    0    0    0
+##  [4,]    0    0    0    0    1    0    0    0    0
+##  [5,]    0    0    1    0    0    0    0    0    0
+##  [6,]    0    0    0    0    0    0    1    0    0
+##  [7,]    0    0    0    0    0    0    0    1    0
+##  [8,]    1    0    0    0    0    0    0    0    0
+##  [9,]    0    1    0    0    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    1    0    0    0    0    0
+##  [2,]    0    0    0    0    0    0    0    1    0
+##  [3,]    1    0    0    0    0    0    0    0    0
+##  [4,]    0    0    0    0    1    0    0    0    0
+##  [5,]    0    0    1    0    0    0    0    0    0
+##  [6,]    0    0    0    0    0    1    0    0    0
+##  [7,]    0    1    0    0    0    0    0    0    0
+##  [8,]    0    0    0    0    0    0    1    0    0
+##  [9,]    0    0    0    0    0    0    0    0    1
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    1    0    0
+##  [2,]    0    0    0    1    0    0    0    0    0
+##  [3,]    0    1    0    0    0    0    0    0    0
+##  [4,]    0    0    0    0    0    0    0    1    0
+##  [5,]    0    0    0    0    1    0    0    0    0
+##  [6,]    0    0    0    0    0    1    0    0    0
+##  [7,]    1    0    0    0    0    0    0    0    0
+##  [8,]    0    0    0    0    0    0    0    0    1
+##  [9,]    0    0    1    0    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    1    0    0    0    0
+##  [2,]    0    0    0    0    0    0    0    1    0
+##  [3,]    0    1    0    0    0    0    0    0    0
+##  [4,]    0    0    0    0    0    0    0    0    1
+##  [5,]    0    0    1    0    0    0    0    0    0
+##  [6,]    0    0    0    0    0    1    0    0    0
+##  [7,]    0    0    0    0    0    0    1    0    0
+##  [8,]    1    0    0    0    0    0    0    0    0
+##  [9,]    0    0    0    1    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    1    0    0
+##  [2,]    0    0    0    0    0    0    0    1    0
+##  [3,]    0    0    1    0    0    0    0    0    0
+##  [4,]    1    0    0    0    0    0    0    0    0
+##  [5,]    0    1    0    0    0    0    0    0    0
+##  [6,]    0    0    0    1    0    0    0    0    0
+##  [7,]    0    0    0    0    0    1    0    0    0
+##  [8,]    0    0    0    0    0    0    0    0    1
+##  [9,]    0    0    0    0    1    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    1    0    0    0    0
+##  [2,]    0    1    0    0    0    0    0    0    0
+##  [3,]    0    0    0    0    0    1    0    0    0
+##  [4,]    0    0    0    1    0    0    0    0    0
+##  [5,]    1    0    0    0    0    0    0    0    0
+##  [6,]    0    0    0    0    0    0    0    0    1
+##  [7,]    0    0    0    0    0    0    1    0    0
+##  [8,]    0    0    0    0    0    0    0    1    0
+##  [9,]    0    0    1    0    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    1    0    0    0
+##  [2,]    0    0    0    0    1    0    0    0    0
+##  [3,]    0    0    0    0    0    0    0    0    1
+##  [4,]    0    0    0    0    0    0    0    1    0
+##  [5,]    1    0    0    0    0    0    0    0    0
+##  [6,]    0    1    0    0    0    0    0    0    0
+##  [7,]    0    0    0    0    0    0    1    0    0
+##  [8,]    0    0    1    0    0    0    0    0    0
+##  [9,]    0    0    0    1    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    0    0    1
+##  [2,]    1    0    0    0    0    0    0    0    0
+##  [3,]    0    0    0    0    0    1    0    0    0
+##  [4,]    0    0    0    0    1    0    0    0    0
+##  [5,]    0    0    0    0    0    0    0    1    0
+##  [6,]    0    0    0    0    0    0    1    0    0
+##  [7,]    0    0    0    1    0    0    0    0    0
+##  [8,]    0    1    0    0    0    0    0    0    0
+##  [9,]    0    0    1    0    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    1    0    0
+##  [2,]    0    0    0    0    0    0    0    0    1
+##  [3,]    0    1    0    0    0    0    0    0    0
+##  [4,]    0    0    0    0    1    0    0    0    0
+##  [5,]    1    0    0    0    0    0    0    0    0
+##  [6,]    0    0    0    1    0    0    0    0    0
+##  [7,]    0    0    1    0    0    0    0    0    0
+##  [8,]    0    0    0    0    0    1    0    0    0
+##  [9,]    0    0    0    0    0    0    0    1    0</code></pre>
+<p>Calculo del costo de cada muestra</p>
+</div>
+<div id="cuál-ruta-tiene-el-costo-mínimo-1" class="section level2" number="4.19">
+<h2><span class="header-section-number">4.19</span> Cuál ruta tiene el costo mínimo ?</h2>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb115-1" aria-hidden="true" tabindex="-1"></a>muestra_optima <span class="ot">&lt;-</span> <span class="fu">which.min</span>(costo_muestra)</span>
+<span id="cb115-2"><a href="metodologías-cuali-y-cuantitativas-1.html#cb115-2" aria-hidden="true" tabindex="-1"></a>muestra_optima</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="ruta-óptima-1" class="section level2" number="4.20">
+<h2><span class="header-section-number">4.20</span> Ruta óptima</h2>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb117-1" aria-hidden="true" tabindex="-1"></a>p[muestra_optima, ]</span></code></pre></div>
+<pre><code>## [1] 5 6 8 9 2 1 7 4 3</code></pre>
+</div>
+<div id="costo-mínimo-asociado-1" class="section level2" number="4.21">
+<h2><span class="header-section-number">4.21</span> Costo mínimo asociado</h2>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="metodologías-cuali-y-cuantitativas-1.html#cb119-1" aria-hidden="true" tabindex="-1"></a>costo_muestra [muestra_optima]</span></code></pre></div>
+<pre><code>## [1] 142</code></pre>
+<p>% %%%%%%%%%%%%%%%%% BORRAR %%%%%%%%%%%%%55
+% <a href="https://scipbook.readthedocs.io/en/latest/flp.html#cflp-data" class="uri">https://scipbook.readthedocs.io/en/latest/flp.html#cflp-data</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="alternativa-geométrica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estructura-de-datos-y-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/04-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/04-race.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

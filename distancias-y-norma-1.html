@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Distancias y norma | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 3 Distancias y norma | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Distancias y norma | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Distancias y norma | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="distancias-y-norma.html"/>
+<link rel="next" href="distancias-y-norma-2.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>2</b> Distancias y norma</a></li>
+<li class="chapter" data-level="3" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>3</b> Distancias y norma</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ejercicio"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.5</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ejercicio-1"><i class="fa fa-check"></i><b>3.5.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.5.2" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ejercicio-2"><i class="fa fa-check"></i><b>3.5.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.5.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.5.4" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html#ejercicio-3"><i class="fa fa-check"></i><b>3.5.4</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>4</b> Distancias y norma</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>4.1.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="4.1.2" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>4.1.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="4.1.3" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>4.1.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>4.2</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="4.3" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>4.3</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="4.4" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>4.4</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>4.4.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="distancias-y-norma-3.html"><a href="distancias-y-norma-3.html"><i class="fa fa-check"></i><b>5</b> Distancias y norma</a></li>
+<li class="chapter" data-level="6" data-path="distancias-y-norma-4.html"><a href="distancias-y-norma-4.html"><i class="fa fa-check"></i><b>6</b> Distancias y norma</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma-5.html"><a href="distancias-y-norma-5.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-6.html"><a href="distancias-y-norma-6.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-7.html"><a href="distancias-y-norma-7.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="chapter" data-level="10" data-path="distancias-y-norma-8.html"><a href="distancias-y-norma-8.html"><i class="fa fa-check"></i><b>10</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distancias-y-norma-1" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Distancias y norma</h1>
+<div id="funciones-de-distancia-en-problemas-de-localización-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Funciones de Distancia en Problemas de Localización</h2>
+<ol style="list-style-type: decimal">
+<li>Distancia basada en norma de vectores</li>
+<li>Distancia de norma 2 o distancia Manhatam</li>
+<li>Distancia Euclídea</li>
+<li>Distancia con otras normas aplicada almacenamiento y almacenamiento con gradiente de temperatura o problemas de Material Handling (salas de cirugía).</li>
+<li>Distancia Matricial y casos de bloqueos (muros, zonas anegadas, etc).</li>
+<li>Varianza de las distancias con distintas normas.</li>
+<li>Curva de Hilbert.</li>
+<li>Revisión bibliográficas de métodos de antecesores de facility location.</li>
+<li>Ejercitación del capítulo</li>
+</ol>
+</div>
+<div id="distancia-basada-en-norma-de-vectores" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Distancia basada en norma de vectores</h2>
+<p>La distancia es una descripción numérica de la distancia entre los objetos en un momento dado. En física o en la discusión cotidiana, la distancia puede referirse a una longitud física, un período de tiempo o se estima en base a otros criterios.
+Al tomar decisiones sobre la ubicación, la distribución de las distancias de viaje entre los destinatarios del servicio (clientes) es un tema importante.
+La mayoría de los estudios de ubicación clásicos se centran en la minimización de la distancia media (o total) (el concepto de mediana) o la minimización de la distancia máxima (el concepto de centro) a las instalaciones de servicio. (Ogryczak 2000) En estos estudios, el modelado de ubicación se divide en cuatro categorías amplias:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modelos analíticos. Estos modelos se basan en una gran cantidad de supuestos simplificadores, como el costo fijo de ubicación de la instalación. Las distancias de viaje siguen la métrica de Manhattan.</p></li>
+<li><p>Modelos continuos. Estos modelos son los modelos de ubicación más antiguos, se ocupan de representaciones geométricas de la realidad y se basan en la continuidad del área de ubicación. El modelo clásico en esta área es el problema de Weber. Las distancias en el problema de Weber a menudo se toman como distancias en línea recta o euclidianas, pero aquí se pueden usar casi todos los tipos de funciones de distancia (Jiang y Xu 2006; Hamacher y Nickel 1998).</p></li>
+</ol>
+<p>En el estudio de la teoría de la ubicación continua, generalmente se asume que los clientes pueden ser tratados como puntos en el espacio. Esta suposición es válida cuando las dimensiones de los clientes son pequeñas en relación con las distancias entre la nueva instalación y los clientes. Sin embargo, no siempre es así. A veces, no debemos ignorar las dimensiones de los clientes. Algunos investigadores han tratado a los clientes como regiones de demanda que representan la demanda de una región.</p>
+<p>Jiang y Xu (2006) discutieron que algunos investigadores como Brimberg y Wesolowsky en 1997, 2000 y 2002 y Nickel et al. en 2003 usó la distancia entre la instalación y el punto más cercano de una región de demanda; y en los demás, la distancia entre la instalación y una región de demanda puede calcularse como alguna forma de distancia de viaje esperada o promedio.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Modelos de red. Los modelos de red se componen de enlaces y nodos. Los modelos de 1 mediana absoluta, 2 centros no ponderados y mediana L de criterios q en un árbol son algunos de los modelos bien conocidos en esta área. Las distancias se miden con respecto al camino más corto.</p></li>
+<li><p>Modelos discretos. En estos modelos, hay un conjunto discreto de ubicaciones candidatas.
+Los modelos discretos de cobertura y ubicación de instalaciones no capacitadas, de media N discreta son algunos de los modelos bien conocidos en esta área. Al igual que las distancias en los modelos continuos, aquí se pueden utilizar todo tipo de funciones de distancia, pero a veces se pueden especificar de forma exógena (Hamacher y Nickel 1998; Fouard y Malandain 2005).</p></li>
+</ol>
+<p>Las distancias y las normas suelen definirse en el espacio finito <span class="math inline">\(E^n\)</span> y toman valores reales.
+En geometría discreta, sin embargo, a veces necesitamos tener distancias discretas definidas en <span class="math inline">\(Z\)</span> n con sus valores en <span class="math inline">\(Z\)</span>. Dado que <span class="math inline">\(Z\)</span> n no es un espacio vectorial, la noción de distancias y normas tuvo que extenderse.</p>
+</div>
+<div id="especificación-de-norma-y-distancia" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Especificación de Norma y Distancia</h2>
+<p>Asumamos la existencia de dos puntos <span class="math inline">\(X = (x_1,y_1)\)</span> y <span class="math inline">\(Y = (x_2,y_2)\)</span>.
+Luego la distancia entre ellos se puede expresar matemáticamente como <span class="math inline">\(d(X,Y)\)</span>.
+Según el tipo de problema que abordemos esta distancia entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> respetará algunas características que le impondremos para que represente nuestro real inconveniente en el problema que abordamos.
+No será lo mismo el problema de distancia en una autopista, que en un centro urbano con tránsito bloqueado, o en un piso de manufactura donde los robots cruzan con peatones que no deben embestir.</p>
+<p>En cualquier teorema o ágeblra grado para lidiar con estos problemas definimos algunas cosas repetitivias pero básicas.</p>
+<p>Condición de positividad
+<span class="math display">\[ d(X,Y) \ge 0 , \forall X,Y \]</span>
+Definición de cero
+<span class="math display">\[ d(X,Y) = 0 \Leftrightarrow X=Y  , \forall X,Y \]</span>
+Definición de simetría
+<span class="math display">\[ d(X,Y) = d(Y,X) \forall X,Y \]</span>
+Inequidad Triangular
+<span class="math display">\[ d(X,Y) \leq d(X,R) + d(R,Y)  \forall X,Y \]</span></p>
+</div>
+<div id="función-de-distancia" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Función de Distancia</h2>
+<p>La función de de distancia entre los puntos $ X = (x_1, x_2, — X_n)$ y <span class="math inline">\(Y = (y_1, y_2, ... y_n)\)</span> es llamada <span class="math inline">\(d_{K,p}\)</span> o distancia Minkowski de orden <span class="math inline">\(p\)</span>, que definiremos como.</p>
+<p><span class="math display">\[ d_{K,p} (X.Y) =  (\sum_{i=1}^{n} (|x_i - y_i|)^p )^{(\frac{1}{p})}\]</span></p>
+<p>Los parámetros <span class="math inline">\(k1\)</span> y <span class="math inline">\(k2\)</span> de la norma <span class="math inline">\(d_{k,p}\)</span> pueden verse como pesos desiguales o irregularidades de distancia no simétricas a lo largo de las direcciones de los ejes. Un trabajo empírico mostró que la precisión de las estimaciones de distancia en este tipo de norma es mejor que la ponderada d_{k; p} (Uster y Love 2003)
+En la situación en la ecuacion anterior, podemos definir algunas funciones de distancia famosas como:</p>
+<p>SI $p =1 se pueden obtener las distancias de 1 norma, rectilínea, tambien llamada <strong>Distancia Manhattan</strong> o en ángulo recto:
+Es la más utilizada para logística de última milla.</p>
+<p>Las distancias rectilíneas se aplican cuando se permite viajar solo en dos direcciones perpendiculares, como las arterias Norte-Sur y Este-Oeste. Esta distancia también es popular entre los investigadores porque el análisis suele ser más simple que emplear otras métricas (Drezner y Wesolowsky 2001).</p>
+<p>La distancia rectilínea también se denomina distancias de norma de taxi; porque es la distancia que recorrería un automóvil en una disposición de la ciudad en bloques cuadrados (si no hay calles de un solo sentido).</p>
+<p>Si <span class="math inline">\(p = 2\)</span> la norma es 2 conocida como noram Euclídea. Que no dá la clásica formulación de distancia que generalmente asumimos como la única distancia que existe.</p>
+<p><span class="math display">\[ d_{K,p} (X.Y) = \sqrt[]{\sum_{i=1}^{n} |x_i - y_i|^2 } \]</span></p>
+<p>Si $ p = $ se obtiene la norma de Chebishev que se utiliza en fenómenos no estacionarios como calculo de distancias en gases que se exánden, derrames que fluyen, desconcentración de peatones en partidos de fútbol, etc.</p>
+<p><span class="math display">\[ d_\infty (X,Y)= lim_{p \rightarrow\infty} (\sum_{i=1}^{\infty} |x_i-y_i|^p)^{\frac{1}{p}} = max (|x_1-y_1| , ... , |x_n,y_n|)\]</span></p>
+<div id="ejercicio" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Ejercicio:</h3>
+<p>Sean los puntos:</p>
+<p><span class="math display">\[ A = (59.5 , 71.87) \]</span>
+<span class="math display">\[ B = (135.09 , 113.98) \]</span>
+<span class="math display">\[ C = (114.31, 62,03)\]</span></p>
+<pre><code>1- Trazar un polígono con los tres puntos.
+2- Replique el segmento $AC$ a partir del punto $B$
+3- Replique el segmento $CB$ a partir del punto $A$
+4- Identifique el punto $G$ en que ambos segmentos construidos se interceptan 
+5- Trace la recta $GC$</code></pre>
+<p><img src="img/Fermat%201.png" alt="Triangulacion Fermat" />
+6- ¿Existe perpendicularidad entre entre AB y CG?</p>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%201.ggb">ejercicio 1</a></p>
+</div>
+</div>
+<div id="propuesta-geometrica-de-fermat" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Propuesta geometrica de Fermat</h2>
+<p>La propuesta de localización de almacenes de Fermat puede ser interpretada geométricamente de un modo más sencillo que el empleado en su formulación matemática.</p>
+<p>Desarrollaremos una serie de ejercicios geométricos para entender como concebía la solución Fermat. Te recomendamos que realices los siguientes ejercicios con papel y escuadra, o en su defecto que utilices alguna herramienta como geogebra (que es la que se utiliza en este ejemplo).</p>
+<div id="ejercicio-1" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Ejercicio</h3>
+<p>Utilizaremos el primer método de localización prupuesto para tres punto que tienen igual consumo.
+La idea es construir en cada lado del triángulo que determiana los puntos A,B,C un triángulo equilátero y unir este vértice con la mediatriz de cada segmente AB, BC, CA.</p>
+<p><img src="img/Fermat%202.png" alt="Triangulacion Fermat" />
+Observa que está presente el tríángulo color rosa del ejercicio anterior.</p>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%202.ggb">ejercicio 2</a></p>
+</div>
+<div id="ejercicio-2" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Ejercicio</h3>
+<p>¿Donde existe un espacio de soluciones posibles, tal que considerando el paralelogramo y el triángulo construido sean lugares geométricos que minimicen la distancia a los puntos <span class="math inline">\(A, B, C\)</span>?
+La solución es encontrar una circunferencia que pase por los tres puntos y que divida al espacio en dos semicircunferencias iguales (conceptos de espacio vectorial de equidistancia). Esa línea que divide al circulo en dos mitades iguales tiene que ser necesariamente un radio.
+Se puede ver en la figura que pasa por el vértice del triángulo equilátero amarillo y el paralelogramo de Fermat.</p>
+<div class="figure">
+<img src="img/Fermat%203.png" alt="" />
+<p class="caption">Triangulacion Fermat</p>
+</div>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%203.ggb">ejercicio 3</a></p>
+<p>Si repetimos este procedimiento para construir las tres circunferencias con los tres triángulos equiláteros tendríamos un punto en el que coinciden los tres diámetros que se cruzan en el punto que es espacio vectorial de soluciones y es el único punto de equidista de los tres vértices que representan las localizaciones de las demandas. El punto donde se cruzan los tres diámetros debería ser el puto en el que se instala la manufactura.</p>
+<p>Esta es la estrategia del método del baricentro que se utiliza para fijar la localización.</p>
+</div>
+<div id="ejercicio-no-lo-quiero-en-mi-patio" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Ejercicio (no lo quiero en mi patio)</h3>
+<p>La primer aproximación que Fermat intenta es la de dar respuesta a la localización por atracción.
+Es decir consumidores que están en los puntos <span class="math inline">\(A, B, C\)</span> y desean minimizar su costo de transporte.
+Pero, ¿que ocurre si en logar de atracción pnesamos en repulción?. ¿Cómo cambia este esquema si en lugar de planear la localización de un hospital, o un supermercado, estoy localizando un vertedero de residuos patológicos?</p>
+<p>El esquema propuesto por Fermat es el siguiente. Está basado en una solución de la ortogonalida de los catetos.</p>
+<div class="figure">
+<img src="img/Fermat%204.png" alt="" />
+<p class="caption">Ortogonalidad de Catetos</p>
+</div>
+<p>Link para descargar el ejercicio
+<a href="geogebra/Fermat%204.ggb">ejercicio 4</a></p>
+</div>
+<div id="ejercicio-3" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Ejercicio</h3>
+<p>Sean Los puntos:</p>
+<p><span class="math display">\[ A (-32.92713427858885, -68.81772766801757)\]</span>
+<span class="math display">\[ B (-32.86788086975811, -68.85428072392608) \]</span></p>
+<p>Determinar :</p>
+<ul>
+<li>La Distancia Euclídea</li>
+<li>La Distancia Manhatam</li>
+<li>Representación geomática</li>
+<li>¿Que ruta elegirías para llegar desde A hasta B?</li>
+</ul>
+<p><em>Solución:</em></p>
+<p><strong><em>Distancia Euclídea</em></strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distancias-y-norma-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">32.92713427858885</span>, <span class="sc">-</span><span class="fl">68.81772766801757</span>)</span>
+<span id="cb2-2"><a href="distancias-y-norma-1.html#cb2-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">32.86788086975811</span>, <span class="sc">-</span><span class="fl">68.85428072392608</span>)</span>
+<span id="cb2-3"><a href="distancias-y-norma-1.html#cb2-3" aria-hidden="true" tabindex="-1"></a>Dy2 <span class="ot">&lt;-</span> (A[<span class="dv">1</span>]<span class="sc">-</span>B[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-4"><a href="distancias-y-norma-1.html#cb2-4" aria-hidden="true" tabindex="-1"></a>Dx2 <span class="ot">&lt;-</span> (A[<span class="dv">2</span>]<span class="sc">-</span>B[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-5"><a href="distancias-y-norma-1.html#cb2-5" aria-hidden="true" tabindex="-1"></a>D_g <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(Dy2 <span class="sc">+</span> Dx2)</span>
+<span id="cb2-6"><a href="distancias-y-norma-1.html#cb2-6" aria-hidden="true" tabindex="-1"></a>D_g</span></code></pre></div>
+<pre><code>## [1] 0.06962106</code></pre>
+<p>Sabemos que 1° de latitud o longitud equivalen sobre el geoide a 111.11 Km
+por lo tanto la distancia en Km de este arco será:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="distancias-y-norma-1.html#cb4-1" aria-hidden="true" tabindex="-1"></a>D_km <span class="ot">&lt;-</span> <span class="fl">111.11</span> <span class="sc">*</span>D_g <span class="sc">/</span><span class="dv">1</span></span>
+<span id="cb4-2"><a href="distancias-y-norma-1.html#cb4-2" aria-hidden="true" tabindex="-1"></a>D_km</span></code></pre></div>
+<pre><code>## [1] 7.735596</code></pre>
+<p>Distancia Manhatam</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="distancias-y-norma-1.html#cb6-1" aria-hidden="true" tabindex="-1"></a>Dy <span class="ot">&lt;-</span> (A[<span class="dv">1</span>]<span class="sc">-</span>B[<span class="dv">1</span>])</span>
+<span id="cb6-2"><a href="distancias-y-norma-1.html#cb6-2" aria-hidden="true" tabindex="-1"></a>Dx <span class="ot">&lt;-</span> (A[<span class="dv">2</span>]<span class="sc">-</span>B[<span class="dv">2</span>])</span>
+<span id="cb6-3"><a href="distancias-y-norma-1.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="distancias-y-norma-1.html#cb6-4" aria-hidden="true" tabindex="-1"></a>D_h <span class="ot">&lt;-</span> <span class="fu">abs</span>(Dx) <span class="sc">+</span> <span class="fu">abs</span>(Dy)</span>
+<span id="cb6-5"><a href="distancias-y-norma-1.html#cb6-5" aria-hidden="true" tabindex="-1"></a>D_h</span></code></pre></div>
+<pre><code>## [1] 0.09580646</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="distancias-y-norma-1.html#cb8-1" aria-hidden="true" tabindex="-1"></a>D_h <span class="ot">&lt;-</span> <span class="fl">111.11</span> <span class="sc">*</span> D_h</span>
+<span id="cb8-2"><a href="distancias-y-norma-1.html#cb8-2" aria-hidden="true" tabindex="-1"></a>D_h</span></code></pre></div>
+<pre><code>## [1] 10.64506</code></pre>
+<p>Representación Geomática</p>
+<p>Cluster de Puntos</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="distancias-y-norma-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb10-2"><a href="distancias-y-norma-1.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet.extras)</span>
+<span id="cb10-3"><a href="distancias-y-norma-1.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.0.4     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="distancias-y-norma-1.html#cb14-1" aria-hidden="true" tabindex="-1"></a>consumo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">32.91682953269615</span>, <span class="sc">-</span><span class="fl">68.76609482656337</span>, <span class="sc">-</span><span class="dv">200</span>, <span class="sc">-</span><span class="dv">20</span>,  <span class="sc">-</span><span class="fl">32.92721825526954</span>, <span class="sc">-</span><span class="fl">68.81768957684899</span>,<span class="dv">3</span> , <span class="dv">1</span> , <span class="sc">-</span><span class="fl">32.911401355733354</span>, <span class="sc">-</span><span class="fl">68.82484400346665</span> , <span class="dv">5</span> ,<span class="dv">4</span>, <span class="sc">-</span><span class="fl">32.89442568503209</span>, <span class="sc">-</span><span class="fl">68.83059940148742</span>, <span class="dv">1</span>,<span class="dv">6</span>, <span class="sc">-</span><span class="fl">32.892425579377154</span>, <span class="sc">-</span><span class="fl">68.83308860323564</span> ,<span class="dv">5</span> ,<span class="dv">2</span>, <span class="sc">-</span><span class="fl">32.896226807794974</span>, <span class="sc">-</span><span class="fl">68.82193031473983</span> ,<span class="dv">2</span>,<span class="dv">8</span> , <span class="sc">-</span><span class="fl">32.89855141165897</span>, <span class="sc">-</span><span class="fl">68.80510778757831</span> ,<span class="dv">4</span> , <span class="dv">4</span>, <span class="sc">-</span><span class="fl">32.867593934431554</span>, <span class="sc">-</span><span class="fl">68.85439436934425</span> ,<span class="dv">3</span>,<span class="dv">2</span> , <span class="sc">-</span><span class="fl">32.872045010628426</span>, <span class="sc">-</span><span class="fl">68.86456858203749</span> ,<span class="dv">3</span>,<span class="dv">8</span> , <span class="sc">-</span><span class="fl">32.91498350785812</span>, <span class="sc">-</span><span class="fl">68.84497345198642</span> ,<span class="dv">1</span>,<span class="dv">5</span> , <span class="sc">-</span><span class="fl">32.92790119153266</span>, <span class="sc">-</span><span class="fl">68.85940216631148</span> ,<span class="dv">5</span>,<span class="dv">8</span> , <span class="sc">-</span><span class="fl">32.89427179600652</span>, <span class="sc">-</span><span class="fl">68.7997089938368</span> ,<span class="dv">2</span> ,<span class="dv">4</span>  )</span>
+<span id="cb14-2"><a href="distancias-y-norma-1.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="distancias-y-norma-1.html#cb14-3" aria-hidden="true" tabindex="-1"></a>consumo_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(consumo,<span class="at">ncol=</span><span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-4"><a href="distancias-y-norma-1.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(consumo_matrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Lat&quot;</span>,<span class="st">&quot;Lng&quot;</span>,<span class="st">&quot;Pallets&quot;</span>,<span class="st">&quot;Semanas&quot;</span>)</span>
+<span id="cb14-5"><a href="distancias-y-norma-1.html#cb14-5" aria-hidden="true" tabindex="-1"></a>consumo_matrix</span></code></pre></div>
+<pre><code>##             Lat       Lng Pallets Semanas
+##  [1,] -32.91683 -68.76609    -200     -20
+##  [2,] -32.92722 -68.81769       3       1
+##  [3,] -32.91140 -68.82484       5       4
+##  [4,] -32.89443 -68.83060       1       6
+##  [5,] -32.89243 -68.83309       5       2
+##  [6,] -32.89623 -68.82193       2       8
+##  [7,] -32.89855 -68.80511       4       4
+##  [8,] -32.86759 -68.85439       3       2
+##  [9,] -32.87205 -68.86457       3       8
+## [10,] -32.91498 -68.84497       1       5
+## [11,] -32.92790 -68.85940       5       8
+## [12,] -32.89427 -68.79971       2       4</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="distancias-y-norma-1.html#cb16-1" aria-hidden="true" tabindex="-1"></a>mision <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lat=</span>consumo_matrix[ ,<span class="dv">1</span>], <span class="at">long=</span>consumo_matrix[ ,<span class="dv">2</span>], <span class="at">pallets=</span>consumo_matrix[ ,<span class="dv">3</span>],<span class="at">semanas=</span>consumo_matrix[ ,<span class="dv">4</span>],<span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-2"><a href="distancias-y-norma-1.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="distancias-y-norma-1.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="distancias-y-norma-1.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> mision) <span class="sc">%&gt;%</span>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="fu">addMarkers</span>(<span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>())</span></code></pre></div>
+<pre><code>## Assuming &quot;long&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
+<div id="htmlwidget-e1aca30dcd6f3cae6c2e" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e1aca30dcd6f3cae6c2e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[-32.9168295326961,-32.9272182552695,-32.9114013557334,-32.8944256850321,-32.8924255793772,-32.896226807795,-32.898551411659,-32.8675939344316,-32.8720450106284,-32.9149835078581,-32.9279011915327,-32.8942717960065],[-68.7660948265634,-68.817689576849,-68.8248440034667,-68.8305994014874,-68.8330886032356,-68.8219303147398,-68.8051077875783,-68.8543943693442,-68.8645685820375,-68.8449734519864,-68.8594021663115,-68.7997089938368],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-32.9279011915327,-32.8675939344316],"lng":[-68.8645685820375,-68.7660948265634]}},"evals":[],"jsHooks":[]}</script>
+<p><strong>Mapa interactivo</strong>
+Puedo consultar el consumo de pallets y cada cuantas semanas me llaman para abastecerlos</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="distancias-y-norma-1.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> mision) <span class="sc">%&gt;%</span>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="fu">addMarkers</span>(<span class="sc">~</span>long, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(pallets), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(semanas))</span></code></pre></div>
+<div id="htmlwidget-43c2e7751655e485b735" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-43c2e7751655e485b735">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[-32.9168295326961,-32.9272182552695,-32.9114013557334,-32.8944256850321,-32.8924255793772,-32.896226807795,-32.898551411659,-32.8675939344316,-32.8720450106284,-32.9149835078581,-32.9279011915327,-32.8942717960065],[-68.7660948265634,-68.817689576849,-68.8248440034667,-68.8305994014874,-68.8330886032356,-68.8219303147398,-68.8051077875783,-68.8543943693442,-68.8645685820375,-68.8449734519864,-68.8594021663115,-68.7997089938368],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["-200","3","5","1","5","2","4","3","3","1","5","2"],null,null,null,["-20","1","4","6","2","8","4","2","8","5","8","4"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-32.9279011915327,-32.8675939344316],"lng":[-68.8645685820375,-68.7660948265634]}},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distancias-y-norma.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distancias-y-norma-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/02-tears.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/02-tears.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

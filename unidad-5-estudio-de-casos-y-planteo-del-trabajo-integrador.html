@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Unidad 5 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 6 Unidad 5 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Unidad 5 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Unidad 5 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unidad-4-estructura-de-datos-y-software.html"/>
+<link rel="next" href="prólogo.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.3</b> Objetivo</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#objetivo-general"><i class="fa fa-check"></i><b>1.3.1</b> Objetivo general</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.4</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.5</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.6</b> Sistema de evaluación</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.7</b> Contenidos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="unidad-1-funciones-de-distancia-en-problemas-de-localización.html"><a href="unidad-1-funciones-de-distancia-en-problemas-de-localización.html"><i class="fa fa-check"></i><b>2</b> Unidad 1 Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3" data-path="unidad-2-tipología-y-topología-de-los-problemas-de-localización.html"><a href="unidad-2-tipología-y-topología-de-los-problemas-de-localización.html"><i class="fa fa-check"></i><b>3</b> Unidad 2 Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="4" data-path="unidad-3-metodologías-cuali-y-cuantitativas.html"><a href="unidad-3-metodologías-cuali-y-cuantitativas.html"><i class="fa fa-check"></i><b>4</b> Unidad 3 Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="5" data-path="unidad-4-estructura-de-datos-y-software.html"><a href="unidad-4-estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>5</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="6" data-path="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>6</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador.html#bibliografía"><i class="fa fa-check"></i><b>6.1</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="prólogo.html"><a href="prólogo.html"><i class="fa fa-check"></i><b>7</b> Prólogo</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</h1>
+<ol style="list-style-type: decimal">
+<li>Trabajo de artículo modelo (paper) o Implementación en proyecto de una empresa (o caso de estudio).</li>
+<li>Herramientas bibliométricas para estado del arte de la situación problema a abordar, uso de herramientas para búsqueda de patentes y uso de n-gram</li>
+<li>Selección de métodos más indicados para la investigación</li>
+<li>Comprobación y verificación de la hipótesis</li>
+<li>Conclusiones</li>
+</ol>
+<div id="bibliografía" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Bibliografía</h2>
+<p>Este campo emergente de la localización afectada por el problema de la pandemia es un campo de desarrollo en la actualidad. Las empresas e instituciones académicas que han encontrado los resultados más prometedores para la reconfiguración de las cadenas de suministros hacen referencia al los buenos resultados que se obtienen con la solución que Torrricelli encontró en 1600 al problema de localización planteado por Fermat-Weber cien años antes. Curiosamente en este período histórico no se manejaba el concepto de cadenas de abastecimiento, pero si se verificó una relocalización en Europa. El curso está basado en seis de los artículos más relevantes publicados por este año y señalados por APICS y la CEPAL como los casos más significativos para latinoamérica y caribe.
+Se recurre, de todos modos, a publicaciones que van desde 1950 hasta la fecha en las que por curiosidad de investigó sobre el problema de Fermat que aparecía como método demasiado complejo para resolverlo con los escenarios pre-pandemia. Todos los papers señalados hacen referencia al trabajo de 1953 de Bringerg como base matemática para dar respuestas a la transición requerida para la superación del impacto de la pandemia en los sitemas de manufatura.</p>
+<p>La bibliografía seleccionada está basada en publicaciones reciente en las que cada capítulo es un “extended paper” de modo que se señalará el nombre del editor de la colección y en clase se identificará al autor de capítulo (o capítulos) pertinentes al tema desarrollado.
+Es altamente recomendable que los asistentes al curso tengan acceso al sistema nacional de publicaciones científicas. En el caso de Argentina este servicio es provisto a las bibliotecas y bibliotecas virtuales por el servicio de bibliotecología del MINCYT.</p>
+<p>[1] Brimberg, J. The Fermat-Weber location problem revisited, Mathematical Programming, 1, pg. 71-76, 1995. <a href="https://doi.org/10.1007/BF01592245" class="uri">https://doi.org/10.1007/BF01592245</a>.</p>
+<p>[2] Love, R. F., Morris, J. G., Wesolowsky, G. O. Facilities Location: Chapter 2: Introduction to Single-Facility Location, 1988, North-Holland</p>
+<p>[3] Munoz-Marquez Manuel <a href="http://knuth.uca.es/orloca" class="uri">http://knuth.uca.es/orloca</a> biblioteca R-Cran</p>
+<p>[4] Wilfer, Oleg ,Multi-Composed Programming with Applications to Facility Location,,2020,978-3-658-30579-6,2020,Mathematische Optimierung und Wirtschaftsmathematik | Mathematical Optimization and Economathematics,Springer Fachmedien Wiesbaden;Springer Spektrum.</p>
+<p>[5] Mallozzi, Lina; D’Amato, Egidio; Pardalos (eds.), Panos M.",Spatial Interaction Models : Facility Location Using Game Theory,Spatial Interaction Models,2017,978-3-319-52653-9,2017,Springer Optimization and Its Applications 118,Springer International Publishing,</p>
+<p>[6] Karakitsiou (auth.), Athanasia",Modeling Discrete Competitive Facility Location,,2015,978-3-319-21340-8,2015,SpringerBriefs in Optimization,Springer International Publishing,</p>
+<p>[7] Klamroth, Kathrin",Single-Facility Location Problems with Barriers,,2010,978-1-4419-3027-9,2010,Springer Series in Operations Research and Financial Engineering,Springer,</p>
+<p>[8] Zarinbal (auth.), Marzie; Farahani, Reza Zanjirani; Hekmatfar (eds.), Masoud,“Facility Location: Concepts, Models, Algorithms and Case Studies”,Facility Location,2009,978-3-7908-2150-5,2009,Contributions to Management Science,Physica-Verlag Heidelberg,</p>
+<p>[9] Kosanke (auth.), Kurt; Dolgui, Alexandre; Soldek, Jerzy; Zaikin (eds.), Oleg,“Supply Chain Optimisation: Product/Process Design, Facility Location and Flow Control”,Supply Chain Optimisation,2005,978-0-387-23566-0,2005,Applied Optimization 94,Springer US,</p>
+<p>[10] Sule, Dileep R.,Logistics of Facility Location and Allocation (Industrial Engineering),,2001,978-0-8247-0493-3,2001,,,</p>
+<p>[11] Miller, Dr Tan C.; Friesz, Prof Dr Terry L.; Tobin (auth.), Prof Dr Roger L.“,Equilibrium Facility Location on Networks,,1996,978-3-642-08227-6,1996,Advances in Spatial and Network Economics,Springer-Verlag Berlin Heidelberg,”Jr, Arthur P. Hurter; Martinich (auth.), Joseph S.",Facility Location and the Theory of Production,,1989,978-94-010-7637-1,1989,,Springer Netherlands,</p>
+<p>[12] Dumont, Morgane; Ellison, Richard; Lovelace, Robin; Založnik, Maja, Spatial microsimulation with R,,2016,978-1-4987-1156-2,2016,R (Series),CRC Press LLC,</p>
+<p>[14] Principal publicación utilizada en el curso - Lovelace, Robin; Nowosad, Jakub; Muenchow, Jannes",Geocomputation with R,,2019,978-1-138-30451-2,2019,Chapman &amp; Hall/CRC The R Series,Chapman and Hall/CRC,</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unidad-4-estructura-de-datos-y-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prólogo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/index.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

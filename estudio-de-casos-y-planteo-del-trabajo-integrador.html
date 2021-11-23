@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 6 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Estudio de Casos y planteo del Trabajo integrador | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estructura-de-datos-y-software.html"/>
+<link rel="next" href="distancias-y-norma.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html"><i class="fa fa-check"></i><b>2</b> Solución Matemática vs numérica</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#el-operador-nabla"><i class="fa fa-check"></i><b>2.1</b> El operador Nabla</a></li>
+<li class="chapter" data-level="2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>2.2</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>2.2.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>2.2.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="2.2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>2.2.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>2.3</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="2.4" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>2.4</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="2.5" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>2.5</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>2.5.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html"><i class="fa fa-check"></i><b>3</b> Alternativa geométrica</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.5</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-uuu"><i class="fa fa-check"></i><b>3.5.1</b> Ejercicio uuu</a></li>
+<li class="chapter" data-level="3.5.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-1"><i class="fa fa-check"></i><b>3.5.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.5.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.5.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-2"><i class="fa fa-check"></i><b>3.5.4</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html"><i class="fa fa-check"></i><b>4</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="5" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>5</b> Estructura de datos y software</a></li>
+<li class="chapter" data-level="6" data-path="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>6</b> Estudio de Casos y planteo del Trabajo integrador</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estudio-de-casos-y-planteo-del-trabajo-integrador" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Estudio de Casos y planteo del Trabajo integrador</h1>
+<ul>
+<li>Trabajo de artículo modelo (paper)</li>
+<li>Herramientas bibliométricas para estado del arte de la situación problema a abordar</li>
+<li>Selección de métodos más indicados para la investigación</li>
+<li>Comprobación y verificación de la hipótesis</li>
+<li>Conclusiones</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estructura-de-datos-y-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distancias-y-norma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/06-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/06-race.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Di3 - Facility Location</title>
+  <meta name="description" content="Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="solución-matemática-vs-numérica.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html"><i class="fa fa-check"></i><b>2</b> Solución Matemática vs numérica</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#el-operador-nabla"><i class="fa fa-check"></i><b>2.1</b> El operador Nabla</a></li>
+<li class="chapter" data-level="2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>2.2</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>2.2.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>2.2.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="2.2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>2.2.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>2.3</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="2.4" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>2.4</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="2.5" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>2.5</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>2.5.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html"><i class="fa fa-check"></i><b>3</b> Alternativa geométrica</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a></li>
+<li class="chapter" data-level="3.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-pasillo"><i class="fa fa-check"></i><b>3.5</b> Distancia de pasillo</a></li>
+<li class="chapter" data-level="3.6" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#matriz-de-distancia"><i class="fa fa-check"></i><b>3.6</b> Matriz de distancia</a></li>
+<li class="chapter" data-level="3.7" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-cuadras"><i class="fa fa-check"></i><b>3.7</b> Distancia de cuadras</a></li>
+<li class="chapter" data-level="3.8" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#curva-de-hilbert"><i class="fa fa-check"></i><b>3.8</b> Curva de Hilbert</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio"><i class="fa fa-check"></i><b>3.8.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.9</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-1"><i class="fa fa-check"></i><b>3.9.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-2"><i class="fa fa-check"></i><b>3.9.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.9.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.9.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-3"><i class="fa fa-check"></i><b>3.9.4</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.9.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-4"><i class="fa fa-check"></i><b>3.9.5</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#revisión-bibliográfica-de-distancias"><i class="fa fa-check"></i><b>3.10</b> Revisión bibliográfica de distancias</a></li>
+<li class="chapter" data-level="3.11" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejemplo-de-ruteo"><i class="fa fa-check"></i><b>3.11</b> Ejemplo de ruteo</a></li>
+<li class="chapter" data-level="3.12" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos"><i class="fa fa-check"></i><b>3.12</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="3.13" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#creacion-de-la-matriz-asigna"><i class="fa fa-check"></i><b>3.13</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="3.14" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#cuál-ruta-tiene-el-costo-mínimo"><i class="fa fa-check"></i><b>3.14</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="3.15" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ruta-óptima"><i class="fa fa-check"></i><b>3.15</b> Ruta óptima</a></li>
+<li class="chapter" data-level="3.16" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#costo-mínimo-asociado"><i class="fa fa-check"></i><b>3.16</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html"><i class="fa fa-check"></i><b>4</b> Metodologías cuali y cuantitativas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-plana-con-orloca"><i class="fa fa-check"></i><b>4.1</b> Localización plana con orloca</a></li>
+<li class="chapter" data-level="4.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#introducción"><i class="fa fa-check"></i><b>4.2</b> Introducción</a></li>
+<li class="chapter" data-level="4.3" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#la-clase-de-objetos-loca.p"><i class="fa fa-check"></i><b>4.3</b> La clase de objetos loca.p</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resumiendo-los-datos"><i class="fa fa-check"></i><b>4.3.1</b> Resumiendo los datos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resolución"><i class="fa fa-check"></i><b>4.4</b> Resolución</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#dibujo-o-ploteo"><i class="fa fa-check"></i><b>4.4.1</b> Dibujo o ploteo</a></li>
+<li class="chapter" data-level="4.4.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-en-3d"><i class="fa fa-check"></i><b>4.4.2</b> Gráfico en 3D</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-localización-en-andalucía"><i class="fa fa-check"></i><b>4.5</b> Ejemplo de localización en Andalucía</a></li>
+<li class="chapter" data-level="4.6" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-de-hospitales-para-refugiados-de-siria"><i class="fa fa-check"></i><b>4.6</b> Localización de hospitales para refugiados de Siria</a></li>
+<li class="chapter" data-level="4.7" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#detalles-de-la-operación"><i class="fa fa-check"></i><b>4.7</b> Detalles de la operación</a></li>
+<li class="chapter" data-level="4.8" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#consideraciones-técnicas-y-simplificación"><i class="fa fa-check"></i><b>4.8</b> Consideraciones Técnicas y Simplificación</a></li>
+<li class="chapter" data-level="4.9" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#código-en-r"><i class="fa fa-check"></i><b>4.9</b> Código en R</a></li>
+<li class="chapter" data-level="4.10" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#carga-de-bibliotecas-library-necesarias"><i class="fa fa-check"></i><b>4.10</b> Carga de bibliotecas (library) necesarias</a></li>
+<li class="chapter" data-level="4.11" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#obtención-de-datos-oficiales"><i class="fa fa-check"></i><b>4.11</b> Obtención de Datos Oficiales</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#agregar-grupos-al-dataset"><i class="fa fa-check"></i><b>4.11.1</b> Agregar grupos al dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-sobre-mapa"><i class="fa fa-check"></i><b>4.12</b> Gráfico sobre mapa</a></li>
+<li class="chapter" data-level="4.13" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-georeferenciado"><i class="fa fa-check"></i><b>4.13</b> Mapa Georeferenciado</a></li>
+<li class="chapter" data-level="4.14" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-sobrecargado"><i class="fa fa-check"></i><b>4.14</b> Mapa sobrecargado</a></li>
+<li class="chapter" data-level="4.15" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-con-datos-clusterizados"><i class="fa fa-check"></i><b>4.15</b> Mapa con datos clusterizados</a></li>
+<li class="chapter" data-level="4.16" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-ruteo-1"><i class="fa fa-check"></i><b>4.16</b> Ejemplo de ruteo</a></li>
+<li class="chapter" data-level="4.17" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos-1"><i class="fa fa-check"></i><b>4.17</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="4.18" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#creacion-de-la-matriz-asigna-1"><i class="fa fa-check"></i><b>4.18</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="4.19" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#cuál-ruta-tiene-el-costo-mínimo-1"><i class="fa fa-check"></i><b>4.19</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="4.20" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ruta-óptima-1"><i class="fa fa-check"></i><b>4.20</b> Ruta óptima</a></li>
+<li class="chapter" data-level="4.21" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#costo-mínimo-asociado-1"><i class="fa fa-check"></i><b>4.21</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>5</b> Estructura de datos y software</a></li>
+<li class="chapter" data-level="6" data-path="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>6</b> Estudio de Casos y planteo del Trabajo integrador</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Di3 - Facility Location</h1>
+<p class="author"><em>Dr. Ing. Ricardo R. Palma <strong><a href="mailto:rpalma@uncu.edu.ar" class="email">rpalma@uncu.edu.ar</a></strong></em></p>
+<p class="date"><em>2021-11-22</em></p>
+</div>
+<div id="nuevos-desafío-de-localización-de-planta---post-covid" class="section level1" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Nuevos desafío de localización de planta - Post-Covid</h1>
+<div class="figure">
+<img src="logo.png" alt="" />
+<p class="caption">Di3 - Facility Location - Creative Commons Contents</p>
+</div>
+<div id="facility-location" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Facility Location</h2>
+<p>Es campo de estudios y aplicaciones que ha surgido en inglés con el nombre de Facility Location, es un neologismo que aún no encuentra traducción aceptada por la Real academia Española de la Lengua. En el campo de la investigación operativa existe este concepto que hasta antes de la pandemia hacía referencia a Localización de plantas industriales (micro y macro localización).</p>
+<p>En el presente muchos de estos modelos se han relacionado muy fuertemente con soluciones a los problemas que se han presentado en el área de las cadenas de suministros críticas, en especial las de hospitales, instalaciones para vacunación con cadena de frío, unidades de cuidado intensivo e incluso quirófanos.</p>
+<p>Muchos de los aportes y modelo que han ampliado el tema de estudio del curso están ligados a las restricciones que la Norma ISO 22301 nos hace tener en cuenta como contingencias asociadas a planes de prevención, mitigación / recuperación en escenarios como los que transitamos.</p>
+<p>Estos modelos están reconfigurando a lo largo del planeta las estrategias de manufactura por parte de gobiernos y empresas, así como las acciones y estrategias de los planes de desarrollo territorial e industrial.</p>
+<div class="figure">
+<img src="antibioticos.png" alt="" />
+<p class="caption">Cambios hacia cadenas más cortas y de alta gobernanza</p>
+</div>
+</div>
+<div id="fundamentación-y-vinculación-con-las-empresas" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Fundamentación y vinculación con las empresas</h2>
+<p>Uno de los cambios, que seguramente continuarán como tendencia, en las instancias post pandemia ha sido el relativo a la incorporación masiva de tecnología pertenecientes al campo de la Industria 4.0 y las denominadas Internet de las cosas industriales (IIOT).</p>
+<p>A pesar del entusiasmo y la motivación la pos pandemia ha reflejado errores en decisiones previas que han expuesto la poca resiliencia de las estrategias de gestión de las cadenas de suministro. Tal el caso de países como Alemania, que está optando relocalizar las plantas de fabricación de antibióticos que Bayer tenía en China para volver a emplazarlas en el valle del Ruhr. Esto implica mayores costos de manufactura, pero más gobernanza en cadenas cortas ligadas a temas estratégicos.</p>
+<p>Estos hechos, la creciente cantidad de datasets generado por los dispositivos de las tecnologías señaladas en el párrafo anterior, sumado a las nuevas herramientas para el modelado y simulación abren la posibilidad de re-ver antiguos métodos para adaptarlos a este nuevo entorno. Todo esto con el fin de tomar decisiones o apuntar recomendaciones para esta nueva y acelerada reconfiguración de los entramados industriales con cadenas cortas más flexibles capaces de enfrentar desafíos de disrupciones como las que la pandemia nos ha impuesto.</p>
+<div id="objetivo" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Objetivo</h3>
+<p><strong>Objetivo general</strong></p>
+<p>Al finalizar el Curso el alumno habrá logrado competencias que le permitan:</p>
+<ul>
+<li><p>Conocer los enfoques epistémicos utilizados en el planteo del problema de Facility Location enunciado por Fermat y como nueva evidencia científica lleva a nuevos óptimos a lo largo de los siglos hasta llegar a la solución de Torricelli.</p></li>
+<li><p>Utilizar este marco teórico expuesto para amplia o asegurar la validación de las hipótesis expuestas en las tesis de los doctorandos ante los cambios de escenarios económicos y tecnológicos emergentes.</p></li>
+<li><p>Aplicación a situaciones de problemas de abastecimientos y casos de sistemas productivos reales para quienes provienen de la industria.</p></li>
+<li><p>Familiarizarse con la nueva formulación matemática expuesta por Weber et al. para implementarla como algoritmo de optimización en problemas de localización de planta, ruteo, storage en 3d para almacenes inteligentes y estrategias de desarrollo sostenibles territorial basada en los ODS-2030.</p></li>
+</ul>
+</div>
+<div id="objetivos-de-aprendizajes" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Objetivos de aprendizajes</h3>
+<ul>
+<li>Verificación de la robustez de aceptación de una hipótesis ante premisas de partida con incertidumbre.</li>
+<li>Modelado y simulación con la biblioteca ORLOCA (en MatLab, Python o R-Cran)</li>
+<li>Comparación con métodos de ruteo y localización disponibles en líneas (comparación de la eficiencia computacional).</li>
+<li>Dominio del uso de modelos para problemas tipo norma 1,2 y 3 con uno, dos o varios centros de abastecimientos (fuentes)</li>
+<li>Extensión del modelado a localización unidimensional (caso localización urbana en una ruta o vía de tren)</li>
+<li>Costeo basa de en actividades aplicado al problema de localización con gobernanza y gobernabilidad.</li>
+</ul>
+</div>
+<div id="metodología-de-trabajo" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Metodología de trabajo</h3>
+<p>El Curso se desarrolla en encuentros virtuales que incluyen teoría, casos y resolución.</p>
+<p>Se realiza la presentación y análisis de casos, con posterior discusión de las soluciones viables. El desarrollo de las clases se basa en métodos de aprendizaje activos. Además, en las diferentes sesiones se realizan actividades en aula virtual, así como trabajo personal.</p>
+<p>Se propone el desarrollo de un Trabajo Integrador, siendo su objetivo visualizar y establecer los elementos conceptuales que se presentan en las clases. La finalidad es poder evidenciar como los elementos teóricos se pueden trasladar a sus contextos de los sistemas productivos locales, regionales e internacionales. Este trabajo final entregable consta de entregas formativas y una entrega final integral con monografías y modelos formalizados en software o soluciones numéricas esbozadas (aún en forma elemental como planillas de cálculo).</p>
+</div>
+<div id="sistema-de-evaluación" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Sistema de evaluación</h3>
+<p>La evaluación consiste de los siguientes elementos:</p>
+<p>Participación de las actividades desarrolladas en la clase, se considera la lectura de artículos científicos y la lectura previa de los casos de estudios como requisito previo a la asistencia a la actividad sincrónica virtual.</p>
+<p>Trabajo de Investigación y/o aplicación del contenido con la finalidad de pasar de la teoría a la práctica en aplicándola a la propuesta de tesis o caso de estudio elegido en caso de no estar desarrollando el doctorado.</p>
+<p>Trabajo Final Integrador obligatorio.</p>
+</div>
+</div>
+<div id="contenidos" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Contenidos</h2>
+<div id="funciones-de-distancia-en-problemas-de-localización" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Funciones de Distancia en Problemas de Localización</h3>
+<ol style="list-style-type: decimal">
+<li>Distancia basada en norma de vectores</li>
+<li>Distancia de norma 2 o distancia Manhatam</li>
+<li>Distancia Euclídea</li>
+<li>Distancia con otras normas aplicada almacenamiento y almacenamiento con gradiente de temperatura o problemas de Material Handling (salas de cirugía).</li>
+<li>Distancia Matricial y casos de bloqueos (muros, zonas anegadas, etc).</li>
+<li>Varianza de las distancias con distintas normas.</li>
+<li>Curva de Hilbert.</li>
+<li>Revisión bibliográficas de métodos de antecesores de facility location.</li>
+</ol>
+</div>
+<div id="tipología-y-topología-de-los-problemas-de-localización" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Tipología y Topología de los Problemas de Localización</h3>
+<ol style="list-style-type: decimal">
+<li>Problemas de localización de una instancia (caso de localización de un reabastecimiento en una linea férrea)</li>
+<li>Casos de un abastecimiento en norma 2 y 3. El ejemplo de localización de la batería de un satélite.</li>
+<li>Problemas de localización de múltiples instancias.</li>
+<li>Estrategias de ruteo para reabastecer y costos logísticos individual y colectivo con algoritmos geneticos y evolutivos.</li>
+<li>Casos de localización y tamaño de clientes móviles (servicio de transporte público).</li>
+<li>Casos de localización de redes eléctricas y generadores compensadores (turbinas de gas) en redes urbanas.</li>
+<li>Localización con instancias “desagradables” y “agradables”.</li>
+<li>Problemas tipo: NIMBY (not in my back yard), NIMNBY (not in my neighbor’s back yard). NIABY (not in anyone’s back yard).</li>
+</ol>
+</div>
+<div id="metodologías-cuali-y-cuantitativas" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Metodologías cuali y cuantitativas</h3>
+<ol style="list-style-type: decimal">
+<li>Representación y georeferenciación y sistemas de proyección.</li>
+<li>Localización por métodos cualitativos (RQDA)</li>
+<li>Localización basada en rankings (AHP)</li>
+<li>Localización basada en instancias geométricas (polígonos de Voronoi y Triangulación de Delaunay).</li>
+<li>La biblioteca ORLoca de Manuel Munoz-Marquez <a href="mailto:manuel.munoz@uca.es" class="email">manuel.munoz@uca.es</a></li>
+<li>Caso de estudios, localización de hospitales y vacunatorios de los refigiados en Siria</li>
+</ol>
+</div>
+<div id="unidad-4-estructura-de-datos-y-software" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Unidad 4 Estructura de datos y software</h3>
+<ol style="list-style-type: decimal">
+<li>Estructura matricial para optimización</li>
+<li>Datos tipo raster</li>
+<li>Datos tipo vector.</li>
+<li>Vectores de punto, líneas y polígonos.</li>
+<li>Geomarketing y geolocation</li>
+<li>Puentes a sistemas GIS (SAGA, QGIS, GRASS 7)</li>
+<li>Caso: Estimación de residuos agrícolas mediante la integración de un método analítico y georeferenciación</li>
+</ol>
+</div>
+<div id="unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador" class="section level3" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</h3>
+<ol style="list-style-type: decimal">
+<li>Trabajo de artículo modelo (paper) o Implementación en proyecto de una empresa (o caso de estudio).</li>
+<li>Herramientas bibliométricas para estado del arte de la situación problema a abordar, uso de herramientas para búsqueda de patentes y uso de n-gram</li>
+<li>Selección de métodos más indicados para la investigación</li>
+<li>Comprobación y verificación de la hipótesis</li>
+<li>Conclusiones</li>
+</ol>
+</div>
+</div>
+<div id="bibliografía" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Bibliografía</h2>
+<p>Este campo emergente de la localización afectada por el problema de la pandemia es un campo de desarrollo en la actualidad. Las empresas e instituciones académicas que han encontrado los resultados más prometedores para la reconfiguración de las cadenas de suministros hacen referencia al los buenos resultados que se obtienen con la solución que Torrricelli encontró en 1600 al problema de localización planteado por Fermat-Weber cien años antes. Curiosamente en este período histórico no se manejaba el concepto de cadenas de abastecimiento, pero si se verificó una relocalización en Europa. El curso está basado en seis de los artículos más relevantes publicados por este año y señalados por APICS y la CEPAL como los casos más significativos para latinoamérica y caribe.</p>
+<p>Se recurre, de todos modos, a publicaciones que van desde 1950 hasta la fecha en las que por curiosidad de investigó sobre el problema de Fermat que aparecía como método demasiado complejo para resolverlo con los escenarios pre-pandemia. Todos los papers señalados hacen referencia al trabajo de 1953 de Bringerg como base matemática para dar respuestas a la transición requerida para la superación del impacto de la pandemia en los sitemas de manufatura.</p>
+<p>La bibliografía seleccionada está basada en publicaciones reciente en las que cada capítulo es un “extended paper” de modo que se señalará el nombre del editor de la colección y en clase se identificará al autor de capítulo (o capítulos) pertinentes al tema desarrollado.
+Es altamente recomendable que los asistentes al curso tengan acceso al sistema nacional de publicaciones científicas. En el caso de Argentina este servicio es provisto a las bibliotecas y bibliotecas virtuales por el servicio de bibliotecología del MINCYT.</p>
+<p>[1] Brimberg, J. The Fermat-Weber location problem revisited, Mathematical Programming, 1, pg. 71-76, 1995. <a href="https://doi.org/10.1007/BF01592245" class="uri">https://doi.org/10.1007/BF01592245</a>.</p>
+<p>[2] Love, R. F., Morris, J. G., Wesolowsky, G. O. Facilities Location: Chapter 2: Introduction to Single-Facility Location, 1988, North-Holland</p>
+<p>[3] Munoz-Marquez Manuel <a href="http://knuth.uca.es/orloca" class="uri">http://knuth.uca.es/orloca</a> biblioteca R-Cran</p>
+<p>[4] Wilfer, Oleg ,Multi-Composed Programming with Applications to Facility Location,,2020,978-3-658-30579-6,2020,Mathematische Optimierung und Wirtschaftsmathematik | Mathematical Optimization and Economathematics,Springer Fachmedien Wiesbaden;Springer Spektrum.</p>
+<p>[5] Mallozzi, Lina; D’Amato, Egidio; Pardalos (eds.), Panos M.",Spatial Interaction Models : Facility Location Using Game Theory,Spatial Interaction Models,2017,978-3-319-52653-9,2017,Springer Optimization and Its Applications 118,Springer International Publishing,</p>
+<p>[6] Karakitsiou (auth.), Athanasia",Modeling Discrete Competitive Facility Location,,2015,978-3-319-21340-8,2015,SpringerBriefs in Optimization,Springer International Publishing,</p>
+<p>[7] Klamroth, Kathrin",Single-Facility Location Problems with Barriers,,2010,978-1-4419-3027-9,2010,Springer Series in Operations Research and Financial Engineering,Springer,</p>
+<p>[8] Zarinbal (auth.), Marzie; Farahani, Reza Zanjirani; Hekmatfar (eds.), Masoud,“Facility Location: Concepts, Models, Algorithms and Case Studies”,Facility Location,2009,978-3-7908-2150-5,2009,Contributions to Management Science,Physica-Verlag Heidelberg,</p>
+<p>[9] Kosanke (auth.), Kurt; Dolgui, Alexandre; Soldek, Jerzy; Zaikin (eds.), Oleg,“Supply Chain Optimisation: Product/Process Design, Facility Location and Flow Control”,Supply Chain Optimisation,2005,978-0-387-23566-0,2005,Applied Optimization 94,Springer US,</p>
+<p>[10] Sule, Dileep R.,Logistics of Facility Location and Allocation (Industrial Engineering),,2001,978-0-8247-0493-3,2001,,,</p>
+<p>[11] Miller, Dr Tan C.; Friesz, Prof Dr Terry L.; Tobin (auth.), Prof Dr Roger L.“,Equilibrium Facility Location on Networks,,1996,978-3-642-08227-6,1996,Advances in Spatial and Network Economics,Springer-Verlag Berlin Heidelberg,”Jr, Arthur P. Hurter; Martinich (auth.), Joseph S.",Facility Location and the Theory of Production,,1989,978-94-010-7637-1,1989,,Springer Netherlands,</p>
+<p>[12] Dumont, Morgane; Ellison, Richard; Lovelace, Robin; Založnik, Maja, Spatial microsimulation with R,,2016,978-1-4987-1156-2,2016,R (Series),CRC Press LLC,</p>
+<p>[14] Principal publicación utilizada en el curso - Lovelace, Robin; Nowosad, Jakub; Muenchow, Jannes",Geocomputation with R,,2019,978-1-138-30451-2,2019,Chapman &amp; Hall/CRC The R Series,Chapman and Hall/CRC,</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="solución-matemática-vs-numérica.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/index.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

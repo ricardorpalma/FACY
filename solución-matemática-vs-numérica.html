@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Solución Matemática vs numérica | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 2 Solución Matemática vs numérica | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Solución Matemática vs numérica | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Solución Matemática vs numérica | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-11-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="alternativa-geométrica.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html"><i class="fa fa-check"></i><b>2</b> Solución Matemática vs numérica</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#el-operador-nabla"><i class="fa fa-check"></i><b>2.1</b> El operador Nabla</a></li>
+<li class="chapter" data-level="2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>2.2</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>2.2.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>2.2.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="2.2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>2.2.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>2.3</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="2.4" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>2.4</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="2.5" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>2.5</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>2.5.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html"><i class="fa fa-check"></i><b>3</b> Alternativa geométrica</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.5</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-uuu"><i class="fa fa-check"></i><b>3.5.1</b> Ejercicio uuu</a></li>
+<li class="chapter" data-level="3.5.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-1"><i class="fa fa-check"></i><b>3.5.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.5.3</b> Ejercicio (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.5.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-2"><i class="fa fa-check"></i><b>3.5.4</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distancias-y-norma.html"><a href="distancias-y-norma.html"><i class="fa fa-check"></i><b>4</b> Distancias y norma</a></li>
+<li class="chapter" data-level="5" data-path="distancias-y-norma-1.html"><a href="distancias-y-norma-1.html"><i class="fa fa-check"></i><b>5</b> Distancias y norma</a></li>
+<li class="chapter" data-level="6" data-path="distancias-y-norma-2.html"><a href="distancias-y-norma-2.html"><i class="fa fa-check"></i><b>6</b> Distancias y norma</a></li>
+<li class="chapter" data-level="7" data-path="distancias-y-norma-3.html"><a href="distancias-y-norma-3.html"><i class="fa fa-check"></i><b>7</b> Distancias y norma</a></li>
+<li class="chapter" data-level="8" data-path="distancias-y-norma-4.html"><a href="distancias-y-norma-4.html"><i class="fa fa-check"></i><b>8</b> Distancias y norma</a></li>
+<li class="chapter" data-level="9" data-path="distancias-y-norma-5.html"><a href="distancias-y-norma-5.html"><i class="fa fa-check"></i><b>9</b> Distancias y norma</a></li>
+<li class="chapter" data-level="10" data-path="distancias-y-norma-6.html"><a href="distancias-y-norma-6.html"><i class="fa fa-check"></i><b>10</b> Distancias y norma</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="solución-matemática-vs-numérica" class="section level1" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Solución Matemática vs numérica</h1>
+<p>Uno de los aspectos más controvertidos respecto a lo que admitimos como solución a los problemas, es el resultado que se obtiene cuando encaramos el problema desde el punto de vista matemático o desde el punto de vista numérico.</p>
+<p>Se debe entender muy claramente que una solución matemática tiene un rigor que no puede ser rebatido y se cumplirá siempre en forma exacta.
+Por otro lado las soluciones obtenidas por cálculo numérico son aproximadas y se basan en las primeras pero utilizando la computación como medio para obtener algo más que un conjunto de reglas lógicas ecuaciones y eventualmente algoritmos.</p>
+<p>Iniciaremos esta parte del curso que tal vez para la gente del sector empresario resulte un tanto árida, pero que desarrolla formas de pensar que han conducido desde la época de oro de los pensadores de Grecia hasta nuestros días a encontrar la solución que más se adapta a nuestro problema.</p>
+<p>En el capítulo posterior veremos como parte de este dilema entre Matemático vs Numérico fuer resuelto con una alternativa de compromiso muy utilizado por los geómetras y por los geógrafos, para pasar finalmente a las soluciones numéricas que nos interesar en nuestros decisiones en el campo profesional.</p>
+<p>Una de las argumentaciones más sólidas que se puede esgrimir sobre estos métodos es que llegan a la causa raíz de la fenomenología del problema. Tienen el rigor científico que en física y matemática les otorga el rango de <em>LEY</em>.
+En muchos casos esta argumentación se ve reforzada pr las malas prácticas que se suelen encontrar en el uso de los métodos estadísticas, tales como simulación y analítica de datos.</p>
+<p>A modo de ejemplo, es factible entrenar una red neuronal para que nos otorgue resultados de la velocidad de caída de un cuerpo liberado en un campo <span class="math inline">\(g\)</span> desde cierta altura sin que la red ni el analista tengan una pálida idea de la expresión <span class="math inline">\(V_f =V_0 * t + 1/2 g * t^2\)</span></p>
+<div id="el-operador-nabla" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> El operador Nabla</h2>
+<p>En geometría diferencial, nabla (también llamado del) es un operador diferencial vectorial representado por el símbolo: <span class="math inline">\(\nabla\)</span> (nabla).</p>
+<p>En coordenadas cartesianas tridimensionales, nabla se puede escribir como:</p>
+<p><span class="math display">\[{\displaystyle \nabla ={\hat {x}}{\partial \over \partial x}+{\hat {y}}{\partial \over \partial y}+{\hat {z}}{\partial \over \partial z}.}\]</span></p>
+<p>siendo <span class="math inline">\(\hat x , \hat y \hat z\)</span> los vectores unitarios en las direcciones de los ejes coordenados. Esta base también se representa por <span class="math inline">\(\hat i, \hat {j} , \hat {k}\)</span> o versores.</p>
+</div>
+<div id="ecuaciones-diferenciales-en-derivadas-parciales" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Ecuaciones diferenciales en derivadas parciales</h2>
+<p>Casi todos los cursos de doctorado tienen dos propuestas relativas a <strong>Métodos Matemáticos</strong> y <strong>Métodos Numéricos</strong>
+En los primeros hay un concepto que es el de ecuaciones diferenciales en derivadas parciales que ha sido motivo de cerca del 80% de las tesis de ingeniería del siglo XX.</p>
+<p>Sobre el final de este punto discutiremos en clase que tan cómodo te sientes con este tipo de soluciones a los problemas.</p>
+<p>Una ecuación diferencial en derivadas parciales (EDP) para la función <span class="math inline">\({\displaystyle u(x_{1},x_{2},\ldots ,x_{n})}\)</span> tiene la siguiente forma:</p>
+<p><span class="math display">\[{\displaystyle F(x_{1},x_{2},\ldots ,x_{n},u,{\frac {\partial u}{\partial x_{1}}},{\frac {\partial u}{\partial x_{2}}},\ldots ,{\frac {\partial u}{\partial x_{n}}},{\frac {\partial ^{2}u}{\partial x_{1}\partial x_{1}}},{\frac {\partial ^{2}u}{\partial x_{1}\partial x_{2}}},\cdots )=0\,}{\displaystyle F(x_{1},x_{2},\ldots ,x_{n},u,{\frac {\partial u}{\partial x_{1}}},{\frac {\partial u}{\partial x_{2}}},\ldots ,{\frac {\partial u}{\partial x_{n}}},{\frac {\partial ^{2}u}{\partial x_{1}\partial x_{1}}},{\frac {\partial ^{2}u}{\partial x_{1}\partial x_{2}}},\cdots )=0\,}\]</span></p>
+<p>donde <span class="math inline">\({F}\)</span> es una función lineal de <span class="math inline">\(u\)</span>, y sus derivadas si:</p>
+<p><span class="math display">\[{\displaystyle F(\lambda u+\mu w)=\lambda F(u)+\mu F(w)}\]</span></p>
+<p>Si {F,}F, es una función lineal de {u,}u, y sus derivadas, entonces la EDP es lineal. Ejemplos comunes de EDPs son la ecuación del calor, la ecuación de onda y la ecuación de Laplace. Una ecuación diferencial en derivadas parciales simple puede ser:</p>
+<p><span class="math inline">\({\displaystyle {\frac {\partial u}{\partial x}}(x,y)=0}\)</span></p>
+<p>donde u es una función de x e y. Esta relación implica que los valores de u(x, y) son completamente independientes de x. Por lo tanto la solución general de esta ecuación diferencial es:</p>
+<p><span class="math display">\[{\displaystyle u(x,y)=f(y),\,}u(x,y)=f(y)\]</span></p>
+<p>donde f es una función arbitraria de y. La ecuación diferencial ordinaria (Similar a la EDP, pero con funciones de una variable) análoga es</p>
+<p><span class="math display">\[{\displaystyle {\frac {du}{dx}}=0,\,}{\frac  {du}{dx}}=0\]</span></p>
+<p>que tiene la siguiente solución</p>
+<p><span class="math inline">\({\displaystyle u(x)=c,\,}u(x)=c\)</span></p>
+<p>Donde c es cualquier valor constante (independiente de x). Estos dos ejemplos ilustran que las soluciones generales de las ecuaciones diferenciales ordinarias se mantienen con constantes, pero las soluciones de las ecuaciones diferenciales en derivadas parciales generan funciones arbitrarias. Una solución de una ecuación en derivadas parciales generalmente no es única; de tal forma que se tienen que proporcionar condiciones adicionales de contorno capaces de definir la solución de forma única. Por ejemplo, en el caso sencillo anterior, la función <span class="math inline">\(f (y )\)</span> puede determinarse si <span class="math inline">\(u\)</span> se especifica sobre la línea <span class="math inline">\(x = 0\)</span>.</p>
+<div id="notación-y-ejemplos" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Notación y ejemplos</h3>
+<p>En las ecuaciones diferenciales en derivadas parciales es muy común denotar las derivadas parciales empleando sub-índices (Notación tensorial). Esto es:</p>
+<p><span class="math display">\[{\displaystyle u&#39;_{x}={\partial u \over \partial x},\qquad u&#39;&#39;_{xy}={\partial ^{2}u \over \partial y\,\partial x}={\partial \over \partial y}\left({\partial u \over \partial x}\right)}{\displaystyle u&#39;_{x}={\partial u \over \partial x},\qquad u&#39;&#39;_{xy}={\partial ^{2}u \over \partial y\,\partial x}={\partial  \over \partial y}\left({\partial u \over \partial x}\right)}\]</span>
+<span class="math display">\[\begin{equation}
+\tag{Ec.1}
+\end{equation}\]</span></p>
+<p>Especialmente en la física matemática, se suele preferir el operador nabla (que en coordenadas cartesianas se escribe como <span class="math inline">\({\displaystyle \nabla =(\partial _{x},\partial _{y},\partial _{z})}{\displaystyle \nabla =(\partial _{x},\partial _{y},\partial _{z})}\)</span> para las derivadas espaciales y un punto <span class="math inline">\(({\displaystyle {\dot {u}}})\)</span> para las derivadas que involucran el tiempo, por ejemplo para escribir la Ecuación de onda (véase más abajo) como</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.2}
+\end{equation}\]</span></p>
+<p>(notación matemática)
+<span class="math display">\[{\displaystyle {\ddot {u}}=c^{2}\Delta u\,}{\ddot  u}=c^{2}\Delta u\}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.3}
+\end{equation}\]</span>
+, (notación física)
+<span class="math display">\[{\displaystyle {\ddot {u}}=c^{2}\nabla ^{2}u\,}{\ddot  u}=c^{2}\nabla ^{2}u\}\]</span></p>
+</div>
+<div id="solución-general-y-solución-completa" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Solución general y solución completa</h3>
+<p>Toda ecuación diferencial en derivadas parciales de primer orden posee una solución dependiente de una función arbitraria, que se denomina usualmente solución general de la EDP. En muchas aplicaciones físicas esta solución general es menos importante que las llamadas soluciones completas, que frecuentemente pueden obtenerse por el método de separación de variables.</p>
+<p>Una solución completa es una solución particular de la EDP que contiene tantas constantes arbitrarias independientes como variables independientes intervienen en la ecuación. Por ejemplo la integración de las ecuaciones del movimiento de un sistema mecánico mediante el método basado en la ecuación de <strong>Hamilton-Jacobi</strong> requiere una integral completa, mientras que la solución general resulta menos interesante desde el punto de vista físico.</p>
+</div>
+<div id="existencia-y-unicidad" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Existencia y unicidad</h3>
+<p>Si <span class="math inline">\(u(x)\)</span> es una función con derivadas continuas en un conjunto <span class="math inline">\(U \in Rn\)</span> es solución única del problema de valor de frontera:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.4}
+\end{equation}\]</span></p>
+<p><span class="math display">\[-∆u=f \in U\]</span></p>
+<p><span class="math inline">\(u(x)=h(x)\)</span> en la frontera de U.</p>
+<p>Así mismo, se puede calcular la solución fundamental para la ecuación del calor en dimensión <span class="math inline">\(n\)</span>.</p>
+<p>Aunque el asunto de la existencia y unicidad de las soluciones de las ecuaciones diferenciales ordinarias tiene una respuesta muy satisfactoria resumida en el teorema de <strong>Picard-Lindelöf</strong>, el mismo asunto para las ecuaciones en derivadas parciales está lejos de estar satisfactoriamente resuelto. Aunque existe un teorema general, el teorema de <strong>Cauchy-Kovalevskaya</strong>, que afirma que para una EDP, que es analítica en la función incógnita y sus derivadas, tiene una única solución analítica. Aunque este resultado que parece establecer la existencia y unicidad de la soluciones, aparecen ejemplos de EDP de primer orden cuyos coeficientes tienen derivadas de cualquier orden (aunque sin ser analíticas) pero que no tienen solución. Incluso si la solución de una EDP existe y es única, ésta puede tener propiedades indeseables.</p>
+<p>Un ejemplo de comportamiento patológico es la secuencia de problemas de Cauchy dependientes del parámetro n para la ecuación de Laplace:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.5}
+\end{equation}\]</span></p>
+<p><span class="math display">\[{\displaystyle {\frac {\partial ^{2}u}{\partial x^{2}}}+{\frac {\partial ^{2}u}{\partial y^{2}}}=0,\,}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.6}
+\end{equation}\]</span></p>
+<p>con condiciones iniciales</p>
+<p><span class="math display">\[{\displaystyle u(x,0)=0,\qquad {\frac {\partial u}{\partial y}}(x,0)={\frac {\sin nx}{n}}}\]</span></p>
+<p>Donde <span class="math inline">\(n\)</span> es un entero. La derivada de u con respecto a y se aproxima a 0 uniformemente en <span class="math inline">\(x\)</span> a medida que n se incrementa, pero la solución es:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.7}
+\end{equation}\]</span></p>
+<p><span class="math display">\[{\displaystyle u(x,y)={\frac {(\sinh ny)(\sin nx)}{n^{2}}}.\,}\]</span></p>
+<p>Esta solución se aproxima a infinito si nx no es un entero múltiplo de π para cualquier valor de y. El problema de Cauchy para la ecuación de Laplace se denomina mal propuesto o mal definido, puesto que la solución no depende continuamente de los datos del problema. Estos problemas mal definidos no son usualmente satisfactorios para las aplicaciones físicas.</p>
+</div>
+</div>
+<div id="clasificación-de-las-edp-de-segundo-orden" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Clasificación de las EDP de segundo orden</h2>
+<p>Las EDP de segundo orden se clasifican habitualmente dentro de cinco tipos de EDP que son de interés fundamental; a continuación se dan ejemplos de estos cinco tipos:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.8,9,10,11 y 12}
+\end{equation}\]</span></p>
+<p>Ecuación Nombre Tipo
+<span class="math display">\[{\displaystyle \nabla ^{2}u=0}\nabla ^{2}u=0\]</span> Laplace Elíptica
+<span class="math display">\[{\displaystyle \nabla ^{2}u=f}{\displaystyle \nabla ^{2}u=f}\]</span> Poisson Elíptica
+<span class="math display">\[{\displaystyle {\frac {\partial ^{2}u}{\partial t^{2}}}=c^{2}\nabla ^{2}u}{\frac  {\partial ^{2}u}{\partial t^{2}}}=c^{2}\nabla ^{2}u\]</span> Onda Hiperbólica
+<span class="math display">\[{\displaystyle {\frac {\partial u}{\partial t}}=k\nabla ^{2}u}{\frac  {\partial u}{\partial t}}=k\nabla ^{2}u\]</span> Difusión Parabólicas
+<span class="math display">\[{\displaystyle \nabla ^{2}u=ku}\nabla ^{2}u=ku\]</span> Helmholtz Elíptica</p>
+<p>Con mayor generalidad, si se tiene una ecuación de segundo orden del tipo:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{Ec.13}
+\end{equation}\]</span></p>
+<p><span class="math display">\[{\displaystyle Au_{xx}+2Bu_{xy}+Cu_{yy}+Du_{x}+Eu_{y}+F=0\quad }\]</span></p>
+<p>Con estos coeficientes se monta la siguiente matriz:</p>
+<p><span class="math display">\[\begin{equation}
+\tag{14}
+\end{equation}\]</span>
+<span class="math display">\[
+{\displaystyle Z={\begin{bmatrix}B&amp;A\\C&amp;B\end{bmatrix}}}
+\]</span></p>
+<p>En función del determinante la ecuación (*):</p>
+<ul>
+<li>se dice que es elíptica si la matriz Z tiene un determinante menor a 0.</li>
+<li>se dice que es parabólica si la matriz Z tiene un determinante igual a 0.</li>
+<li>se dice que es hiperbólica si la matriz Z tiene un determinante mayor a 0.</li>
+</ul>
+<p>Nombres de objetos de la geometría analítica y se llaman cónicas.</p>
+</div>
+<div id="notas-sobre-la-solución-matemática-de-estos-problemas" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Notas sobre la solución matemática de estos problemas</h2>
+<p>Uno de los aspectos que más confianza le ha aportado a la empresa en los últimos años es la enorme posibilidad, sobre todo en las PyME, que el acceso a publicaciones científicas les ha dado internet académico.</p>
+<p>Sitios como google académico, la biblioteca del MinCyT, Microsoft Acedemic o “Grandes Editoriales” como Tompson y Reuters, Srpinger, Francis y Taylor, etc. han puesto una enorme cantidad de material para trabajar en la innovación y mejora continua, en el desarrollo y en la incorporación de métodos que son en muchos casos la solución a muchos de sus problemas.</p>
+<p>Mucha de la información que aparece en estas publicaciones está sujeta a un límite de cantidad de páginas para el reporte. Una de las formas de compactar la comunicación y el uso de la formulación matemática. Pero en general (y como seguramente se puede inferir de lo que llevamos desarrollado) la formulación matemática suele ser un verdadero jeroglífico egipcio para las empresas.
+Es tanta la distancia que en Latinoamérica y Caribe tenemos entre las empresas y la academia que las primeras (empresas) tienden a desestimar las publicaciones que utilizan esta forma de comunicación. Lamentablemente la mayoría de la ciencia se escribe matemáticamente. Pero una de las ventajas de el entorno en que desarrollamos este curso, es la existencia de alumnos que están en la instancia de formación de posgrado y son ellos los que deben traducir esta formulación matemática en algoritmos implementados dentro de piezas de software que la empresa si sabe leer, utilizar y explotar para su ventaja competitiva.</p>
+<p>En muchos casos esta semántica entre la solución aportada sobre todo por las ciencias básicas lleva a situación de conflicto con la empresa.</p>
+<p>Veremos un ejemplo de logística de última milla que es en realida un método brillane de solución para la empresa, pero que al ser recibido dispara hasta la furia de la empresa. En este contexto es que esperamos que los alumnos de posgrado puedan actuar como mediador y traductor.</p>
+</div>
+<div id="congestión-de-flujo-de-tránsito-urbano." class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Congestión de flujo de tránsito urbano.</h2>
+<p>No existen situación tan exasperante para las empresas de delivery como la que se experimenta con el incremente virtual de las distancias cuando las asterias urbanas están colapsadas.
+Operaciones que en la madrigada podrían realizarse en 20 minutos, durante el horario de salida de las escuelas y cierre del comercio puede demandar 3 o 4 horas !!!.
+Ciertamente no es que se viole las leyes de la física y las distancias mágiamente se incrementen, el problema es que las velocidades caén y el consumo de combustible se va literalmente a las nubes (y no nubes digitales).</p>
+<p>Veamos la solución que a este problema encuentran las ciencias básicas.</p>
+<div id="flujo-del-tráfico" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Flujo del Tráfico</h3>
+<p>Normalmente existe el pre concepto que indica que cuanto tenemos un modelo matemático resuelto, no tendremos que recurrir a la simulación o a la experimentación. Nada más alejado de la realidad. A continuación veremos como trabajar con un modelo matemático desarrollado íntegramente a partir de ecuaciones diferenciales en derivadas parciales. Esta técnica es utilizado como base por gran cantidad de paquetes de software específicos del mundo del transporte, tales como Estraus o Dracula. En realidad cuando tenemos la formulación matemática, en teoría con tener un par de datos como la condición inicial y una variable de borde, podríamos resolver o explicar lo que ocurre en toda la regón de análisis. Pero en realidad al momento de implementar la solución numérica o desarrollar el modelo en una pieza de software (o incluso un prototipo en hoja de cálculo) encontraremos que es necesario dar valor a muchas constantes de integración que no puede ser elegidas al azar. Para determinarlas hay que recurrir a métodos empíricos y a experimentación sobre el terreno o alternativamente recurrir a la simulación con un set de datos de un problema bien conocido.</p>
+<p>Suponemos que queremos estudiar el flujo del tráfico vehicular. Llamemos <span class="math inline">\(q(x,t)\)</span> al flujo vehicular que nos dará el número de vehículos por unidad de tiempo en la posición <span class="math inline">\(x,y\)</span> a tiempo <span class="math inline">\(t\)</span> , y <span class="math inline">\(\rho (x,t)\)</span> será la densidad del tráfico que es la cantidad de vehículos por unidad de distancia en la posición a tiempo . Entonces, el valor</p>
+<p><span class="math display">\[\begin{equation}
+\tag{15}
+\end{equation}\]</span>
+<span class="math display">\[N(t) = \int_{a}^{b} \rho(\zeta,t ) d\zeta    \]</span></p>
+<p>nos dirá el número de vehículos que hay entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> en el instante <span class="math inline">\(t\)</span>.</p>
+<p>Como los vehículos no pueden aparecer de la nada, ni desaparecer se verifica la siguiente Ley de conservación</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="alternativa-geométrica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/01-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/01-race.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
