@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Tipología y Topología de los Problemas de Localización | Di3 - Facility Location</title>
+  <meta name="description" content="Capítulo 4 Tipología y Topología de los Problemas de Localización | Di3 - Facility Location" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Tipología y Topología de los Problemas de Localización | Di3 - Facility Location" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Tipología y Topología de los Problemas de Localización | Di3 - Facility Location" />
+  
+  
+  
+
+<meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
+
+
+<meta name="date" content="2021-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="alternativa-geométrica.html"/>
+<link rel="next" href="metodologías-cuali-y-cuantitativas-1.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Post-Covid Facility Location Di3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Nuevos desafío de localización de planta - Post-Covid</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#facility-location"><i class="fa fa-check"></i><b>1.1</b> Facility Location</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#fundamentación-y-vinculación-con-las-empresas"><i class="fa fa-check"></i><b>1.2</b> Fundamentación y vinculación con las empresas</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.2.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#objetivos-de-aprendizajes"><i class="fa fa-check"></i><b>1.2.2</b> Objetivos de aprendizajes</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#metodología-de-trabajo"><i class="fa fa-check"></i><b>1.2.3</b> Metodología de trabajo</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#sistema-de-evaluación"><i class="fa fa-check"></i><b>1.2.4</b> Sistema de evaluación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contenidos"><i class="fa fa-check"></i><b>1.3</b> Contenidos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#funciones-de-distancia-en-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#tipología-y-topología-de-los-problemas-de-localización"><i class="fa fa-check"></i><b>1.3.2</b> Tipología y Topología de los Problemas de Localización</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#metodologías-cuali-y-cuantitativas"><i class="fa fa-check"></i><b>1.3.3</b> Metodologías cuali y cuantitativas</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#unidad-4-estructura-de-datos-y-software"><i class="fa fa-check"></i><b>1.3.4</b> Unidad 4 Estructura de datos y software</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#unidad-5-estudio-de-casos-y-planteo-del-trabajo-integrador"><i class="fa fa-check"></i><b>1.3.5</b> Unidad 5 Estudio de Casos y planteo del Trabajo integrador</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i><b>1.4</b> Bibliografía</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html"><i class="fa fa-check"></i><b>2</b> Solución Matemática vs numérica</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#el-operador-nabla"><i class="fa fa-check"></i><b>2.1</b> El operador Nabla</a></li>
+<li class="chapter" data-level="2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#ecuaciones-diferenciales-en-derivadas-parciales"><i class="fa fa-check"></i><b>2.2</b> Ecuaciones diferenciales en derivadas parciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notación-y-ejemplos"><i class="fa fa-check"></i><b>2.2.1</b> Notación y ejemplos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#solución-general-y-solución-completa"><i class="fa fa-check"></i><b>2.2.2</b> Solución general y solución completa</a></li>
+<li class="chapter" data-level="2.2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#existencia-y-unicidad"><i class="fa fa-check"></i><b>2.2.3</b> Existencia y unicidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#clasificación-de-las-edp-de-segundo-orden"><i class="fa fa-check"></i><b>2.3</b> Clasificación de las EDP de segundo orden</a></li>
+<li class="chapter" data-level="2.4" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#notas-sobre-la-solución-matemática-de-estos-problemas"><i class="fa fa-check"></i><b>2.4</b> Notas sobre la solución matemática de estos problemas</a></li>
+<li class="chapter" data-level="2.5" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#congestión-de-flujo-de-tránsito-urbano."><i class="fa fa-check"></i><b>2.5</b> Congestión de flujo de tránsito urbano.</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="solución-matemática-vs-numérica.html"><a href="solución-matemática-vs-numérica.html#flujo-del-tráfico"><i class="fa fa-check"></i><b>2.5.1</b> Flujo del Tráfico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html"><i class="fa fa-check"></i><b>3</b> Alternativa geométrica</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#funciones-de-distancia-en-problemas-de-localización-1"><i class="fa fa-check"></i><b>3.1</b> Funciones de Distancia en Problemas de Localización</a></li>
+<li class="chapter" data-level="3.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-basada-en-norma-de-vectores"><i class="fa fa-check"></i><b>3.2</b> Distancia basada en norma de vectores</a></li>
+<li class="chapter" data-level="3.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#especificación-de-norma-y-distancia"><i class="fa fa-check"></i><b>3.3</b> Especificación de Norma y Distancia</a></li>
+<li class="chapter" data-level="3.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#función-de-distancia"><i class="fa fa-check"></i><b>3.4</b> Función de Distancia</a></li>
+<li class="chapter" data-level="3.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-pasillo"><i class="fa fa-check"></i><b>3.5</b> Distancia de pasillo</a></li>
+<li class="chapter" data-level="3.6" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#matriz-de-distancia"><i class="fa fa-check"></i><b>3.6</b> Matriz de distancia</a></li>
+<li class="chapter" data-level="3.7" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#distancia-de-cuadras"><i class="fa fa-check"></i><b>3.7</b> Distancia de cuadras</a></li>
+<li class="chapter" data-level="3.8" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#curva-de-hilbert"><i class="fa fa-check"></i><b>3.8</b> Curva de Hilbert</a></li>
+<li class="chapter" data-level="3.9" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#uso-de-grafos"><i class="fa fa-check"></i><b>3.9</b> Uso de grafos</a></li>
+<li class="chapter" data-level="3.10" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#cadenas-de-markov-en-r"><i class="fa fa-check"></i><b>3.10</b> Cadenas de Markov en R</a></li>
+<li class="chapter" data-level="3.11" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#proceso-estocásticos"><i class="fa fa-check"></i><b>3.11</b> Proceso Estocásticos</a></li>
+<li class="chapter" data-level="3.12" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#introducción-a-markovchain"><i class="fa fa-check"></i><b>3.12</b> Introducción a markovchain</a></li>
+<li class="chapter" data-level="3.13" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#la-estructura-del-objeto-mc-es"><i class="fa fa-check"></i><b>3.13</b> La estructura del objeto mc es:</a></li>
+<li class="chapter" data-level="3.14" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#análisis-probabilístico"><i class="fa fa-check"></i><b>3.14</b> Análisis Probabilístico</a></li>
+<li class="chapter" data-level="3.15" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-markov"><i class="fa fa-check"></i><b>3.15</b> Ejercicio Markov</a></li>
+<li class="chapter" data-level="3.16" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#predicciones"><i class="fa fa-check"></i><b>3.16</b> Predicciones</a></li>
+<li class="chapter" data-level="3.17" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g1"><i class="fa fa-check"></i><b>3.17</b> Ejercicio G1:</a></li>
+<li class="chapter" data-level="3.18" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#propuesta-geometrica-de-fermat"><i class="fa fa-check"></i><b>3.18</b> Propuesta geometrica de Fermat</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g2"><i class="fa fa-check"></i><b>3.18.1</b> Ejercicio G2</a></li>
+<li class="chapter" data-level="3.18.2" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g3"><i class="fa fa-check"></i><b>3.18.2</b> Ejercicio G3</a></li>
+<li class="chapter" data-level="3.18.3" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g4-no-lo-quiero-en-mi-patio"><i class="fa fa-check"></i><b>3.18.3</b> Ejercicio G4 (no lo quiero en mi patio)</a></li>
+<li class="chapter" data-level="3.18.4" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g6"><i class="fa fa-check"></i><b>3.18.4</b> Ejercicio G6</a></li>
+<li class="chapter" data-level="3.18.5" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g7"><i class="fa fa-check"></i><b>3.18.5</b> Ejercicio G7</a></li>
+<li class="chapter" data-level="3.18.6" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#ejercicio-g8"><i class="fa fa-check"></i><b>3.18.6</b> Ejercicio G8</a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="alternativa-geométrica.html"><a href="alternativa-geométrica.html#revisión-bibliográfica-de-distancias"><i class="fa fa-check"></i><b>3.19</b> Revisión bibliográfica de distancias</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html"><i class="fa fa-check"></i><b>4</b> Tipología y Topología de los Problemas de Localización</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ejemplo-de-ruteo"><i class="fa fa-check"></i><b>4.1</b> Ejemplo de ruteo</a></li>
+<li class="chapter" data-level="4.2" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos"><i class="fa fa-check"></i><b>4.2</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="4.3" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#creacion-de-la-matriz-asigna"><i class="fa fa-check"></i><b>4.3</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="4.4" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cuál-ruta-tiene-el-costo-mínimo"><i class="fa fa-check"></i><b>4.4</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="4.5" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ruta-óptima"><i class="fa fa-check"></i><b>4.5</b> Ruta óptima</a></li>
+<li class="chapter" data-level="4.6" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#costo-mínimo-asociado"><i class="fa fa-check"></i><b>4.6</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html"><i class="fa fa-check"></i><b>5</b> Metodologías cuali y cuantitativas</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-plana-con-orloca"><i class="fa fa-check"></i><b>5.1</b> Localización plana con orloca</a></li>
+<li class="chapter" data-level="5.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#introducción"><i class="fa fa-check"></i><b>5.2</b> Introducción</a></li>
+<li class="chapter" data-level="5.3" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#la-clase-de-objetos-loca.p"><i class="fa fa-check"></i><b>5.3</b> La clase de objetos loca.p</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resumiendo-los-datos"><i class="fa fa-check"></i><b>5.3.1</b> Resumiendo los datos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#resolución"><i class="fa fa-check"></i><b>5.4</b> Resolución</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#dibujo-o-ploteo"><i class="fa fa-check"></i><b>5.4.1</b> Dibujo o ploteo</a></li>
+<li class="chapter" data-level="5.4.2" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-en-3d"><i class="fa fa-check"></i><b>5.4.2</b> Gráfico en 3D</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-localización-en-andalucía"><i class="fa fa-check"></i><b>5.5</b> Ejemplo de localización en Andalucía</a></li>
+<li class="chapter" data-level="5.6" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#localización-de-hospitales-para-refugiados-de-siria"><i class="fa fa-check"></i><b>5.6</b> Localización de hospitales para refugiados de Siria</a></li>
+<li class="chapter" data-level="5.7" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#detalles-de-la-operación"><i class="fa fa-check"></i><b>5.7</b> Detalles de la operación</a></li>
+<li class="chapter" data-level="5.8" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#consideraciones-técnicas-y-simplificación"><i class="fa fa-check"></i><b>5.8</b> Consideraciones Técnicas y Simplificación</a></li>
+<li class="chapter" data-level="5.9" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#código-en-r"><i class="fa fa-check"></i><b>5.9</b> Código en R</a></li>
+<li class="chapter" data-level="5.10" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#carga-de-bibliotecas-library-necesarias"><i class="fa fa-check"></i><b>5.10</b> Carga de bibliotecas (library) necesarias</a></li>
+<li class="chapter" data-level="5.11" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#obtención-de-datos-oficiales"><i class="fa fa-check"></i><b>5.11</b> Obtención de Datos Oficiales</a>
+<ul>
+<li class="chapter" data-level="5.11.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#agregar-grupos-al-dataset"><i class="fa fa-check"></i><b>5.11.1</b> Agregar grupos al dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#gráfico-sobre-mapa"><i class="fa fa-check"></i><b>5.12</b> Gráfico sobre mapa</a></li>
+<li class="chapter" data-level="5.13" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-georeferenciado"><i class="fa fa-check"></i><b>5.13</b> Mapa Georeferenciado</a></li>
+<li class="chapter" data-level="5.14" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-sobrecargado"><i class="fa fa-check"></i><b>5.14</b> Mapa sobrecargado</a></li>
+<li class="chapter" data-level="5.15" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-con-datos-clusterizados"><i class="fa fa-check"></i><b>5.15</b> Mapa con datos clusterizados</a></li>
+<li class="chapter" data-level="5.16" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-ruteo-1"><i class="fa fa-check"></i><b>5.16</b> Ejemplo de ruteo</a>
+<ul>
+<li class="chapter" data-level="5.16.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#matriz-de-asignacion"><i class="fa fa-check"></i><b>5.16.1</b> Matriz de asignacion</a></li>
+</ul></li>
+<li class="chapter" data-level="5.17" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos-1"><i class="fa fa-check"></i><b>5.17</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="5.18" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#creacion-de-la-matriz-asigna-1"><i class="fa fa-check"></i><b>5.18</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="5.19" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#cuál-ruta-tiene-el-costo-mínimo-1"><i class="fa fa-check"></i><b>5.19</b> Cuál ruta tiene el costo mínimo ?</a></li>
+<li class="chapter" data-level="5.20" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ruta-óptima-1"><i class="fa fa-check"></i><b>5.20</b> Ruta óptima</a></li>
+<li class="chapter" data-level="5.21" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#costo-mínimo-asociado-1"><i class="fa fa-check"></i><b>5.21</b> Costo mínimo asociado</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>6</b> Estructura de datos y software</a></li>
+<li class="chapter" data-level="7" data-path="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>7</b> Estudio de Casos y planteo del Trabajo integrador</a></li>
+<li class="chapter" data-level="8" data-path="trabajo-grupo-1.html"><a href="trabajo-grupo-1.html"><i class="fa fa-check"></i><b>8</b> Trabajo Grupo 1</a></li>
+<li class="chapter" data-level="9" data-path="trabajo-grupo-2.html"><a href="trabajo-grupo-2.html"><i class="fa fa-check"></i><b>9</b> Trabajo Grupo 2</a></li>
+<li class="chapter" data-level="10" data-path="trabajo-grupo-3.html"><a href="trabajo-grupo-3.html"><i class="fa fa-check"></i><b>10</b> Trabajo grupo 3</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Di3 - Facility Location</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tipología-y-topología-de-los-problemas-de-localización-1" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Tipología y Topología de los Problemas de Localización</h1>
+<ul>
+<li>Problemas de localización de una instancia (caso de localización de un reabastecimiento en una linea férrea)</li>
+<li>Casos de un abastecimiento en norma 2 y 3.</li>
+<li>El ejemplo de localización de la batería de un satélite.</li>
+<li>Problemas de localización de múltiples instancias.</li>
+<li>Estrategias de ruteo para reabastecer y costos logísticos individual y colectivo con algoritmos geneticos y evolutivos.</li>
+<li>Casos de localización y tamaño de clientes móviles (servicio de transporte público).</li>
+<li>Casos de localización de redes eléctricas y generadores compensadores (turbinas de gas) en redes urbanas.</li>
+<li>Localización con instancias “desagradables” y “agradables”.</li>
+<li>Problemas tipo: NIMBY (not in my back yard), NIMNBY (not in my neighbor’s back yard). NIABY (not in anyone’s back yard).</li>
+</ul>
+<div id="ejemplo-de-ruteo" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Ejemplo de ruteo</h2>
+<p>Descarga el archivo ruteo_imposible.csv y guárdalo en una carpeta facil de recordar (jeemplo c:/datos)</p>
+<pre><code>  https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv
+  </code></pre>
+<p><a href="https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv">Descarga Ruteo Imposible</a></p>
+<p>Revisaremos el contenido del archivo con el comando View() o usando el menú de R-Cran.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb2-2" aria-hidden="true" tabindex="-1"></a>ruteo_imposible <span class="ot">&lt;-</span><span class="fu">read_delim</span>(<span class="st">&quot;https://themys.sid.uncu.edu.ar/rpalma/R-cran/Siria/ruteo_imposible.csv&quot;</span>, </span>
+<span id="cb2-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   X1 = col_character(),
+##   Hyatt = col_character(),
+##   Intercontinental = col_number(),
+##   `Raices Aconcagua` = col_character(),
+##   `Huentala/Sheraton` = col_character(),
+##   Bohemia = col_number(),
+##   `H Argentino` = col_character(),
+##   `Casa Glebinias` = col_character(),
+##   `Lares de Chacras` = col_character(),
+##   `Posada Verde Oliva` = col_number(),
+##   Esplendor = col_number(),
+##   `Club Tapiz` = col_number(),
+##   `Finca Adalgisa` = col_character(),
+##   `Portal Suites` = col_character(),
+##   Garage = col_character()
+## )</code></pre>
+<p>Este archivo pertenece a un emprendimiento exitoso de unos alumnos que ofrece a pasajeros de hoteles recorridos por las bodegas utilizando buses de pasajeros que tienen recorridos que por contrato deben ser cubiertos, pero tienen baja demanda en determinados horarios.</p>
+<p>A efectos de hacer más simple el análisis tomaremos un conjunto reducido que involucra los hoteles y los destinos hasta totalizar 14.</p>
+<p>Tomaremos la fila 1 a 14 y las columnas 2 a 15 (eliminamos una culumna que tienen el número de dato o registro que no nos es útil)</p>
+<p>Cada celda tiene el costo asociado que implica desplazarse desde una fila a una columna.</p>
+<p>Como queremos evitar que se tomen tramos en los que la tura sale desde un hotel y termina en el mismo hotel, la diagonal principal tiene un costo ficticio extremadamente elevado. Esto evita que el algoritmo lo tome.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb5-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> ruteo_imposible[<span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">15</span>]</span>
+<span id="cb5-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb5-3" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div>
+<pre><code>## # A tibble: 14 x 14
+##    Hyatt Intercontinental `Raices Aconcagua` `Huentala/Sheraton` Bohemia
+##    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt;
+##  1 9999                56 1,3                1,3                      15
+##  2 5,6               9999 4,7                4,5                      71
+##  3 1,3                 47 9999               1                        17
+##  4 1,3                 45 1                  9999                     15
+##  5 1,5                 71 1,7                2,3                    9999
+##  6 0,5                 65 0,9                1,3                      14
+##  7 17,3               193 17                 17,4                    161
+##  8 14,8               173 14                 14,8                    134
+##  9 15                 102 15                 15                      155
+## 10 16,4               151 15,9               16,7                    164
+## 11 18,4               172 18,4               18,4                    185
+## 12 17                 171 16,6               17                      156
+## 13 0,5                 57 0,9                0,5                      22
+## 14 0,5                 58 1,5                1,5                      17
+## # … with 9 more variables: H Argentino &lt;chr&gt;, Casa Glebinias &lt;chr&gt;,
+## #   Lares de Chacras &lt;chr&gt;, Posada Verde Oliva &lt;dbl&gt;, Esplendor &lt;dbl&gt;,
+## #   Club Tapiz &lt;dbl&gt;, Finca Adalgisa &lt;chr&gt;, Portal Suites &lt;chr&gt;, Garage &lt;chr&gt;</code></pre>
+<p><em>Matriz de asignacion</em></p>
+<p>Construiremos una matriz de asignación en la que si aparece un uno en cierta celda, esto implica que usaremos un tramo de la ruta que va desde la fila hasta la columna.</p>
+<p>De este modo si la fila 4 tiene un uno en la columna 8, esto implica que la ruta utilizará una salida desde el Hotel Hayatt hasta la Bodega Esplendor.</p>
+<p>Esto que estamos construyendo en realidad representa una solución posible al pobrlema, pero no es la que tiene costos mínimo.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">14</span> , <span class="at">ncol =</span> <span class="dv">14</span>)</span>
+<span id="cb7-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb7-4"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-5"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb7-6"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(i<span class="sc">==</span>j, asigna[i,j] <span class="ot">&lt;-</span> <span class="dv">1</span>, asigna[i,j] <span class="ot">&lt;-</span><span class="dv">0</span>)</span>
+<span id="cb7-7"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-8"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-9"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-10"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb7-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Del mismo modo crearemos una matriz de distancias numérica</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb8-1" aria-hidden="true" tabindex="-1"></a>distancia_m <span class="ot">&lt;-</span> <span class="fu">data.matrix</span>(distancia)</span></code></pre></div>
+<p><strong>Cálculo del costo</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mat_costo <span class="ot">&lt;-</span> distancia_m <span class="sc">*</span> asigna</span>
+<span id="cb9-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-3" aria-hidden="true" tabindex="-1"></a>costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb9-6"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb9-7"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-7" aria-hidden="true" tabindex="-1"></a>    costo <span class="ot">&lt;-</span> costo <span class="sc">+</span> mat_costo [i,j]</span>
+<span id="cb9-8"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-9"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-10"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-11"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-12"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb9-13" aria-hidden="true" tabindex="-1"></a>costo</span></code></pre></div>
+<pre><code>## Hyatt 
+## 50104</code></pre>
+<p>De este modo hemos encontrado una secuencia de tramos que van desde cada instancia hacia el nodo que está adyacente en la mztriz.
+No se trata de un costo mínimo, sino de un caso de ruteo probable. (diagonal principal llena de unos)</p>
+<p>La secuencia de ruteo se puede expresear matemáticamente como</p>
+<p><span class="math display">\[ S [ 1,2,3,4, ... ,12,13,14]\]</span></p>
+<p><em>Asignación combinatoria</em></p>
+<p>Trabajaremos con un set de 9 destinos para acelerar los cálculos</p>
+<p>Dejaremos como ejercicio el trabajo de realizar los cálculos con los 14 destinos para resolver en clase.</p>
+<p>Comezaremos generando una nueva matriz de asignación vacía</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">14</span> , <span class="at">ncol =</span> <span class="dv">14</span>)</span>
+<span id="cb11-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb11-4"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-5"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">14</span>) {</span>
+<span id="cb11-6"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    asigna[i,j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb11-7"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-8"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-9"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-10"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb11-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><em>Generación de combinaciones</em></p>
+<p>Vamos a construir una colección de secuencias que en lugar se ser la secuencia la que utilizamos en el caso anterior sean todas las posibles permutaciones de 9 elementos tomados de a nueve.
+Es claro que si analizamos todas estas posibles combinaciones encontraremos dentro de ellas la que corresponde al costo mínimo.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtools)</span>
+<span id="cb12-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb12-2" aria-hidden="true" tabindex="-1"></a>permutaciones <span class="ot">&lt;-</span> <span class="fu">permutations</span>(<span class="dv">9</span>, <span class="dv">9</span>, <span class="at">set =</span> <span class="cn">TRUE</span>, <span class="at">repeats.allowed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># hemos generado las permutaciones sin repetición</span></span></code></pre></div>
+<p>A efectos de no poner lenta la generación del apunto utilizaremos una muestra de permutaciones y calcularemos el costo en la matriz de asignación</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb13-1" aria-hidden="true" tabindex="-1"></a>poblacion <span class="ot">&lt;-</span> <span class="fu">nrow</span>(permutaciones)</span>
+<span id="cb13-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb13-2" aria-hidden="true" tabindex="-1"></a>poblacion</span></code></pre></div>
+<pre><code>## [1] 362880</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb15-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>,poblacion),<span class="dv">50</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb15-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb15-2" aria-hidden="true" tabindex="-1"></a>muestra</span></code></pre></div>
+<pre><code>##  [1] 204915 299352 139310  93773 182464 150424 168672 130389 290202  61302
+## [11] 226031 279550 347015 102991 298555  39991 298477 222905  66689 324610
+## [21] 182301  56624 242738 101135  54858  51725 133029 182671 216947 269909
+## [31]  21141  29808 187873  14231 150427 326061 214779 134909  42555  35804
+## [41]  23367 156482 218171 169518 176918 360430  76653 343652 251012 200299</code></pre>
+<p><strong>Calculo de costos</strong></p>
+<p>Recuperaremos los vectores seleccionados en la muestra</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> permutaciones[muestra, ]</span>
+<span id="cb17-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb17-2" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    6    1    7    5    8    2    4    3    9
+##  [2,]    8    4    3    7    5    9    6    2    1
+##  [3,]    4    5    7    3    9    6    1    8    2
+##  [4,]    3    4    7    2    6    1    9    5    8
+##  [5,]    5    6    2    4    7    8    3    9    1
+##  [6,]    4    7    8    9    3    5    2    6    1
+##  [7,]    5    2    6    3    7    9    8    4    1
+##  [8,]    4    2    9    1    6    8    5    3    7
+##  [9,]    8    2    6    1    4    7    9    5    3
+## [10,]    2    6    3    1    9    4    8    7    5
+## [11,]    6    5    8    9    3    7    4    1    2
+## [12,]    7    9    4    2    5    8    3    6    1
+## [13,]    9    5    7    8    4    6    3    1    2
+## [14,]    3    6    5    1    4    7    2    8    9
+## [15,]    8    4    2    6    9    7    1    3    5
+## [16,]    1    9    8    5    3    4    2    6    7
+## [17,]    8    4    2    6    3    7    1    5    9
+## [18,]    6    5    2    7    4    8    9    1    3
+## [19,]    2    7    3    6    8    5    9    1    4
+## [20,]    9    1    4    8    2    5    6    7    3
+## [21,]    5    6    2    3    1    9    7    4    8
+## [22,]    2    5    3    7    9    4    1    8    6
+## [23,]    7    1    3    2    9    4    5    8    6
+## [24,]    3    6    1    5    8    9    7    2    4
+## [25,]    2    4    9    3    1    7    8    6    5
+## [26,]    2    4    3    9    1    5    8    6    7
+## [27,]    4    3    5    8    6    9    2    1    7
+## [28,]    5    6    2    8    3    4    1    7    9
+## [29,]    6    4    1    3    9    5    8    2    7
+## [30,]    7    6    4    9    2    1    8    3    5
+## [31,]    1    6    3    5    2    9    7    4    8
+## [32,]    1    7    9    4    3    8    6    5    2
+## [33,]    5    7    2    9    6    1    3    4    8
+## [34,]    1    4    8    7    5    9    6    2    3
+## [35,]    4    7    8    9    3    6    1    2    5
+## [36,]    9    1    6    8    2    7    4    3    5
+## [37,]    6    3    7    2    9    1    5    4    8
+## [38,]    4    3    8    5    2    1    9    6    7
+## [39,]    2    1    6    3    8    4    7    5    9
+## [40,]    1    9    2    7    4    8    3    6    5
+## [41,]    1    6    7    4    8    5    3    2    9
+## [42,]    4    9    1    5    2    3    6    8    7
+## [43,]    6    4    3    1    2    7    9    5    8
+## [44,]    5    2    7    4    8    1    9    6    3
+## [45,]    5    4    1    8    3    7    2    9    6
+## [46,]    9    8    4    5    3    7    2    6    1
+## [47,]    2    9    3    5    7    8    4    1    6
+## [48,]    9    5    2    3    7    8    1    6    4
+## [49,]    7    2    8    5    6    9    1    4    3
+## [50,]    5    9    7    2    1    8    3    4    6</code></pre>
+</div>
+<div id="construcción-de-las-matrices-de-asignacón-para-calcular-los-costos" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Construcción de las matrices de asignacón para calcular los costos</h2>
+<p>En esta parte utilizaremos cada vector de secuencia p (vector de rutas) tomado como costos el valor asociado a cada columna del vector p con el valor de p_i</p>
+</div>
+<div id="creacion-de-la-matriz-asigna" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Creacion de la matriz asigna</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-1" aria-hidden="true" tabindex="-1"></a>asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(p),<span class="fu">ncol</span>(p))</span>
+<span id="cb19-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-2" aria-hidden="true" tabindex="-1"></a>distancia_9 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(distancia_m[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>],<span class="at">nrow=</span><span class="dv">9</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-3" aria-hidden="true" tabindex="-1"></a>costo_muestra <span class="ot">&lt;-</span><span class="fu">matrix</span> (<span class="dv">0</span>, <span class="fu">ncol</span>(p))</span>
+<span id="cb19-4"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(p))</span>
+<span id="cb19-5"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-5" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb19-6"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  vec <span class="ot">&lt;-</span> p[i, ]</span>
+<span id="cb19-7"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(p)) </span>
+<span id="cb19-9"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-9" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb19-10"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-10" aria-hidden="true" tabindex="-1"></a>    asigna[vec[j],j] <span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb19-11"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-12"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-13"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-14"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(asigna)</span>
+<span id="cb19-15"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-16"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-16" aria-hidden="true" tabindex="-1"></a>  mat_costo <span class="ot">&lt;-</span> distancia_9 <span class="sc">*</span> asigna</span>
+<span id="cb19-17"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-18" aria-hidden="true" tabindex="-1"></a>costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb19-19"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) {</span>
+<span id="cb19-21"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>) {</span>
+<span id="cb19-22"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-22" aria-hidden="true" tabindex="-1"></a>    costo <span class="ot">&lt;-</span> costo <span class="sc">+</span> mat_costo [k,l]</span>
+<span id="cb19-23"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-24"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-25"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-25" aria-hidden="true" tabindex="-1"></a>costo_muestra[i] <span class="ot">&lt;-</span> costo  </span>
+<span id="cb19-26"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-27"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-28"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-28" aria-hidden="true" tabindex="-1"></a>  asigna <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(p),<span class="fu">ncol</span>(p))</span>
+<span id="cb19-29"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-29" aria-hidden="true" tabindex="-1"></a>  costo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb19-30"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb19-30" aria-hidden="true" tabindex="-1"></a>}    </span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    1    0    0    0    0    0    0    0
+##  [2,]    0    0    0    0    0    1    0    0    0
+##  [3,]    0    0    0    0    0    0    0    1    0
+##  [4,]    0    0    0    0    0    0    1    0    0
+##  [5,]    0    0    0    1    0    0    0    0    0
+##  [6,]    1    0    0    0    0    0    0    0    0
+##  [7,]    0    0    1    0    0    0    0    0    0
+##  [8,]    0    0    0    0    1    0    0    0    0
+##  [9,]    0    0    0    0    0    0    0    0    1
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    0    0    1
+##  [2,]    0    0    0    0    0    0    0    1    0
+##  [3,]    0    0    1    0    0    0    0    0    0
+##  [4,]    0    1    0    0    0    0    0    0    0
+##  [5,]    0    0    0    0    1    0    0    0    0
+##  [6,]    0    0    0    0    0    0    1    0    0
+##  [7,]    0    0    0    1    0    0    0    0    0
+##  [8,]    1    0    0    0    0    0    0    0    0
+##  [9,]    0    0    0    0    0    1    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    1    0    0
+##  [2,]    0    0    0    0    0    0    0    0    1
+##  [3,]    0    0    0    1    0    0    0    0    0
+##  [4,]    1    0    0    0    0    0    0    0    0
+##  [5,]    0    1    0    0    0    0    0    0    0
+##  [6,]    0    0    0    0    0    1    0    0    0
+##  [7,]    0    0    1    0    0    0    0    0    0
+##  [8,]    0    0    0    0    0    0    0    1    0
+##  [9,]    0    0    0    0    1    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    1    0    0    0
+##  [2,]    0    0    0    1    0    0    0    0    0
+##  [3,]    1    0    0    0    0    0    0    0    0
+##  [4,]    0    1    0    0    0    0    0    0    0
+##  [5,]    0    0    0    0    0    0    0    1    0
+##  [6,]    0    0    0    0    1    0    0    0    0
+##  [7,]    0    0    1    0    0    0    0    0    0
+##  [8,]    0    0    0    0    0    0    0    0    1
+##  [9,]    0    0    0    0    0    0    1    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    0    0    1
+##  [2,]    0    0    1    0    0    0    0    0    0
+##  [3,]    0    0    0    0    0    0    1    0    0
+##  [4,]    0    0    0    1    0    0    0    0    0
+##  [5,]    1    0    0    0    0    0    0    0    0
+##  [6,]    0    1    0    0    0    0    0    0    0
+##  [7,]    0    0    0    0    1    0    0    0    0
+##  [8,]    0    0    0    0    0    1    0    0    0
+##  [9,]    0    0    0    0    0    0    0    1    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    0    0    1
+##  [2,]    0    0    0    0    0    0    1    0    0
+##  [3,]    0    0    0    0    1    0    0    0    0
+##  [4,]    1    0    0    0    0    0    0    0    0
+##  [5,]    0    0    0    0    0    1    0    0    0
+##  [6,]    0    0    0    0    0    0    0    1    0
+##  [7,]    0    1    0    0    0    0    0    0    0
+##  [8,]    0    0    1    0    0    0    0    0    0
+##  [9,]    0    0    0    1    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    0    0    0    0    0    1
+##  [2,]    0    1    0    0    0    0    0    0    0
+##  [3,]    0    0    0    1    0    0    0    0    0
+##  [4,]    0    0    0    0    0    0    0    1    0
+##  [5,]    1    0    0    0    0    0    0    0    0
+##  [6,]    0    0    1    0    0    0    0    0    0
+##  [7,]    0    0    0    0    1    0    0    0    0
+##  [8,]    0    0    0    0    0    0    1    0    0
+##  [9,]    0    0    0    0    0    1    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    1    0    0    0    0    0
+##  [2,]    0    1    0    0    0    0    0    0    0
+##  [3,]    0    0    0    0    0    0    0    1    0
+##  [4,]    1    0    0    0    0    0    0    0    0
+##  [5,]    0    0    0    0    0    0    1    0    0
+##  [6,]    0    0    0    0    1    0    0    0    0
+##  [7,]    0    0    0    0    0    0    0    0    1
+##  [8,]    0    0    0    0    0    1    0    0    0
+##  [9,]    0    0    1    0    0    0    0    0    0
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    0    0    0    1    0    0    0    0    0
+##  [2,]    0    1    0    0    0    0    0    0    0
+##  [3,]    0    0    0    0    0    0    0    0    1
+##  [4,]    0    0    0    0    1    0    0    0    0
+##  [5,]    0    0    0    0    0    0    0    1    0
+##  [6,]    0    0    1    0    0    0    0    0    0
+##  [7,]    0    0    0    0    0    1    0    0    0
+##  [8,]    1    0    0    0    0    0    0    0    0
+##  [9,]    0    0    0    0    0    0    1    0    0</code></pre>
+<p>Calculo del costo de cada muestra</p>
+</div>
+<div id="cuál-ruta-tiene-el-costo-mínimo" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Cuál ruta tiene el costo mínimo ?</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb21-1" aria-hidden="true" tabindex="-1"></a>muestra_optima <span class="ot">&lt;-</span> <span class="fu">which.min</span>(costo_muestra)</span>
+<span id="cb21-2"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb21-2" aria-hidden="true" tabindex="-1"></a>muestra_optima</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="ruta-óptima" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Ruta óptima</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb23-1" aria-hidden="true" tabindex="-1"></a>p[muestra_optima, ]</span></code></pre></div>
+<pre><code>## [1] 4 7 8 9 3 5 2 6 1</code></pre>
+</div>
+<div id="costo-mínimo-asociado" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Costo mínimo asociado</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cb25-1" aria-hidden="true" tabindex="-1"></a>costo_muestra [muestra_optima]</span></code></pre></div>
+<pre><code>## [1] 250</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="alternativa-geométrica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="metodologías-cuali-y-cuantitativas-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/03-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/03-race.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
