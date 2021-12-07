@@ -24,7 +24,7 @@
 <meta name="author" content="Dr. Ing. Ricardo R. Palma rpalma@uncu.edu.ar" />
 
 
-<meta name="date" content="2021-12-02" />
+<meta name="date" content="2021-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,11 +206,22 @@
 <li class="chapter" data-level="4" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html"><i class="fa fa-check"></i><b>4</b> Tipología y Topología de los Problemas de Localización</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ejemplo-de-ruteo"><i class="fa fa-check"></i><b>4.1</b> Ejemplo de ruteo</a></li>
-<li class="chapter" data-level="4.2" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos"><i class="fa fa-check"></i><b>4.2</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
-<li class="chapter" data-level="4.3" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#creacion-de-la-matriz-asigna"><i class="fa fa-check"></i><b>4.3</b> Creacion de la matriz asigna</a></li>
-<li class="chapter" data-level="4.4" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cuál-ruta-tiene-el-costo-mínimo"><i class="fa fa-check"></i><b>4.4</b> Cuál ruta tiene el costo mínimo ?</a></li>
-<li class="chapter" data-level="4.5" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ruta-óptima"><i class="fa fa-check"></i><b>4.5</b> Ruta óptima</a></li>
-<li class="chapter" data-level="4.6" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#costo-mínimo-asociado"><i class="fa fa-check"></i><b>4.6</b> Costo mínimo asociado</a></li>
+<li class="chapter" data-level="4.2" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#matriz-de-asignacion"><i class="fa fa-check"></i><b>4.2</b> Matriz de asignacion</a></li>
+<li class="chapter" data-level="4.3" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cálculo-del-costo"><i class="fa fa-check"></i><b>4.3</b> Cálculo del costo</a></li>
+<li class="chapter" data-level="4.4" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#asignación-combinatoria"><i class="fa fa-check"></i><b>4.4</b> Asignación combinatoria</a></li>
+<li class="chapter" data-level="4.5" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#generación-de-combinaciones"><i class="fa fa-check"></i><b>4.5</b> Generación de combinaciones</a></li>
+<li class="chapter" data-level="4.6" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos"><i class="fa fa-check"></i><b>4.6</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
+<li class="chapter" data-level="4.7" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#creacion-de-la-matriz-asigna"><i class="fa fa-check"></i><b>4.7</b> Creacion de la matriz asigna</a></li>
+<li class="chapter" data-level="4.8" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#calculo-del-costo-de-cada-muestra"><i class="fa fa-check"></i><b>4.8</b> Calculo del costo de cada muestra</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#cuál-ruta-tiene-el-costo-mínimo"><i class="fa fa-check"></i><b>4.8.1</b> Cuál ruta tiene el costo mínimo ?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ruta-óptima"><i class="fa fa-check"></i><b>4.9</b> Ruta óptima</a></li>
+<li class="chapter" data-level="4.10" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#costo-mínimo-asociado"><i class="fa fa-check"></i><b>4.10</b> Costo mínimo asociado</a></li>
+<li class="chapter" data-level="4.11" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#ejemplos-de-agrupamientos-por-centroides-kmeans"><i class="fa fa-check"></i><b>4.11</b> Ejemplos de Agrupamientos por centroides (Kmeans)</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="tipología-y-topología-de-los-problemas-de-localización-1.html"><a href="tipología-y-topología-de-los-problemas-de-localización-1.html#agrupación-k-means"><i class="fa fa-check"></i><b>4.11.1</b> Agrupación K-means</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html"><i class="fa fa-check"></i><b>5</b> Metodologías cuali y cuantitativas</a>
 <ul>
@@ -177,7 +252,7 @@
 <li class="chapter" data-level="5.15" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#mapa-con-datos-clusterizados"><i class="fa fa-check"></i><b>5.15</b> Mapa con datos clusterizados</a></li>
 <li class="chapter" data-level="5.16" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#ejemplo-de-ruteo-1"><i class="fa fa-check"></i><b>5.16</b> Ejemplo de ruteo</a>
 <ul>
-<li class="chapter" data-level="5.16.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#matriz-de-asignacion"><i class="fa fa-check"></i><b>5.16.1</b> Matriz de asignacion</a></li>
+<li class="chapter" data-level="5.16.1" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#matriz-de-asignacion-1"><i class="fa fa-check"></i><b>5.16.1</b> Matriz de asignacion</a></li>
 </ul></li>
 <li class="chapter" data-level="5.17" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#construcción-de-las-matrices-de-asignacón-para-calcular-los-costos-1"><i class="fa fa-check"></i><b>5.17</b> Construcción de las matrices de asignacón para calcular los costos</a></li>
 <li class="chapter" data-level="5.18" data-path="metodologías-cuali-y-cuantitativas-1.html"><a href="metodologías-cuali-y-cuantitativas-1.html#creacion-de-la-matriz-asigna-1"><i class="fa fa-check"></i><b>5.18</b> Creacion de la matriz asigna</a></li>
@@ -187,7 +262,12 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html"><i class="fa fa-check"></i><b>6</b> Estructura de datos y software</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html#instalación-de-qgis-u-otro-sistema-de-información-geográfica"><i class="fa fa-check"></i><b>6.1</b> Instalación de QGis u otro Sistema de Información Geográfica</a></li>
+<li class="chapter" data-level="6.1" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html#los-sistemas-de-información-geográficos"><i class="fa fa-check"></i><b>6.1</b> Los sistemas de Información Geográficos</a></li>
+<li class="chapter" data-level="6.2" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html#polígonos-de-voronoi"><i class="fa fa-check"></i><b>6.2</b> Polígonos de Voronoi</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html#datos-aleatorios"><i class="fa fa-check"></i><b>6.2.1</b> Datos aleatorios</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estructura-de-datos-y-software.html"><a href="estructura-de-datos-y-software.html#instalación-de-qgis-u-otro-sistema-de-información-geográfica"><i class="fa fa-check"></i><b>6.3</b> Instalación de QGis u otro Sistema de Información Geográfica</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><a href="estudio-de-casos-y-planteo-del-trabajo-integrador.html"><i class="fa fa-check"></i><b>7</b> Estudio de Casos y planteo del Trabajo integrador</a></li>
 <li class="chapter" data-level="8" data-path="trabajo-grupo-1.html"><a href="trabajo-grupo-1.html"><i class="fa fa-check"></i><b>8</b> Trabajo Grupo 1</a></li>
@@ -215,7 +295,6 @@
 <div id="estructura-de-datos-y-software" class="section level1" number="6">
 <h1><span class="header-section-number">Capítulo 6</span> Estructura de datos y software</h1>
 <ul>
-<li>Estructura matricial para optimización</li>
 <li>Datos tipo raster</li>
 <li>Datos tipo vector.</li>
 <li>Vectores de punto, líneas y polígonos.</li>
@@ -223,8 +302,81 @@
 <li>Puentes a sistemas GIS (SAGA, QGIS, GRASS 7)</li>
 <li>Caso: Estimación de residuos agrícolas mediante la integración de un método analítico y georeferenciación</li>
 </ul>
-<div id="instalación-de-qgis-u-otro-sistema-de-información-geográfica" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Instalación de QGis u otro Sistema de Información Geográfica</h2>
+<div id="los-sistemas-de-información-geográficos" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Los sistemas de Información Geográficos</h2>
+<p>Como hemos visto, en los métodos jerárquicos, y muy especialmente en lo analíticos, es factible la representación sobre planos (ploteos) de los datos de localización. El uso de bibliotecas como <em>leaflet</em> facilitan la complementación de estos datos especiales con teselas de otros proveedores de servicios.</p>
+<p>Es claro que las tendencias en la tecnología que apuntan al uso de 5G y el <em>Metaverso</em> [Sparkes, M. (2021). What is a metaverse.] reclaman a la ingeniería industrial nuevos paradigmas de comunicación e interpretación de datos y resultados.</p>
+<p>En el caso de este trabajo se ha elegido a R-Cran para esta misión ya que es uno de las tecnologías que junto a los <strong>Jupiter Notebooks</strong> que usa Python lideran este paradigma de Ciencia Reproductible , ver <strong><em>Fleischmann, M., Feliciotti, A., &amp; Kerr, W. (2021)</em></strong>. [Evolution of urban patterns: urban morphology as an open reproducible data science. Geographical Analysis.]</p>
+<p>En ese sentido el enlace de herramientas como Python y R-Cran con los productos líderes en teconología geomática tienen puentes de vinculación que permiten sacar provecho tanto de imágenes raster como de capas vectoriales para mejorar la toma de decisión.</p>
+<p>Veamos un ejemplo clásico de algunos de los métodos que se comparten.</p>
+</div>
+<div id="polígonos-de-voronoi" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Polígonos de Voronoi</h2>
+<p>Con la biblioteca <strong>ggvoronoi</strong> podemos dibujar fácilmente mapas de calor de diagramas de Voronoi, con la ayuda de los paquetes como <strong>ggplot2</strong> y otros para visualizar los datos. Un diagrama de Voronoi dibuja las regiones vecinas más cercanas alrededor de un conjunto de puntos y, al especificar un argumento de relleno, podemos convertirlo en un mapa de calor. Las aplicaciones de los diagramas de Voronoi permiten:</p>
+<ul>
+<li>encontrar el vecino más cercano a un punto dado</li>
+<li>interpolar un conjunto de puntos sin utilizar un ráster</li>
+<li>crear mapas gráficos y útiles y atractivos</li>
+<li>ver el área de influencia de un punto respecto de otros</li>
+<li>colaborar con la comunicación basada en Data Journalism</li>
+</ul>
+<div id="datos-aleatorios" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Datos aleatorios</h3>
+<p>Generaremos un set de puntos aleatorios para poder ver como se comporta esta técnica.
+Si obtenemos un mapa de calor puede que esto nos ayude a decidir sobre la localización.
+Tal como ocurre en los casos de la triangulación de Fermat, puede que zonas calientes impulsen la concentración, en tanto que en otros casos zonas calientes representan competenica feroz.</p>
+<p>Si tenemos que instalar un restaurante , zonas calientes podrían indicar tendencia a abrir nuevos establecimientos allí por que el público se dirige a esas zonas. Esto será así en tanto existan playas de estacionamiento y servicios de transporte público de pasajeros que tengan capacidad remanente.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="estructura-de-datos-y-software.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggvoronoi)</span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="estructura-de-datos-y-software.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">45056</span>)</span>
+<span id="cb3-2"><a href="estructura-de-datos-y-software.html#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>,<span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="estructura-de-datos-y-software.html#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>,<span class="dv">100</span>)</span>
+<span id="cb3-4"><a href="estructura-de-datos-y-software.html#cb3-4" aria-hidden="true" tabindex="-1"></a>points <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y,</span>
+<span id="cb3-5"><a href="estructura-de-datos-y-software.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">distance =</span> <span class="fu">sqrt</span>((x<span class="dv">-100</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (y<span class="dv">-100</span>)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb3-6"><a href="estructura-de-datos-y-software.html#cb3-6" aria-hidden="true" tabindex="-1"></a>circle <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">100</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">cos</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">2500</span>))),</span>
+<span id="cb3-7"><a href="estructura-de-datos-y-software.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> <span class="dv">100</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">sin</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> <span class="dv">2500</span>))),</span>
+<span id="cb3-8"><a href="estructura-de-datos-y-software.html#cb3-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">group =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2500</span>))</span>
+<span id="cb3-9"><a href="estructura-de-datos-y-software.html#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="estructura-de-datos-y-software.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(points) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="estructura-de-datos-y-software.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(x,y,<span class="at">color=</span>distance)) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="estructura-de-datos-y-software.html#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data=</span>circle,<span class="fu">aes</span>(x,y,<span class="at">group=</span>group))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Todos estos datos tienen un conjunto de coordenadas <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, junto con la distancia euclidiana desde el centro del círculo que usaremos para colorear el diagrama de Voronoi.</p>
+<p><em>ggvoronoi()</em> puede usar este conjunto de puntos para trazar rápidamente un diagrama de Voronoi, trabajando con el marco ggplot2:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="estructura-de-datos-y-software.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(points) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="estructura-de-datos-y-software.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_voronoi</span>(<span class="fu">aes</span>(x,y,<span class="at">fill=</span>distance))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Además, podemos usar la función stat_voronoi directamente para especificar qué <em>geom</em> de ggplot 2 nos gustaría usar. Esto es más útil cuando estamos interesados en trazar solo los bordes del diagrama:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="estructura-de-datos-y-software.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(points,<span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="estructura-de-datos-y-software.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_voronoi</span>(<span class="at">geom=</span><span class="st">&quot;path&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="estructura-de-datos-y-software.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Esta última trama trae a colación un punto interesante: el paquete deldir crea el diagrama de voronoi con un cuadro delimitador automático (¡de lo contrario sería infinitamente grande!). Pero podemos especificar nuestro propio cuadro delimitador para reducir o ampliar el área.</p>
+<p>El argumento de esquema debe tener estos parámetros:</p>
+<ul>
+<li>la primera columna es x / longitud</li>
+<li>la segunda columna es y / latitud</li>
+<li>columna opcional “grupo”</li>
+</ul>
+<p>¡O puede alimentarlo con cualquier <em>SpatialPolygonsDataFrame!</em></p>
+<p>Para este ejemplo, usaremos el círculo incluido con ggvoronoi.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="estructura-de-datos-y-software.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>points, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, <span class="at">fill=</span>distance)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="estructura-de-datos-y-software.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_voronoi</span>(<span class="at">outline =</span> circle)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>¡Finalmente, puede agregar lo que quiera con su conocimiento de ggplot2!</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="estructura-de-datos-y-software.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(points,<span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="estructura-de-datos-y-software.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_voronoi</span>(<span class="fu">aes</span>(<span class="at">fill=</span>distance),<span class="at">outline=</span>circle,</span>
+<span id="cb7-3"><a href="estructura-de-datos-y-software.html#cb7-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">&quot;#4dffb8&quot;</span>,<span class="at">size=</span>.<span class="dv">125</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="estructura-de-datos-y-software.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">&quot;#4dffb8&quot;</span>,<span class="at">high=</span><span class="st">&quot;black&quot;</span>,<span class="at">guide=</span>F) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="estructura-de-datos-y-software.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a href="estructura-de-datos-y-software.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()</span></code></pre></div>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
+## use `guide = &quot;none&quot;` instead.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+</div>
+<div id="instalación-de-qgis-u-otro-sistema-de-información-geográfica" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Instalación de QGis u otro Sistema de Información Geográfica</h2>
 <p>Clase a cargo de Maria Riera</p>
 
 </div>
@@ -290,6 +442,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
