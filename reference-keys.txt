@@ -133,3 +133,9 @@ cálculos-con-matriz-de-comparación-por-pares
 métodos-cuantitativos-analíticos
 localización-de-hospitales-para-refugiados-de-siria-grupo-2-parte-b
 ejemplo-de-ruteo-ejercicio-para-grupo-3-parte-a
+fuente
+compilado
+fuente-1
+compilado-1
+fuente-2
+compilado-2
